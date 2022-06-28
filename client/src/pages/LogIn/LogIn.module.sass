@@ -1,0 +1,35 @@
+@import '../../sass/_colors'
+@import '../../sass/_font-sizes'
+    
+.content
+    padding-top: 26vh
+    min-height: 80vh
+    background: 
+        color: $clr-light
+        image: url(./../../images/header-background.svg)
+        repeat: no-repeat
+        size: cover
+    
+    .loginForm
+        display: flex
+        flex-direction: column
+        padding: 20px
+        width: min(80%, 500px)
+        margin: auto
+        background-color: $clr-white
+        gap: 10px
+        border-radius: 10px
+
+        .heading
+            align-self: center
+            font-weight: bold
+            font-size: $fs-400
+
+        .submitButton
+            margin-top: 30px
+            background-color: $clr-blue
+            padding: 8px
+            border: none
+            border-radius: 5px
+            color: $clr-white
+
