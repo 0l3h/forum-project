@@ -1,0 +1,42 @@
+@import '../../sass/_font-sizes'
+@import '../../sass/_colors'
+
+.dropdown
+    position: relative
+
+    .dropdownButton
+        background: none
+        border: none
+        margin-right: 10px
+
+        .dropdownIcon
+            width: 24px
+    
+    .avatar
+        width: 36px
+
+    .username
+        font-size: $fs-300
+        font-weight: bold
+
+    .menu
+        position: absolute
+        top: 70px
+        right: 0
+        width: max-content
+        background-color: white
+        padding: 12px 20px
+        border-radius: 5px
+        box-shadow: 0 2px 5px -3px grey
+
+        .pageLink
+            display: block
+            text-decoration: none
+            color: $clr-dark
+            margin: 16px 0
+
+            &:hover
+                color: $clr-blue
+        
+    .menu[data-is-open='false']
+        display: none
