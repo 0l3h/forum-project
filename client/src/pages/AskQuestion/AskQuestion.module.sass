@@ -1,0 +1,62 @@
+@import '../../sass/_breakpoints'
+@import '../../sass/_colors'
+@import '../../sass/_font-sizes'
+@import '../../sass/_line-heights'
+
+.content
+    display: flex
+    justify-content: center
+    padding-top: 12vh
+    min-height: 80vh
+    gap: 20px
+    background: 
+        color: $clr-light
+        image: url(./../../images/header-background.svg)
+        repeat: no-repeat
+        size: cover
+
+    @media screen and (width <= $screen-small) 
+        flex-direction: column
+    
+    .questionForm
+        order: -1
+        display: flex
+        flex-direction: column
+        height: fit-content
+        padding: 20px
+        width: min(80%, 500px)
+        background-color: $clr-white
+        gap: 10px
+        border-radius: 10px
+        box-shadow: 0 2px 6px gray
+            
+        .heading
+            align-self: center
+            font-weight: bold
+            font-size: $fs-400
+
+        .postButton
+            margin-top: 30px
+            background-color: $clr-blue
+            margin-left: auto
+            width: 20%
+            padding: 8px
+            border: none
+            border-radius: 5px
+            color: $clr-white
+
+    .warning
+        line-height: $lh-28
+        background-color: $clr-white
+        padding: 30px
+        width: 250px
+        height: fit-content
+        font-weight: bold
+        box-shadow: 0 2px 6px gray
+
+        & > img
+            margin-bottom: 10px
+            transform: scale(0.7)
+        
+        @media screen and (width <= $screen-small) 
+            width: 80%
