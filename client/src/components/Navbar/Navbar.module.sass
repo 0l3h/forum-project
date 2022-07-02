@@ -1,29 +1,89 @@
-@import "../../sass/_colors"
+@import '../../sass/_breakpoints'
+@import '../../sass/_colors'
 
 .navbar
     display: flex
     align-items: center
-    gap: 20px
+    position: sticky
+    top: 0
+    background-color: $clr-white
     padding: 20px
     box-shadow: 0 2px 7px -4px grey
 
-.logo 
-    width: 80px
-    margin-right: auto
+    .logo 
+        width: 80px
+        margin-right: auto
 
-.navLink
-    font-weight: bold
-    text-decoration: none
-    color: black
-    font-size: 20px
+    .menuToggle
+        display: none
+        position: absolute
+        z-index: 1
+        right: 20px
+        background: 
+            color: transparent
+            image: url(../../images/open-menu-icon.svg)
+            repeat: no-repeat
+            size: 30px
+            position: center
+        border: none
+        width:  30px
+        aspect-ratio: 1
 
-.signupButton
-    padding: 12px 20px 
-    text-decoration: none
-    background-color: $clr-blue
-    color: white
+        @media screen and (width <= $screen-small)
+            display: block
+            
+            &[data-menu-open='true']
+                background-image: url(../../images/close-menu-icon.svg)
+            
+            &[data-menu-open='false'] + .links
+                transform: translateX(100vw)
+    
+    .links
+        display: flex
+        align-items: center
+        gap: 20px
+        backdrop-filter: blur(20px)
+    
+        @media screen and (max-width: $screen-small)
+            padding-left: 60px
+            inset: 0 0 0 40vw
+            background: #ffffff85
+            gap: 50px
+            justify-content: center
+            align-items: flex-start 
+            position: fixed
+            flex-direction: column
+            height: 100%
 
-.loginButton 
-    padding: 10px 20px 
-    text-decoration: none
-    color: $clr-blue
+        .navLink
+            font-weight: bold
+            text-decoration: none
+            color: black
+            font-size: 20px
+
+        .signupButton
+            padding: 12px 20px 
+            text-decoration: none
+            background-color: $clr-blue
+            color: white
+
+            @media screen and (max-width: $screen-small)
+                font-weight: bold
+                text-decoration: none
+                color: black
+                font-size: 20px
+                background-color: initial 
+                padding: initial
+
+        .loginButton 
+            padding: 10px 20px 
+            text-decoration: none
+            color: $clr-blue
+
+            @media screen and (max-width: $screen-small)
+                font-weight: bold
+                text-decoration: none
+                color: black
+                font-size: 20px
+                background-color: initial 
+                padding: initial
