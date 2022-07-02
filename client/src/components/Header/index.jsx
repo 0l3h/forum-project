@@ -21,11 +21,11 @@ function Header() {
     return (
         <header className={styles.header}>
             <h1 className={styles.heading}>
-                Lorem, ipsum dolor.
+                Here to help you.
             </h1>
             
             <span className={styles.subheading}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, impedit.
+                Tech forum made for developers.
             </span>
             
             <section className={styles.codeSection}>
@@ -38,19 +38,19 @@ function Header() {
                 <li className={styles.featCard}>
                     <img src={searchingImage} alt="answers image" />
                     <span>Find answers</span>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, officia.</p>
+                    <p>Stuck with the problem? Chances are someone already asked for help</p>
                 </li>
                 
                 <li className={styles.featCard}>
                     <img src={questionImage} alt="ask image"/>
                     <span>Ask questions</span>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
+                    <p>If you can't find solution, you may ask other devs about your specific problem</p>
                 </li>
                 
                 <li className={styles.featCard}>
                     <img src={answerImage} alt="help image" />
                     <span>Help others</span>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p>Know solution to the problem? Help by providing the answer</p>
                 </li>
             </ul>
         </header>

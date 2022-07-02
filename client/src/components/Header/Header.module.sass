@@ -1,5 +1,6 @@
 @import '../../sass/font-sizes'
 @import '../../sass/_line-heights'
+@import '../../sass/_breakpoints'
     
 .header
     display: flex
@@ -34,22 +35,34 @@
 
 .features 
     display: flex
+    margin: 5vh
+    gap: 20px
+    width: min(90%, 1000px)
 
-.featCard 
-    list-style: none
-    text-align: center
-    background-color: white
-    border-radius: 7px
-    margin: 0 10px
-    box-shadow: 0 2px 6px -3px #4e4e4e
-    padding: 20px
-    flex: 1
+    @media screen and (max-width: $screen-small)
+        flex-direction: column
+        width: 60%
 
-.featCard > span 
-    font-size: x-large
-    font-weight: bold
+    .featCard 
+        text-align: center
+        background-color: white
+        border-radius: 7px
+        margin: 0 10px
+        box-shadow: 0 2px 6px -3px #4e4e4e
+        padding: 20px
+        flex: 1            
 
-.featCard > img 
-    margin: 20px auto
-    height: 120px
-    display: block
+        *
+            margin: 10px 0
+            line-height: $lh-28
+
+        span 
+            font-size: x-large
+            font-weight: bold
+
+        img 
+            margin: 20px auto
+            height: 120px
+            display: block
+
+                
