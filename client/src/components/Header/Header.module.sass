@@ -1,4 +1,4 @@
-@import '../../sass/font-sizes'
+@import '../../sass/_font-sizes'
 @import '../../sass/_line-heights'
 @import '../../sass/_breakpoints'
     
@@ -18,9 +18,15 @@
         font-size: $fs-700
         font-weight: 800
 
+        @media screen and (max-width: $screen-small)
+            font-size: $fs-600
+
     .subheading
         font-size: $fs-500
         font-weight: 400
+
+        @media screen and (max-width: $screen-small)
+            font-size: $fs-400
 
     .codeSection 
         background-color: #4e4e4e
@@ -30,8 +36,13 @@
         color: white
         font-size: $fs-400
         text-align: left
-        width: min(50vw, 800px)
+        min-width: fit-content
+        width: min(50vw, 600px)
         border-radius: 20px
+
+        @media screen and (max-width: $screen-small)
+            font-size: $fs-300
+        
 
 .features 
     display: flex
@@ -50,19 +61,23 @@
         margin: 0 10px
         box-shadow: 0 2px 6px -3px #4e4e4e
         padding: 20px
-        flex: 1            
-
+        flex: 1
+       
         *
             margin: 10px 0
             line-height: $lh-28
 
-        span 
+        .heading 
             font-size: x-large
             font-weight: bold
 
+            @media screen and (max-width: $screen-small)
+                font-size: $fs-400
+        
         img 
             margin: 20px auto
             height: 120px
             display: block
 
-                
+            @media screen and (max-width: $screen-small)
+                height: 100px

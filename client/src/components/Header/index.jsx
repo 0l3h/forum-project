@@ -37,19 +37,25 @@ function Header() {
             <ul className={styles.features}>
                 <li className={styles.featCard}>
                     <img src={searchingImage} alt="answers image" />
-                    <span>Find answers</span>
+                    
+                    <span className={styles.heading}>Find answers</span>
+                    
                     <p>Stuck with the problem? Chances are someone already asked for help</p>
                 </li>
                 
                 <li className={styles.featCard}>
                     <img src={questionImage} alt="ask image"/>
-                    <span>Ask questions</span>
+                    
+                    <span className={styles.heading}>Ask questions</span>
+                    
                     <p>If you can't find solution, you may ask other devs about your specific problem</p>
                 </li>
                 
                 <li className={styles.featCard}>
                     <img src={answerImage} alt="help image" />
-                    <span>Help others</span>
+                    
+                    <span className={styles.heading}>Help others</span>
+                    
                     <p>Know solution to the problem? Help by providing the answer</p>
                 </li>
             </ul>
