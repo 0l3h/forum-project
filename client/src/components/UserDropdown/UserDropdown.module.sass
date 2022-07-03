@@ -3,32 +3,35 @@
 
 .dropdown
     position: relative
+    margin-right: 12px
 
     .dropdownButton
         background: none
         border: none
-        margin-right: 10px
 
         .dropdownIcon
-            width: 24px
+            width: 20px
     
     .avatar
-        width: 36px
+        width: 32px
 
     .username
         font-size: $fs-300
         font-weight: bold
+        margin-left: 10px
 
     .menu
         position: absolute
         top: 70px
-        right: 0
         width: max-content
         background-color: white
         padding: 12px 20px
         border-radius: 5px
         box-shadow: 0 2px 5px -3px grey
-
+        
+        &[data-is-open='false']
+            display: none
+        
         .pageLink
             display: block
             text-decoration: none
@@ -37,6 +40,3 @@
 
             &:hover
                 color: $clr-blue
-        
-    .menu[data-is-open='false']
-        display: none

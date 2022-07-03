@@ -19,7 +19,7 @@ function UserDropdown() {
                 <img src={isOpen? dropdownCloseIcon : dropdownOpenIcon} className={styles.dropdownIcon} alt="menu icon"/>
             </button>
             <img src={userAvatar || defaultAvatar} className={styles.avatar} alt="user avatar"/>
-            <span className={styles.username}></span>
+            <span className={styles.username}>Edd</span>
         
             <section className={styles.menu} data-is-open={isOpen.toString()}>
                 <NavLink to='/view-profile' className={styles.pageLink}>
