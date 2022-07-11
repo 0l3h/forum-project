@@ -1,37 +1,49 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { Form, Formik} from 'formik';
 import Page from '../Page';
-import styles from './SignUp.module.sass'
+import Input from '../../components/Input';
+import styles from './SignUp.module.sass';
+import schema from '../../validation/validationSchema';
 
 function SignUp() {
+  const initialValues = {
+    file: null,
+    username: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+  }
+
+  const submit = values => {
+    console.log(values);
+  }
+
   return (
     <Page>
         <main className={styles.content}>
-            <form action="" className={styles.signupForm}>
-                <h1 className={styles.heading}>Sign up</h1>
+            <Formik 
+              initialValues={initialValues} 
+              onSubmit={submit} 
+              validationSchema={schema.signupShema}>
+              
+              <Form className={styles.signupForm}>
+                  <h1 className={styles.heading}>Sign up</h1>
 
-                <label htmlFor="username"/>
-                <input type="text" name="username" placeholder="Username"/>
+                  <Input type="file" name="photo" label="Choose an image" accept=".jpeg, .png, .img"/>
+                  <Input type="text" name="username" label="Username (max 20 characters)" placeholder="Username"/>
+                  <Input type="email" name="email" label="Email" placeholder="Email"/>
+                  <Input type="password" name="password" label="Create a password" placeholder="Password"/>
+                  <Input type="password"name="confirmPassword" label="Confirm your password" placeholder="Repeat your password"/>
+              
+                  <div>
+                    <span>Already have an account?</span>
+                    <NavLink to="/log-in" className={styles.signupLink}> Log in</NavLink>
+                  </div>
 
-                <label htmlFor="email"/>
-                <input type="email" name="email" placeholder="Email"/>
-
-                <label htmlFor="password"/>
-                <input type="email" name="password" placeholder="Password"/>
-
-                <label htmlFor="repeatedPassword"/>
-                <input type="email" name="repeatedPassword" placeholder="Repeat your password"/>
-            
-                <span>
-                  Already have an account? {' '}
-
-                  <NavLink to="/log-in" className={styles.signupLink}>
-                    Log in 
-                  </NavLink>
-                </span>
-
-                <button type="submit" className={styles.submitButton}>Submit</button>
-            </form>
+                  <button type="submit" className={styles.submitButton}>Submit</button>
+              </Form>
+            </Formik>
         </main>
     </Page>
   )
