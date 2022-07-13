@@ -1,0 +1,53 @@
+@import '../../sass/_colors'
+@import '../../sass/_font-sizes'
+
+.content
+    display: flex
+    justify-content: center
+    width: 100%
+    padding-top: 12vh
+    min-height: 80vh
+    background: $clr-light
+    
+    .editProfileForm
+        display: flex
+        flex-direction: column
+        width: min(80%, 500px)
+        gap: 24px
+
+        .heading
+            font-weight: bold
+            font-size: $fs-600
+        
+        .warning
+            display: flex
+            align-items: center
+            font-size: $fs-200
+
+            .warningIcon
+                margin-right: 14px
+                width: 28px
+        
+        .imageUpload
+            background-color: grey
+
+        .dataInput
+            box-sizing: border-box
+            margin-top: 10px
+            padding: 8px
+            width: 100%
+
+        .cancelButton
+            margin-top: 8vh
+            border: 2px solid $clr-blue
+            background-color: transparent
+            border-radius: 5px
+            padding: 6px
+
+        .submitButton
+            margin-top: 6px
+            background-color: $clr-blue
+            padding: 7px
+            border: none
+            border-radius: 5px
+            color: $clr-white
