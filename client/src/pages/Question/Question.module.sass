@@ -1,0 +1,28 @@
+@import '../../sass/_breakpoints'
+@import '../../sass/_font-sizes'
+@import '../../sass/_colors'
+@import '../../sass/_line-heights'
+
+.content
+    display: flex
+    min-height: 100vh
+    background-color: $clr-gray
+    line-height: $lh-28
+
+    .question
+        min-height: inherit
+        width: 70ch
+        margin: auto
+        padding: 40px
+        background-color: $clr-white
+
+        & > *
+            margin: 26px 0
+
+        @media screen and (width <= $screen-small) 
+            width: 100%
+            padding: 20px
+
+        .heading
+            font-size: $fs-500
+            font-weight: bold
