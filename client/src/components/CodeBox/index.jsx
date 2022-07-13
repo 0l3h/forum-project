@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './CodeBox.module.sass';
+import copyLogo from '../../images/copy-logo.png';
 
 function CodeBox() {
     const code = String.raw`
@@ -10,9 +11,7 @@ function CodeBox() {
     
     return (
         <div className={styles.codeBox}>
-            <button>
-                copy
-            </button>
+            <img src={copyLogo} className={styles.copyLogo} alt="copy logo"/>
             
             <code>
                 <pre>{code}</pre>
