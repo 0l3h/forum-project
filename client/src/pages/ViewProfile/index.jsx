@@ -26,6 +26,8 @@ function ViewProfile() {
                             <img src={locationLogo} alt="location" className={styles.logo}/>
                             <span>USA</span>
                         </div>
+
+                        <button>Edit profile</button>
                     </div>
 
                     <div className={styles.bio}>
