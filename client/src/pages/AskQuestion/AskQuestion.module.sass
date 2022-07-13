@@ -11,13 +11,9 @@
     gap: 20px
     background: 
         color: $clr-light
-        image: url(./../../images/header-background.svg)
         repeat: no-repeat
         size: cover
 
-    @media screen and (width <= $screen-small) 
-        flex-direction: column
-    
     .questionForm
         order: -1
         display: flex
@@ -25,16 +21,13 @@
         height: fit-content
         padding: 20px
         width: min(80%, 500px)
-        background-color: $clr-white
-        gap: 10px
+        gap: 20px
         border-radius: 10px
-        box-shadow: 0 2px 6px gray
             
         .heading
-            align-self: center
             font-weight: bold
-            font-size: $fs-400
-
+            font-size: $fs-600
+        
         .postButton
             margin-top: 30px
             background-color: $clr-blue
@@ -45,18 +38,11 @@
             border-radius: 5px
             color: $clr-white
 
-    .warning
-        line-height: $lh-28
-        background-color: $clr-white
-        padding: 30px
-        width: 250px
-        height: fit-content
-        font-weight: bold
-        box-shadow: 0 2px 6px gray
+        .warning
+            display: flex
+            align-items: center
+            font-size: $fs-200
 
-        & > img
-            margin-bottom: 10px
-            transform: scale(0.7)
-        
-        @media screen and (width <= $screen-small) 
-            width: 80%
+            .warningIcon
+                margin-right: 14px
+                width: 28px
