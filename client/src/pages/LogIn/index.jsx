@@ -1,32 +1,42 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { Formik, Form, Field } from 'formik';
+import schemas from '../../validation/validationSchema';
 import Page from '../Page';
 import styles from './LogIn.module.sass';
+import Input from '../../components/Input';
 
 function LogIn() {
+    const initialValues = {
+        username: '',
+        password: '',
+    }
+
+    const submit = values => {
+        console.log(values);
+    }
+
     return (
         <Page>
             <main className={styles.content}>
-                <form action="" className={styles.loginForm}>
-                    <h1 className={styles.heading}>Log in</h1>
+                <Formik 
+                    initialValues={initialValues} 
+                    validationSchema={schemas.loginSchema}
+                    onSubmit={submit}>
+                    <Form className={styles.loginForm}>
+                        <h1 className={styles.heading}>Log in</h1>
 
-                    <label htmlFor="username"/>
-                    <input type="text" name="username" placeholder='Username'/>
-                    
-                    <label htmlFor="password"/>
-                    <input type="password" name="password" placeholder='Password'/>
+                        <Input type="text" label="Username" name="username" placeholder='Username'/>
+                        <Input type="password" label="Enter your password" name="password" placeholder='Password'/>
 
-                    <span>
-                        Have no account yet? {' '}
-
-                        <NavLink to="/sign-up" className={styles.signupLink}>
-                            Sign up 
-                        </NavLink>
-                    </span>
-
-                    
-                    <button type="submit" className={styles.submitButton}>Submit</button>
-                </form>
+                        <div>
+                            <span>Have no account yet?</span>
+                            <NavLink to="/sign-up" className={styles.signupLink}> Sign up</NavLink>
+                        </div>
+                        
+                        <button type="submit" className={styles.submitButton}>Submit</button>
+                    </Form>
+               </Formik>
             </main>
         </Page>
     )
