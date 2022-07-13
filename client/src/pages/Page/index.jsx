@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { Outlet } from 'react-router';
 import Navbar from './../../components/Navbar';
 import Footer from './../../components/Footer';
-import styles from './Page.module.sass';
 
 function Page(props) {
   return <>
     <Navbar/>
-    {props.children}
+      <Outlet/>
     <Footer/>
   </>
 }
