@@ -1,15 +1,20 @@
+@import '../../sass/_colors'
+    
 .footer 
     display: flex
     flex-direction: column
-    background-color: #363636
+    min-height: 10vh
+    background-color: $clr-dark
+    align-items: center
     color: white
     padding: 20px
 
-.follow-us 
-    font-size: 24px
+    .media
+        margin: auto 
 
-.follow-us + span 
-    align-self: center
+    .mediaLogo
+        margin: 0 20px
+        height: 20px
 
-.media-logo 
-    height: 30px
+    .credits
+        color: $clr-gloomy
