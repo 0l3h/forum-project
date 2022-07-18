@@ -4,19 +4,31 @@ import defaultAvatar from '../../images/default-avatar.svg';
 import styles from './Question.module.sass';
 
 function Question(props) {
-    const {text, authorName, authorAvatar, answersAmount} = props;
+    const {title, text, authorName, authorAvatar, answersAmount} = props;
     
     return (
         <NavLink className={styles.questionLink} to='/question'>
             <section className={styles.questionBox}>
+                <span className={styles.votes}>0</span>
+
+                <div className={styles.question}>
+                    <h1 className={styles.title}>{title}</h1>
+
+                    <div className={styles.tags}>
+                        <span>linux</span>
+                    </div>
+                </div>
+
                 <div className={styles.author}>
                     <img className={styles.avatar} src={authorAvatar || defaultAvatar} alt="author's avatar" />
-                    <span className={styles.author}>{authorName}</span>
+                    <span className={styles.name}>{authorName}</span>
                 </div>
+
+                
+
                 <span className={styles.answersAmount}>
                     {answersAmount} answer(s)
                 </span>
-                <p className={styles.text}>{text}</p>
             </section>
         </NavLink>
     )

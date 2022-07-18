@@ -8,29 +8,42 @@
 
     .questionBox
         background-color: $clr-white
-        border-radius: 14px
         box-shadow: 0 2px 5px -2px gray
-        min-height: 120px
-        margin-top: 28px
+        margin-top: 18px
         padding: 16px 24px
-        text-decoration: none
 
         *
             margin: 5px 0
 
-        .text
-            line-height: $lh-28
+        .question
+
+            .title
+                display: inline
+                font-weight: bold
+                font-size: $fs-400
+                
+            .tags
+                margin-top: 18px
+
+                span
+                    background-color: #ded7ff
+                    padding: 3px 5px
+                    border-radius: 5px
 
         .author
             display: flex
             align-items: center
+            justify-content: flex-end
+            gap: 5px
 
             .avatar
-                height: 40px
+                height: 26px
 
-            .author
-                font-size: $fs-400
-                font-weight: bold
+            .name
+                font-size: $fs-200
         
         .answersAmount
+            display: block
+            text-align: right
             color: $clr-gloomy
+            font-size: $fs-200
