@@ -1,0 +1,50 @@
+@import '../../sass/_font-sizes'
+@import '../../sass/_breakpoints'
+@import '../../sass/colors'
+@import '../../sass/_line-heights'
+    
+.details
+    max-width: 100vw
+
+    .description
+        display: flex
+        flex-flow: column wrap
+        align-content: center
+        padding: 30px
+        height: 40vh
+        justify-content: center
+        column-gap: 50px
+        row-gap: 16px
+        line-height: $lh-28
+        padding: 80px
+
+        &:nth-child(2n) 
+            background-color: $clr-light
+
+        @media screen and (width <= $screen-small)
+            flex-wrap: nowrap
+            height: fit-content
+            align-items: center
+
+        .heading
+            font-size: $fs-600
+            font-weight: bold
+
+            @media screen and (width <= $screen-small)
+                font-size: $fs-500
+                text-align: center
+
+        .text
+            width: 300px
+            line-height: $lh-30
+    
+            @media screen and (width <= $screen-small)
+                width: 100%
+                text-align: center
+
+        & > img
+            aspect-ratio: 1 
+            height: 100%
+
+            @media screen and (width <= $screen-small)
+                width: 50%
