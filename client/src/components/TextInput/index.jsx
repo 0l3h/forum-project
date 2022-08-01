@@ -1,11 +1,12 @@
 import React from 'react';
+import { Field } from 'formik';
 import styles from './TextInput.module.sass';
 import imageLogo from '../../images/put-image-logo.png';
 import codeLogo from '../../images/put-code-logo.png';
 import boldTextLogo from '../../images/bold-text-logo.png';
 import quoteLogo from '../../images/quote-logo.png';
 
-function TextInput() {
+function TextInput(props) {
     return (
         <section>
             <div className={styles.stylingContainer}>
@@ -26,7 +27,7 @@ function TextInput() {
                 </button>
             </div>
 
-            <textarea className={styles.text} name="textInput"/>
+            <Field as='textarea' {...props} className={styles.text}/>
         </section>
     )
 }
