@@ -43,7 +43,11 @@ function BrowseQuestions() {
         
         <ul className={styles.questionsList}>
           <li>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </li>
+          
+          <li>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.
           </li>
           
           <li>
@@ -51,15 +55,11 @@ function BrowseQuestions() {
           </li>
           
           <li>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Lorem ipsum dolor sit amet, consectetur.
           </li>
           
           <li>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </li>
-          
-          <li>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Lorem ipsum dolor sit amet, consectetur adipiscing.
           </li>
         </ul>
       </section>
