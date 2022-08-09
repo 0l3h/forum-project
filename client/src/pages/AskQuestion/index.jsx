@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 import { useDispatch } from 'react-redux';
-import { createQuestionRequest } from '../../slices/questionsSlice.js';
+import { createQuestionRequest } from '../../slices/questions.slice.js';
 import Input from '../../components/Input';
 import warningIcon from '../../images/warning-icon.png';
 import TextInput from '../../components/TextInput';
