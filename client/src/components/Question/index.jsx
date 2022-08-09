@@ -6,13 +6,11 @@ import answersIcon from '../../images/comment.png';
 import styles from './Question.module.sass';
 
 function Question(props) {
-    const {title, authorName, authorAvatar, answersAmount} = props;
+    const { id, question: { title, authorName, authorAvatar, answersAmount } } = props;
     
     return (
-        <NavLink className={styles.questionLink} to='/question'>
+        <NavLink className={styles.questionLink} to={id}>
             <section className={styles.questionBox}>
-                <span className={styles.votes}>0</span>
-
                 <div className={styles.question}>
                     <h1 className={styles.title}>{title}</h1>
 
