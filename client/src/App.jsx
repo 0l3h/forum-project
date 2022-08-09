@@ -7,6 +7,7 @@ import EditProfile from './pages/EditProfile';
 import ViewProfile from './pages/ViewProfile';
 import AskQuestion from './pages/AskQuestion';
 import Question from './pages/Question';
+import QuestionsList from "./components/QuestionsList";
 import LogIn from './pages/LogIn';
 import SignUp from './pages/SignUp';
 import AuthRequired from "./components/AuthRequired";
@@ -21,7 +22,8 @@ function App() {
             <Route index element={<Home/>}/>
 
             <Route path='/browse-questions' element={<BrowseQuestions/>}>
-              <Route path=':questionId' element={<Question/>}/>
+              <Route index element={<QuestionsList/>}/>
+              <Route path=':questionId' element={<Question/>}/>          
             </Route>
 
             <Route path='/log-in' element={
