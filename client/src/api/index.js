@@ -5,12 +5,43 @@ const port = 7391;
 
 const config = {
     baseURL: `http://${host}:${port}`,
-    headers: {
-        'Access-Control-Allow-Origin': "*"
+};
+
+const instance = axios.create(config);
+
+export const createQuestion = data => {
+    instance.post('ask-question', JSON.stringify(data), {
+        headers: { 
+            "Content-Type": "application/json" ,
+            "Accept": "application/json"
+        }
+    });
+};
+
+export const getQuestions = () => {
+    const requestConfig = {
+        headers: { 
+            "Accept": "application/json"
+        }
     }
-}
 
-const instance = axios.create(config)
+    return instance.get('browse-questions', requestConfig);
+};
 
-export const createQuestion = data => instance.post('ask-question', data);
-export const deleteQuestion = () => instance.delete();
+export const getQuestionById = (id) => {
+    const requestConfig = {
+        headers: {
+            "Accept": "application/json",
+        }
+    };
+
+    return instance.get(`/browse-questions/${id}`, requestConfig);
+};
+
+export const deleteQuestionById = () => {
+    instance.delete();
+};
+
+export const editQuestionById = () => {
+    instance.patch();
+};
