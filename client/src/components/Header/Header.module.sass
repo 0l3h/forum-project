@@ -1,21 +1,23 @@
 @import '../../sass/_font-sizes'
 @import '../../sass/_line-heights'
 @import '../../sass/_breakpoints'
+@import '../../sass/_colors'
     
 .header
     display: flex
     flex-direction: column
     align-items: center
     text-align: center
-    min-height: 120vh
-    background-image: url(./../../images/header-background.svg)
+    min-height: 140vh
+    background-image: url(./../../images/header-background.png)
     background-repeat: no-repeat
     background-size: cover
+    background-position: center
     row-gap: 20px
 
     .heading
-        margin-top: 12vh
-        font-size: $fs-700
+        margin: 18vh 0 20px
+        font-size: $fs-800
         font-weight: 800
 
         @media screen and (max-width: $screen-small)
@@ -24,25 +26,48 @@
     .subheading
         font-size: $fs-500
         font-weight: 400
+        color: $clr-gloomy
 
         @media screen and (max-width: $screen-small)
             font-size: $fs-400
 
-    .codeSection 
-        background-color: #4e4e4e
-        margin-top: 60px
-        padding: 30px
-        line-height: 30px
-        color: white
-        font-size: $fs-400
-        text-align: left
-        min-width: fit-content
-        width: min(50vw, 600px)
-        border-radius: 20px
+    .links
+        margin-top: 40px
 
-        @media screen and (max-width: $screen-small)
-            font-size: $fs-300
+        *
+            margin: 16px
+            text-decoration: none
+
+        .joinButton
+            background: $clr-blue
+            padding: 14px 18px
+            border-radius: 26px
+            color: $clr-white
+
+        .browseQuestionsButton
+            border-radius: 26px
+            color: $clr-blue
+
+    // .codeSection 
+    //     background-color: #4e4e4e
+    //     margin-top: 60px
+    //     padding: 30px
+    //     line-height: 30px
+    //     color: white
+    //     font-size: $fs-400
+    //     text-align: left
+    //     min-width: fit-content
+    //     width: min(50vw, 600px)
+    //     border-radius: 20px
+
+    //     @media screen and (max-width: $screen-small)
+    //         font-size: $fs-300
         
+    .forumImage
+        margin-top: 80px
+        width: min(70%, 1000px)
+        border-radius: 16px
+        box-shadow: 0px 10px 55px -25px rgba(99,99,255,1)
 
 .features 
     display: flex

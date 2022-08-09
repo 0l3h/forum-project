@@ -1,23 +1,12 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import styles from './Header.module.sass';
+import forumPageImage from '../../images/forum-page.png';
 import searchingImage from './../../images/searching-illustration.svg';
 import questionImage from './../../images/question-illustration.svg';
 import answerImage from './../../images/answer-illustration.svg';
 
 function Header() {
-    const codeText = String.raw`
-    function foo() {
-        console.log("Ask");
-    };
-
-    function bar() {
-        console.log("me");
-    };
-    
-    foo();
-    bar();
-    `;
-
     return (
         <header className={styles.header}>
             <h1 className={styles.heading}>
@@ -27,12 +16,18 @@ function Header() {
             <span className={styles.subheading}>
                 Tech forum made for developers.
             </span>
+
+            <div className={styles.links}>
+                <NavLink className={styles.browseQuestionsButton} to='/sign-up'>
+                    Browse Questions
+                </NavLink>
+
+                <NavLink className={styles.joinButton} to='/sign-up'>
+                    Join The Community
+                </NavLink>
+            </div>
             
-            <section className={styles.codeSection}>
-                <code>
-                    <pre>{codeText}</pre>
-                </code>
-            </section>
+            <img src={forumPageImage} alt="Forum page" className={styles.forumImage}/>
 
             <ul className={styles.features}>
                 <li className={styles.featCard}>
