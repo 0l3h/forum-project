@@ -1,18 +1,28 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { Formik, Form, Field } from 'formik';
+import { NavLink, useNavigate, useLocation } from 'react-router-dom';
+import { Formik, Form } from 'formik';
+import { useDispatch } from 'react-redux';
+import { logInRequest } from '../../slices/auth.slice';
 import schemas from '../../validation/validationSchema';
 import styles from './LogIn.module.sass';
 import Input from '../../components/Input';
 
 function LogIn() {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
+
     const initialValues = {
         username: '',
         password: '',
     }
 
     const submit = values => {
-        console.log(values);
+        dispatch(logInRequest(values));
+
+        navigate(from, { replace: true });
     }
 
     return (
