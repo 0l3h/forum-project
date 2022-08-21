@@ -5,46 +5,53 @@
     
 .content
     display: grid
-    grid-template-columns: minmax(100px, 180px) 4fr minmax(280px, 1fr)
+    grid-template-columns: minmax(100px, 260px) 3fr minmax(280px, 1fr)
     grid-template-rows: auto 1fr 
     min-height: 100vh
     row-gap: 30px
-    background-color: $clr-light
     
     @media screen and (width <= $screen-medium)
         grid-template-columns: 100vw
     
-    .users
+    .sideMenu
         grid-row: 1 / 3
-        background-color: $clr-gray
+        padding: 46px 
+        border-right: 1.5px solid $clr-light-gray
+
+        .menuHeading
+            font-weight: bold
+            color: $clr-gloomy
+
+        .menuOption
+            display: block
+            text-decoration: none
+            margin: 30px 0
+
+            img
+                margin-right: 10px
+                width: 30px
+
+            span
+                color: $clr-gloomy
 
         @media screen and (width <= $screen-medium)
             display: none
-
-    .questions
-        grid-row: 1 / 3
-        position: relative
-        padding: 20px
-        overflow-x: hidden
-        margin: 28px
-
-        .heading
-            font-size: $fs-600
-            font-weight: bold
-        
-        .resultsAmount
-            display: inline
         
     .popular
         margin-top: 28px
         margin-right: 20px
-        max-height: min-content 
-        border-radius: 5px
+        padding: 0 28px
+        border-left: 1px solid $clr-light-gray
 
         @media screen and (width <= $screen-medium)
             margin: 0 48px
 
+        img
+            width: 26px
+            margin-right: 10px
+
         .heading
+            display: inline
             font-size: $fs-300
             font-weight: bold
             margin-bottom: 10px
@@ -53,7 +60,13 @@
             li
                 line-height: $lh-20
                 font-size: $fs-200
-                margin: 10px 0
+                margin-top: 18px
+
+                p
+                    margin-bottom: 5px
+
+                span
+                    font-weight: bold
             
     .subscribeSection
         padding: 30px
