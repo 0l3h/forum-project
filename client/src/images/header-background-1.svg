@@ -1,0 +1,22 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<!-- Created using Krita: https://krita.org -->
+<svg xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:krita="http://krita.org/namespaces/svg/krita"
+    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+    width="691.2pt"
+    height="432pt"
+    viewBox="0 0 691.2 432">
+<defs>
+  <linearGradient id="gradient0" gradientUnits="objectBoundingBox" x1="1.05907843332561" y1="1.11816298845214" x2="0.475001234191464" y2="0.851765410041093" spreadMethod="pad">
+   <stop stop-color="#dae4ff" offset="0" stop-opacity="0.83921568627451"/>
+   <stop stop-color="#000000" offset="1" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="gradient1" gradientUnits="objectBoundingBox" x1="0.10998936494207" y1="1.06452105362335" x2="0.520538373528358" y2="0.492626402993703" spreadMethod="pad">
+   <stop stop-color="#a7bcff" offset="0" stop-opacity="0.231372549019608"/>
+   <stop stop-color="#000000" offset="1" stop-opacity="0"/>
+  </linearGradient>
+ </defs>
+<path id="shape0" transform="matrix(0.999999963032838 0 0 0.999999963032838 -60.0276207534477 39.3958186795085)" fill="url(#gradient0)" fill-rule="evenodd" stroke="#000000" stroke-opacity="0" stroke-width="0" stroke-linecap="square" stroke-linejoin="bevel" d="M29.6076 34.9574C-60.1483 112.294 77.7785 272.122 131.239 264.377C184.699 256.631 308 182.62 270.088 65.984C238.997 -29.6674 74.7371 -3.92751 29.6076 34.9574Z"/><path id="shape01" transform="matrix(0.999999938994969 0 0 0.999999938994969 456.619576683436 11.5564485522947)" fill="url(#gradient1)" fill-rule="evenodd" stroke="#000000" stroke-opacity="0" stroke-width="0" stroke-linecap="square" stroke-linejoin="bevel" d="M23.6204 43.1636C-47.0303 117.925 58.0405 177.352 113.62 189.864C222.74 214.428 242.069 81.2323 183.46 20.1236C154.743 -9.81889 73.5055 -9.62409 23.6204 43.1636Z"/>
+</svg>
