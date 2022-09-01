@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from 'uuid';
 import { createSlice } from '@reduxjs/toolkit';
 
 export const questionsSlice = createSlice({
@@ -16,24 +15,19 @@ export const questionsSlice = createSlice({
             state.isFetching = true;
             state.error = null;
         },
-        createQuestionSuccess: (state, action) => {
-            const { questionPosts } = state;
-            const { title, questionBody } = action.payload;
-
-            questionPosts.push({id: uuidv4(), title, questionBody });
+        createQuestionSuccess: (state) => {
+            state.isFetching = false;
         },
         createQuestionError: (state, action) => {
             const { error } = action.payload;
             
-            console.log(error);
-
             state.error = error;
             state.isFetching = false;
         },
 
         // GET QUESTIONS
 
-        getQuestionsRequest: (state, action) => {
+        getQuestionsRequest: (state) => {
             state.isFetching = true;
             state.error = null;
         },
@@ -52,11 +46,11 @@ export const questionsSlice = createSlice({
 
         // DELETE QUESTION BY ID
 
-        deleteQuestionByIdRequest: (state, action) => {
+        deleteQuestionByIdRequest: (state) => {
             state.isFetching = true;
             state.error = null;
         },
-        deleteQuestionByIdSuccess: (state, action) => {
+        deleteQuestionByIdSuccess: (state) => {
             state.isFetching = false;
         },
         deleteQuestionByIdError: (state, action) => {

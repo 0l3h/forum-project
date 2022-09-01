@@ -1,14 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from '@redux-saga/core';
-import questionsReducer from '../slices/questionsSlice.js';
+import rootReducer from '../slices';
 import rootSaga from '../sagas/index.js';
 
 const sagaMiddleware = createSagaMiddleware();
 
 export default configureStore({
-    reducer: {
-        questions: questionsReducer,
-    },
+    reducer: rootReducer,
     middleware: getDefaultMiddleware => {
         return getDefaultMiddleware().concat(sagaMiddleware)
     },
