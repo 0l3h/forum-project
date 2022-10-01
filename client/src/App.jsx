@@ -1,5 +1,7 @@
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Page from "./pages/Page";
+import { getMyProfileRequest } from './slices/user.slice';
 import Home from './pages/Home';
 import BrowseQuestions from './pages/BrowseQuestions';
 import NotFound from './pages/NotFound';
@@ -15,6 +17,12 @@ import AuthRequired from "./components/AuthRequired";
 import NotAuthorized from "./components/NotAuthorized";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getMyProfileRequest());
+  }, []);
+
   return (
     <div>
       <Router>
@@ -24,10 +32,10 @@ function App() {
           <Route path='/browse-questions' element={<BrowseQuestions/>}>
             <Route index element={<QuestionsList/>}/>
             
-            <Route path=':questionId' element={<Question/>}/>     
-            
-            <Route path='users' element={<Users/>}/>
+            <Route path=':questionId' element={<Question/>}/>
           </Route>
+
+          <Route path='/users' element={<Users/>}/>
 
           <Route path='/view-profile' element={
             <AuthRequired>
