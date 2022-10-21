@@ -6,13 +6,13 @@ module.exports = {
       type: Sequelize.TEXT,
     });
 
-    await queryInterface.addColumn('Users', 'profilePicture', {
+    await queryInterface.addColumn('Users', 'profilePictureUrl', {
       type: Sequelize.STRING,
     });
   },
 
   async down (queryInterface, Sequelize) {
     await queryInterface.removeColumn('Users', 'about');
-    await queryInterface.removeColumn('Users', 'profilePicture');
+    await queryInterface.removeColumn('Users', 'profilePictureUrl');
   }
 };

@@ -10,6 +10,6 @@ module.exports = {
   },
 
   async down (queryInterface) {
-    await queryInterface.addColumn('Questions', 'views_amount');
+    await queryInterface.removeColumn('Questions', 'views_amount');
   }
 };

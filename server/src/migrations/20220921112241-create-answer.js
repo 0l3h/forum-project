@@ -20,6 +20,10 @@ module.exports = {
         type: Sequelize.UUID,
         allowNull: false
       },
+      authorId: {
+        type: Sequelize.UUID,
+        allowNull: false
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
