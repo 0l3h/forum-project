@@ -10,73 +10,37 @@ const config = {
 
 const instance = axios.create(config);
 
-export const createQuestion = data => {
-    const requestConfig = {
-        headers: {
-            "Content-Type": "application/json" ,
-            "Accept": "application/json"
-        }
-    }; 
-
-    instance.post('ask-question', JSON.stringify(data), requestConfig);
-};
-
-export const getQuestions = () => {
-    const requestConfig = {
-        headers: { 
-            "Accept": "application/json"
-        }
+const postConfig = {
+    headers: {
+        "Content-Type": "application/json" ,
+        "Accept": "application/json"
     }
-
-    return instance.get('browse-questions', requestConfig);
 };
 
-export const getQuestionById = (id) => {
-    const requestConfig = {
-        headers: {
-            "Accept": "application/json",
-        }
-    };
-
-    return instance.get(`/browse-questions/${id}`, requestConfig);
-};
-
-export const deleteQuestionById = () => {
-    instance.delete();
-};
-
-export const editQuestionById = () => {
-    instance.patch();
-};
-
-export const signUpUser = data => {
-    const requestConfig = {
-        headers: {
-            "Content-Type": "application/json" ,
-            "Accept": "application/json"
-        }
-    }; 
-
-    return instance.post('/sign-up', JSON.stringify(data), requestConfig);
-};
-
-export const logInUser = data => {
-    const requestConfig = {
-        headers: {
-            "Content-Type": "application/json" ,
-            "Accept": "application/json"
-        }
-    }; 
-
-    return instance.post('/log-in', JSON.stringify(data), requestConfig);
-};
-
-export const getUserProfile = () => {
-    const requestConfig = {
-        headers: {
-            "Accept": "application/json"
-        }
+const getConfig = {
+    headers: {
+        "Accept": "application/json"
     }
+};
 
-    return instance.get('/view-profile', requestConfig);
-}
+export const createQuestion = data => instance.post('ask-question', JSON.stringify(data), postConfig);
+
+export const getQuestions = () => instance.get('browse-questions', getConfig);
+
+export const getQuestionById = id => instance.get(`/browse-questions/${id}`, getConfig);
+
+export const voteQuestion = (id, vote) => instance.patch(`/browse-questions/${id}/vote-question`, JSON.stringify({vote}), postConfig);
+
+export const voteAnswer = (id, vote) => instance.patch(`/browse-questions/${id}/vote-answer`, JSON.stringify({vote}), postConfig);
+
+export const getPopularQuestions = () => instance.get('/', getConfig);
+
+export const createAnswer = data => instance.post(`/browse-questions/${data.questionId}`, JSON.stringify(data), postConfig);
+
+export const signUpUser = data => instance.post('/sign-up', JSON.stringify(data), postConfig);
+
+export const logInUser = data => instance.post('/log-in', JSON.stringify(data), postConfig);
+
+export const getUserProfile = () => instance.get('/view-profile', getConfig);
+
+export const updateUserProfile = data => instance.patch('/edit-profile', JSON.stringify(data), postConfig);
