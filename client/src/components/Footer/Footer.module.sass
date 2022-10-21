@@ -1,20 +1,63 @@
+@import '../../sass/_line-heights'
 @import '../../sass/_colors'
+@import '../../sass/_breakpoints'
     
 .footer 
     display: flex
-    flex-direction: column
-    min-height: 10vh
+    align-items: flex-start
+    justify-content: space-around
+    min-height: 20vh
     background-color: $clr-dark
-    align-items: center
-    color: white
-    padding: 20px
+    color: $clr-white
+    padding: 60px
 
-    .media
-        margin: auto 
+    @media screen and (width <= $screen-small)
+        flex-direction: column
+
+    & > span
+        align-self: flex-start
+
+    & > div:first-child
+        width: 15%
+
+        & > p
+            width: 100% 
+            line-height: $lh-20
+            margin-bottom: 20px
+
+        @media screen and (width <= $screen-small)
+            width: 100%
+
+    .askmeLogo
+        align-self: flex-start
+        width: 40px
+        margin-bottom: 20px
 
     .mediaLogo
-        margin: 0 20px
+        background-color: $clr-dark
         height: 20px
+        margin-right: 20px
 
-    .credits
-        color: $clr-gloomy
+    .links
+        display: flex
+
+        ul
+            margin: 0 30px
+
+            & > h1
+                font-weight: bold
+                margin-bottom: 10px
+
+            a
+                text-decoration: none
+                color: #c5c5c5
+
+            li
+                margin: 10px 0
+
+            @media screen and (width <= $screen-small)
+                margin: 10px 0
+
+        @media screen and (width <= $screen-small)
+            flex-direction: column
+            width: 100%

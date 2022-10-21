@@ -4,7 +4,6 @@ import * as api from '../api';
 import { 
     createQuestionSuccess, 
     createQuestionError, 
-
     getQuestionsSuccess,
     getQuestionsError,
 } from "../slices/questions.slice";
@@ -12,6 +11,8 @@ import {
 import {
     getQuestionByIdSuccess,
     getQuestionByIdError,
+    voteQuestionError,
+    voteQuestionSuccess,
 } from "../slices/question.slice";
 
 // CREATE A QUESTION 
@@ -46,19 +47,29 @@ function* getQuestions() {
 function* getQuestionById(action) {
     const { payload: id } = action;
 
-    console.log(action)
-
     try {
         const question = yield call(api.getQuestionById, id);
         const parsedQuestion = JSON.parse(question.data);
-
-        console.log(parsedQuestion)
 
         yield put(getQuestionByIdSuccess(parsedQuestion));
     } catch (error) {
         yield put(getQuestionByIdError(error.message));
     }
-}
+};
+
+// VOTE QUESTION
+
+function* voteQuestion(action) {
+    const { payload: {questionId, vote} } = action;
+
+    console.log(questionId);
+    try {
+        yield call(api.voteQuestion, questionId, vote);
+        yield put(voteQuestionSuccess(vote));
+    } catch (error) {
+        yield put(voteQuestionError(error.message))
+    }
+};
 
 // DELETE QUESTION BY ID 
 
@@ -78,5 +89,6 @@ export {
     createQuestion, 
     getQuestions, 
     getQuestionById, 
-    deleteQuestionById 
+    deleteQuestionById,
+    voteQuestion,
 };

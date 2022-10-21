@@ -1,53 +1,60 @@
 @import '../../sass/_colors'
 @import '../../sass/_font-sizes'
+@import '../../sass/mixins'
+@import '../../sass/_breakpoints'
 
 .content
-    display: flex
-    justify-content: center
-    width: 100%
-    padding-top: 12vh
-    min-height: 80vh
-    background: $clr-light
-    
-    .editProfileForm
-        display: flex
-        flex-direction: column
-        width: min(80%, 500px)
-        gap: 24px
+    @include container
 
-        .heading
-            font-weight: bold
-            font-size: $fs-600
-        
-        .warning
+    .container
+        @include content
+
+        @media screen and (width <= $screen-medium)
+            min-height: fit-content
+
+        .editProfileForm
             display: flex
-            align-items: center
-            font-size: $fs-200
-
-            .warningIcon
-                margin-right: 14px
-                width: 28px
-        
-        .imageUpload
-            background-color: grey
-
-        .dataInput
             box-sizing: border-box
-            margin-top: 10px
-            padding: 8px
-            width: 100%
+            flex-direction: column
+            gap: 24px
+            width: min(100%, 600px)
+            margin: 5vh
+            padding: 60px
+            background-color: $clr-white
 
-        .cancelButton
-            margin-top: 8vh
-            border: 2px solid $clr-blue
-            background-color: transparent
-            border-radius: 5px
-            padding: 6px
+            @media screen and (width <= $screen-medium)
+                width: 100%
+                margin: 0
+                padding: 40px
 
-        .submitButton
-            margin-top: 6px
-            background-color: $clr-blue
-            padding: 7px
-            border: none
-            border-radius: 5px
-            color: $clr-white
+            .heading
+                font-weight: bold
+                font-size: $fs-600
+
+                @media screen and (width <= $screen-medium)
+                    font-size: $fs-400
+            
+            .warning
+                display: flex
+                align-items: center
+                font-size: $fs-200
+
+                .warningIcon
+                    margin-right: 14px
+                    width: 28px
+
+            .dataInput
+                box-sizing: border-box
+                margin-top: 10px
+                padding: 8px
+                width: 100%
+
+            .submitButton
+                margin-left: auto
+                margin-top: 6px
+                background-color: $clr-blue
+                padding: 7px
+                width: 16%
+                border: none
+                border-radius: 5px
+                color: $clr-white

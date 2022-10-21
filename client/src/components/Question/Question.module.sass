@@ -1,69 +1,112 @@
 @import '../../sass/_colors'
 @import '../../sass/_font-sizes'
 @import '../../sass/_line-heights'
+@import '../../sass/_breakpoints'
 
 .questionLink
     text-decoration: none
     color: $clr-dark
 
     .questionBox
-        background-color: $clr-white
-        box-shadow: 0 2px 5px -2px gray
-        border-radius: 10px
         margin-top: 18px
-        padding: 24px 28px
+        padding: 20px 0
+        gap: 20px
+        display: flex
+        border-bottom: 1px solid $clr-light-gray
 
-        *
-            margin: 5px 0
+        .votes
+            display: flex
+            flex-direction: column
+            gap: 10px
 
-        .question
+            & > span
+                display: block
+                font-size: $fs-200 
+        
+        .questionContainer
+            flex: 1
 
-            .title
+            .question                            
+
+                .title
+                    font-size: $fs-400
+                    
+                    @media screen and (width <= $screen-medium)
+                        font-size: $fs-300
+                    
+                    &:hover
+                        color: $clr-blue
+
+                p
+                    margin: 20px 0
+
+                    @media screen and (width <= $screen-medium)
+                        font-size: $fs-200
+        
+        .info
+            display: flex
+            flex-direction: column
+            margin-top: 20px
+
+            & > div:first-child
                 display: inline
-                font-weight: bold
-                font-size: $fs-400
 
-            .tags
-                margin-top: 18px
+                & > div
+                    display: inline-block
+                    margin-right: 10px
+
+                    img
+                        margin-right: 5px
+                        width: 18px
+                    
+                    span
+                        color: $clr-gloomy
+                        font-size: $fs-200
+
+                    @media screen and (width <= $screen-medium)
+                        display: none
+
+            .answersAmount
+                display: inline
+                margin-left: 20px
+
+                img
+                    width: 18px
 
                 span
-                    background-color: #ded7ff
-                    padding: 3px 5px
-                    border-radius: 5px
-        
-        .askedDate
-            display: inline
-            
-            img
-                width: 18px
+                    margin-left: 5px
+                    color: $clr-gloomy
+                    font-size: $fs-200
 
-            span
-                margin-left: 5px
-                color: $clr-gloomy
-                font-size: $fs-200
+            .viewsAmount
+                display: inline
 
-        .answersAmount
-            display: inline
-            margin-left: 20px
+                img
+                    width: 18px
 
-            img
-                width: 18px
+                span
+                    margin-left: 5px
+                    color: $clr-gloomy
+                    font-size: $fs-200
 
-            span
-                margin-left: 5px
-                color: $clr-gloomy
-                font-size: $fs-200
+            .author
+                margin: 0
+                margin-left: auto
+                display: inline
 
-        .author
-            display: inline
-            
+                .avatar
+                    width: 26px
+                    margin-right: 10px
+                    aspect-ratio: 1
+                    border-radius: 50%
+                    overflow: hidden
 
-            .avatar
-                width: 26px
+                    & > img
+                        width: 100%
 
-            .name
-                font-size: $fs-200
-        
-        .answersAmount
-            color: $clr-gloomy
-            font-size: $fs-200
+                .name
+                    font-size: $fs-200
+
+                @media screen and (width <= $screen-medium)
+                    margin-right: auto
+                    margin-left: 0

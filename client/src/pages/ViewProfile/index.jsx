@@ -1,69 +1,111 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 import styles from './ViewProfile.module.sass';
 import defaultAvatar from '../../images/default-avatar.svg';
 import locationLogo from '../../images/location-logo.png';
 import cakeLogo from '../../images/cake-logo.png';
+import SideMenu from '../../components/SideMenu';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer/index.jsx';
+import LoadingSpinner from '../../components/LoadingSpinner/index.jsx';
 
 function ViewProfile() {
-    const userAvatar = undefined;
+    const userData = useSelector(({ user: { userData } }) => userData);
+    const isFetching = useSelector(({ user: { isFetching } }) => isFetching);
 
-    return (
-        <main className={styles.content}>
-            <section className={styles.about}>
-                <div className={styles.shortInfo}>
-                    <img src={userAvatar || defaultAvatar} className={styles.avatar} alt="user avatar"/>
-                    
-                    <h1 className={styles.username}>Edd</h1>
+    return <>
+        <Navbar/>
 
+        <main className={styles.container}>
+            <SideMenu/>
+
+            <div className={styles.content}>
+                {
+                    isFetching?
+                    <LoadingSpinner/>
+                    :
                     <div>
-                        <img src={cakeLogo} alt="cake" className={styles.logo}/>
-                        <span>Joined 05/20/2022</span>
+                        <section className={styles.briefInfo}>
+                            <div className={styles.avatar}>
+                                <img src={`${userData.profilePictureUrl}?uuid=${uuidv4()}` || defaultAvatar} alt="user avatar"/>
+                            </div>
+
+                            <div className={styles.bio}>                            
+                                <div>
+                                    <img src={cakeLogo} alt="cake" className={styles.icon}/>
+                                    <span>Joined 05/20/2022</span>
+                                </div>
+
+                                <div>
+                                    <img src={locationLogo} alt="location" className={styles.icon}/>
+                                    <span>USA</span>
+                                </div>
+                            </div>
+                        </section>
+
+                        <div>
+                            <section className={styles.about}>
+                                <h1 className={styles.username}>{userData.username}</h1>
+
+                                <p>{userData.about}</p>
+                            </section>
+
+                            <section className={styles.stats}>
+                                <div>
+                                    <span>Reputation</span>
+                                    <span>37</span>
+                                </div>
+
+                                <div>
+                                    <span>Impact</span>
+                                    <span>37 people reached</span>
+                                </div>
+
+                                <div>
+                                    <span>Last acivity</span>
+                                    <span>5 days ago</span>
+                                </div>
+
+                                <div>
+                                    <span>Questions</span>
+                                    <span>{userData.questions.length}</span>
+                                </div>
+
+                                <div>
+                                    <span>Answers</span>
+                                    <span>5 days ago</span>
+                                </div>
+                            </section>
+
+                            <div>  
+                                {/* <section className={styles.questions}>
+                                    <h2>Questions</h2>
+
+                                    {
+                                        userData.questions?
+                                        userData.questions.map(q => (
+                                            <article className={styles.question}>
+                                                <span className={styles.votes}>3</span>
+
+                                                <p>{q.title}</p>
+                                            </article>
+                                        ))
+                                        :                            
+                                        <div>
+                                            <span>You haven't asked any questions yet</span>
+                                        </div>
+                                    }
+                                </section> */}
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div>
-                        <img src={locationLogo} alt="location" className={styles.logo}/>
-                        <span>USA</span>
-                    </div>
-
-                    <button>Edit profile</button>
-                </div>
-
-                <div className={styles.bio}>
-                    <h2 className={styles.heading}>Bio</h2>
-                    <p className={styles.text}>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus laudantium sunt totam quia autem? Delectus ipsam incidunt ducimus commodi accusamus.
-                    </p>
-                </div>
-            </section>
-
-            <section className={styles.questions}>
-                <h2 className={styles.heading}>Questions</h2>
-
-                <article className={styles.question}>
-                    <span className={styles.votes}>3</span>
-
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, hic?
-                    </p>
-                </article>
-
-                <article className={styles.question}>
-                    <span className={styles.votes}>-1</span>
-
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio mollitia harum magnam officiis consequuntur expedita tempore ratione reprehenderit necessitatibus illo.
-                    </p>
-                </article>
-            </section>
-
-            <section className={styles.tags}>
-                <h2 className={styles.heading}>Tags</h2>
-
-                <span className={styles.tag}>javascript</span>
-                <span className={styles.tag}>sql</span>
-            </section>
+                }
+            </div>
         </main>
-    )
+
+        <Footer/>
+    </>
 }
 
 export default ViewProfile

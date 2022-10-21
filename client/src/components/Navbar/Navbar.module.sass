@@ -8,8 +8,8 @@
     z-index: 999
     top: 0
     background-color: $clr-white
-    padding: 20px
-    box-shadow: 0 2px 7px -4px grey
+    padding: 16px 40px
+    border-bottom: 1px solid $clr-light-gray
 
     .logo 
         width: 80px
@@ -57,10 +57,11 @@
             height: 100%
 
         .navLink
-            font-weight: bold
             text-decoration: none
             color: black
-            font-size: 20px
+
+            &:hover
+                color: $clr-blue
 
         .signupButton
             padding: 12px 20px 
@@ -68,23 +69,14 @@
             background-color: $clr-blue
             color: white
 
-            @media screen and (max-width: $screen-small)
-                font-weight: bold
-                text-decoration: none
-                color: black
-                font-size: 20px
-                background-color: initial 
-                padding: initial
-
         .loginButton 
             padding: 10px 20px 
             text-decoration: none
             color: $clr-blue
 
-            @media screen and (max-width: $screen-small)
-                font-weight: bold
+        @media screen and (max-width: $screen-small)
+            .signupButton, .loginButton
                 text-decoration: none
                 color: black
-                font-size: 20px
                 background-color: initial 
                 padding: initial

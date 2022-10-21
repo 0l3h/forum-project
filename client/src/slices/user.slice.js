@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const authSlice = createSlice({
-    name: 'auth',
+const userSlice = createSlice({
+    name: 'user',
     initialState: {
         userData: {},
         isFetching: false,
@@ -80,6 +80,25 @@ const authSlice = createSlice({
 
             state.isFetching = false;
             state.error = error;
+        },
+
+        // UPDATE USER'S DATA
+
+        updateMyProfileRequest: (state) => {
+            state.isFetching = true;
+            state.error = null;
+        },
+        updateMyProfileSuccess: (state, action) => {
+            const { payload } = action;
+
+            state.userData = payload;
+            state.isFetching = false;
+        },
+        updateMyProfileError: (state, action) => {
+            const { payload: { error } } = action;
+
+            state.isFetching = false;
+            state.error = error;
         }
     }
 })
@@ -95,7 +114,11 @@ export const {
 
     getMyProfileRequest,
     getMyProfileSuccess,
-    getMyProfileError
-} = authSlice.actions;
+    getMyProfileError,
 
-export default authSlice.reducer;
+    updateMyProfileRequest,
+    updateMyProfileSuccess,
+    updateMyProfileError
+} = userSlice.actions;
+
+export default userSlice.reducer;

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { getMyProfileRequest } from './slices/user.slice';
 import Home from './pages/Home';
@@ -17,11 +17,12 @@ import AuthRequired from "./components/AuthRequired";
 import NotAuthorized from "./components/NotAuthorized";
 
 function App() {
+  const userId = useSelector(state => state.user.userData.id);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getMyProfileRequest());
-  }, []);
+  }, [userId]);
 
   return (
     <div>

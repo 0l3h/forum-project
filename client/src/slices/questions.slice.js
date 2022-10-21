@@ -8,9 +8,6 @@ export const questionsSlice = createSlice({
         error: null,
     },
     reducers: {
-
-        // CREATE A QUESTION
-
         createQuestionRequest: (state) => {
             state.isFetching = true;
             state.error = null;
@@ -24,8 +21,6 @@ export const questionsSlice = createSlice({
             state.error = error;
             state.isFetching = false;
         },
-
-        // GET QUESTIONS
 
         getQuestionsRequest: (state) => {
             state.isFetching = true;
@@ -43,8 +38,6 @@ export const questionsSlice = createSlice({
             state.error = error;
             state.isFetching = false;
         },
-
-        // DELETE QUESTION BY ID
 
         deleteQuestionByIdRequest: (state) => {
             state.isFetching = true;

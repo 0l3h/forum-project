@@ -2,15 +2,16 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './Header.module.sass';
 import forumPageImage from '../../images/forum-page.png';
-import searchingImage from './../../images/searching-illustration.svg';
-import questionImage from './../../images/question-illustration.svg';
-import answerImage from './../../images/answer-illustration.svg';
+import sentinelLogo from '../../images/companies/sentinel.png';
+import omnisightLogo from '../../images/companies/omnisight.png';
+import goldandstoneLogo from '../../images/companies/goldandstone.png';
+import illumaLogo from '../../images/companies/illuma.png';
 
 function Header() {
     return (
         <header className={styles.header}>
             <h1 className={styles.heading}>
-                Here to help you.
+                Helping you to write better software.
             </h1>
             
             <span className={styles.subheading}>
@@ -18,7 +19,7 @@ function Header() {
             </span>
 
             <div className={styles.links}>
-                <NavLink className={styles.browseQuestionsButton} to='/sign-up'>
+                <NavLink className={styles.browseQuestionsButton} to='/browse-questions'>
                     Browse Questions
                 </NavLink>
 
@@ -29,31 +30,12 @@ function Header() {
             
             <img src={forumPageImage} alt="Forum page" className={styles.forumImage}/>
 
-            <ul className={styles.features}>
-                <li className={styles.featCard}>
-                    <img src={searchingImage} alt="answers image" />
-                    
-                    <span className={styles.heading}>Find answers</span>
-                    
-                    <p>Stuck with the problem? Chances are someone already asked for help</p>
-                </li>
-                
-                <li className={styles.featCard}>
-                    <img src={questionImage} alt="ask image"/>
-                    
-                    <span className={styles.heading}>Ask questions</span>
-                    
-                    <p>If you can't find solution, you may ask other devs about your specific problem</p>
-                </li>
-                
-                <li className={styles.featCard}>
-                    <img src={answerImage} alt="help image" />
-                    
-                    <span className={styles.heading}>Help others</span>
-                    
-                    <p>Know solution to the problem? Help by providing the answer</p>
-                </li>
-            </ul>
+            <div className={styles.sponsors}>
+                <img src={sentinelLogo} alt="" />
+                <img src={omnisightLogo} alt="" />
+                <img src={goldandstoneLogo} alt="" />
+                <img src={illumaLogo} alt="" />
+            </div>
         </header>
     )
 }

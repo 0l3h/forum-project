@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
-import { getMyProfileRequest } from '../../slices/auth.slice';
+import { getMyProfileRequest } from '../../slices/user.slice';
 
 function AuthRequired({ children }) {
   const location = useLocation();
   const dispatch = useDispatch();
-  const userId = useSelector(({ auth: { userData } }) => userData.id);
+  const userId = useSelector(({ user: { userData } }) => userData.id);
 
   useEffect(() => {
     dispatch(getMyProfileRequest());

@@ -6,8 +6,10 @@ import {
     logInSuccess,
     logInError,
     getMyProfileSuccess,
-    getMyProfileError
-} from '../slices/auth.slice.js';
+    getMyProfileError,
+    updateMyProfileError,
+    updateMyProfileSuccess
+} from '../slices/user.slice.js';
 
 function* logInUser(action) {
     const { payload } = action;
@@ -36,8 +38,6 @@ function* signUpUser(action) {
 function* getUserProfile() {
     try {
         const userData = yield call(api.getUserProfile);
-        
-        console.log('userData', userData)
 
         yield put(getMyProfileSuccess(userData.data));
     } catch (error) {
@@ -45,4 +45,16 @@ function* getUserProfile() {
     }
 };
 
-export { logInUser, signUpUser, getUserProfile };
+function* updateUserProfile(action) {
+    const { payload } = action;
+    
+    try {
+        const newUserData = yield call(api.updateUserProfile, payload);
+        
+        yield put(updateMyProfileSuccess(newUserData.data));
+    } catch (error) {
+        yield put(updateMyProfileError("Cannot update profile"))
+    }
+}
+
+export { logInUser, signUpUser, getUserProfile, updateUserProfile };

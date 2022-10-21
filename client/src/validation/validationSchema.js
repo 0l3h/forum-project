@@ -18,7 +18,7 @@ const schemas = {
             .matches(passwordRegEx, 'Password must contain at least 6 characters, including at least one number, one uppercase and one lowercase letter')
             .required('Type in your password'),
     }),
-    signupShema: yup.object({
+    signupSchema: yup.object({
         username: yup
             .string()
             .required('Specify your username'),
@@ -35,14 +35,20 @@ const schemas = {
             .required('Confirm your password')
             .test(testOptions),
     }),
-    questionShema: yup.object({
+    questionSchema: yup.object({
         title: yup
             .string()
-            .max(10)
-            .required(),
+            .max(100, 'Tile must have 100 characters at most')
+            .required('You must enter the title of a question'),
         questionBody: yup
             .string()
-            .max(200)
+            .max(1000)
+            .required('Enter detailed description of your problem')
+    }),
+    answerSchema: yup.object({
+        answer: yup
+            .string()
+            .max(1000, 'Answer must not exceed 500 characters')
             .required()
     })
 }

@@ -1,7 +1,9 @@
+@import '../../sass/_font-sizes'
 @import '../../sass/_colors'
 
 .stylingContainer
     display: flex
+    background-color: $clr-white
     justify-content: flex-end
     border-radius: 6px 6px 0 0
     padding: 10px
@@ -22,4 +24,39 @@
     width: 100%
     border: 1px solid $clr-light-gray 
     border-radius: 0 0 6px 6px
-    border-top: none 
+    border-top: none
+
+.errorBox
+    position: relative
+
+    .errorMesage
+        position: absolute
+        right: 0
+        font-size: $fs-200
+        color: $clr-err-msg
+
+.previewHeading
+    font-weight: bold
+
+.textPreview
+    margin: 20px 0
+
+    p
+        box-sizing: border-box
+        width: 100%
+        overflow-wrap: break-all
+        word-break: break-all
+        white-space: pre-wrap
+        height: fit-content
+    
+    strong
+        font-weight: bold
+
+    pre
+        padding: 20px
+        background-color: $clr-light
+
+    blockquote
+        padding: 14px
+        background-color: $clr-light-blue
+        border-left: 3px solid $clr-blue

@@ -1,6 +1,7 @@
 @import '../../sass/_colors'
 @import '../../sass/_font-sizes'
 @import '../../sass/_line-heights'
+@import '../../sass/_breakpoints'
     
 .content
     min-height: 100vh
@@ -15,6 +16,9 @@
         width: 40%
         background-size: 320px
         background-color: $clr-blue
+
+        @media screen and (width <= $screen-medium)
+            display: none
 
         .decor
             position: absolute

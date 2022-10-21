@@ -6,7 +6,6 @@ function Input({label, ...props}) {
   const [field, meta] = useField(props);
   
   return <>
-    <label htmlFor={props.name} className={styles.label}>{label}</label>
     <input {...field} {...props} className={styles.dataInput}/>
     <div className={styles.errorBox}>
     {

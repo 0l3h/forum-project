@@ -1,9 +1,17 @@
 @import '../../sass/_font-sizes'
 @import '../../sass/_colors'
+@import '../../sass/_breakpoints'
 
 .dropdown
+    display: flex
+    align-items: center
+    z-index: 10000
     position: relative
     margin-right: 12px
+
+    @media screen and (width <= $screen-medium)
+        .avatar
+            display: none
 
     .dropdownButton
         background: none
@@ -13,7 +21,13 @@
             width: 20px
     
     .avatar
-        width: 32px
+        aspect-ratio: 1
+        border-radius: 50%
+        overflow: hidden
+        width: 36px
+
+        & > img
+            width: 100%
 
     .username
         font-size: $fs-300
@@ -31,12 +45,28 @@
         
         &[data-is-open='false']
             display: none
-        
+
+        @media screen and (width <= $screen-medium)
+            background-color: transparent
+            box-shadow: none
+            top: 20px
+            padding: 0
+
         .pageLink
             display: block
             text-decoration: none
             color: $clr-dark
             margin: 16px 0
 
+            &:hover
+                color: $clr-blue
+
+        .logoutButton
+            border: none
+            padding: 0
+            background: none
+            color: $clr-dark
+            margin-bottom: 16px
+            
             &:hover
                 color: $clr-blue

@@ -3,11 +3,10 @@ import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import companyLogo from '../../images/logo.png';
-import loginImage from '../../images/login-illustration.svg';
 import instagramLogo from '../../images/instagram-logo.png';
 import twitterLogo from '../../images/twitter-logo.png';
 import linkedInLogo from '../../images/linkedin-logo.png';
-import { logInRequest } from '../../slices/auth.slice';
+import { logInRequest } from '../../slices/user.slice';
 import schemas from '../../validation/validationSchema';
 import styles from './LogIn.module.sass';
 import Input from '../../components/Input';
@@ -17,7 +16,7 @@ function LogIn() {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const selector = state => state.auth.userData.id; 
+    const selector = state => state.user.userData.id; 
 
     const userId = useSelector(selector);
 
@@ -29,7 +28,6 @@ function LogIn() {
     }
 
     useEffect(() => {
-        console.log(userId, from)
         userId && navigate(from, { replace: true });
     });
 

@@ -1,52 +1,92 @@
 import React from 'react';
 import styles from './Home.module.sass';
 import Header from '../../components/Header';
-import technologiesImage from './../../images/technologies.svg';
-import downloadImage from './../../images/cloud-download.svg';
-import maintenanceImage from './../../images/maintenance.svg';
+import questionScreenshot from './../../images/question-screenshot.png';
+import postsScreenshot from './../../images/questions-screenshot.png'
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 
 function index() {
-    return (
+    return <>
+        <Navbar/>
+        
         <main>
             <Header/>
             
+            <ul className={styles.features}>
+                <li className={styles.featCard}>
+                    <span className={styles.heading}>+25000</span>
+                    
+                    <p>Questions already asked</p>
+                </li>
+                
+                <li className={styles.featCard}>
+                    <span className={styles.heading}>+120000</span>
+                    
+                    <p>Visitors every month</p>
+                </li>
+                
+                <li className={styles.featCard}>
+                    <span className={styles.heading}>10 posts</span>
+                    
+                    <p>Every new second</p>
+                </li>
+            </ul>
+
             <section className={styles.details}>
                 <div className={styles.description}>
-                    <img src={downloadImage} alt="" />
+                    <div>
+                        <h3 className={styles.heading}>
+                            Find answers
+                        </h3>
+                        
+                        <p className={styles.text}>
+                            Stuck with the problem? Chances are someone already asked for help
+                        </p>
+                    </div>
 
-                    <h3 className={styles.heading}>
-                        Lorem, ipsum dolor.
-                    </h3>
-                    
-                    <p className={styles.text}>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, et vero aliquid doloremque est quibusdam eos. Voluptatem maiores eos corrupti!
-                    </p>
+                    <div className={styles.screenshot}>
+                        <img src={postsScreenshot} alt="" />
+                    </div>
                 </div>
                 
                 <div className={styles.description}>
-                    <h3 className={styles.heading}>
-                        Dozens of topics
-                    </h3>
                     
-                    <p className={styles.text}>
-                        Python, JavaScript or PHP - here you'll find technology related to your question
-                    </p>
-                    
-                    <img src={technologiesImage} alt="" />
+                    <div>
+                        <h3 className={styles.heading}>
+                            Ask questions
+                        </h3>
+                        
+                        <p className={styles.text}>
+                            If you can't find solution, you may ask other devs about your specific problem
+                        </p>
+                    </div>
+
+                    <div className={styles.screenshot}>
+                        <img src={questionScreenshot} alt="" />
+                    </div>
                 </div>
                 
-                <div className={styles.description}>
-                    <img src={maintenanceImage} alt="" />
-                    
-                    <h3 className={styles.heading}>Lorem, ipsum dolor.</h3>
-                    
-                    <p className={styles.text}>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, et vero aliquid doloremque est quibusdam eos. Voluptatem maiores eos corrupti!
-                    </p>
+                <div className={styles.description}>                    
+                    <div>
+                        <h3 className={styles.heading}>
+                            Help others
+                        </h3>
+                        
+                        <p className={styles.text}>
+                            Know solution to the problem? Help by providing the answer
+                        </p>
+                    </div>
+
+                    <div className={styles.screenshot}>
+                        <img src={postsScreenshot} alt="" />
+                    </div>
                 </div>
             </section>
         </main>
-    )
+
+        <Footer/>
+    </>
 }
 
 export default index

@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "dotenv": "^16.0.3"
+  },
+  "name": "pet-project",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "cd server && npm i && npx sequelize-cli db:migrate && node src/app.js",
+    "heroku-postbuild": "cd client && npm i && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0l3h/forum-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/0l3h/forum-project/issues"
+  },
+  "homepage": "https://github.com/0l3h/forum-project#readme"
+}

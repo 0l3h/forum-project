@@ -1,13 +1,26 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import Footer from '../../components/Footer';
+import Navbar from '../../components/Navbar';
+import SideMenu from '../../components/SideMenu';
 import defaultAvatar from '../../images/default-avatar.svg';
 import styles from './Users.module.sass';
+import PopularQuestions from '../../components/PopularQuestions';
+import SubscribeSection from '../../components/SubscribeSection';
 
 function Users() {
-  return (
-    <section className={styles.content}>
-        <h1 className={styles.heading}>Users</h1>
-        
-        <ul className={styles.userlist}>
+  return <>
+    <Navbar/>
+
+    <main className={styles.container}>
+      <SideMenu/>
+      
+      <section className={styles.content}>
+
+        <div className={styles.userlist}>
+          <h1 className={styles.heading}>Users</h1>
+
+          <ul>
             <li className={styles.user}>
                 <img src={defaultAvatar} alt="user avatar"/>
                 <span>Caleb</span>
@@ -100,9 +113,19 @@ function Users() {
                 <img src={defaultAvatar} alt="user avatar"/>
                 <span>Jacob</span>
             </li>
-        </ul>
-    </section>
-  )
+          </ul>
+        </div>          
+
+        <div>
+          <PopularQuestions/>
+
+          <SubscribeSection/>
+        </div>
+      </section>
+    </main>
+
+    <Footer/>
+  </>
 }
 
 export default Users;

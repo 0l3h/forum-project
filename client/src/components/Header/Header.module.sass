@@ -8,28 +8,12 @@
     flex-direction: column
     align-items: center
     text-align: center
-    min-height: 140vh
+    min-height: 100vh
     background-image: url(./../../images/header-background.png)
     background-repeat: no-repeat
     background-size: cover
     background-position: center
     row-gap: 20px
-
-    .heading
-        margin: 18vh 0 20px
-        font-size: $fs-800
-        font-weight: 800
-
-        @media screen and (max-width: $screen-small)
-            font-size: $fs-600
-
-    .subheading
-        font-size: $fs-500
-        font-weight: 400
-        color: $clr-gloomy
-
-        @media screen and (max-width: $screen-small)
-            font-size: $fs-400
 
     .links
         margin-top: 40px
@@ -39,70 +23,102 @@
             text-decoration: none
 
         .joinButton
-            background: $clr-blue
+            background: rgb(0,40,195)
+            background: linear-gradient(0deg, #002fff 0%, #00aeff 100%)
+            border-bottom: 4px solid #003a91
+            box-shadow: 0 3px 14px -2px #0011ff
             padding: 14px 18px
-            border-radius: 26px
+            border-radius: 12px
             color: $clr-white
 
-        .browseQuestionsButton
+        .browseQuestionsButton 
             border-radius: 26px
             color: $clr-blue
 
-    // .codeSection 
-    //     background-color: #4e4e4e
-    //     margin-top: 60px
-    //     padding: 30px
-    //     line-height: 30px
-    //     color: white
-    //     font-size: $fs-400
-    //     text-align: left
-    //     min-width: fit-content
-    //     width: min(50vw, 600px)
-    //     border-radius: 20px
+        @media screen and (max-width: $screen-small)
+            margin-top: 25px
 
-    //     @media screen and (max-width: $screen-small)
-    //         font-size: $fs-300
-        
+            .joinButton, .browseQuestionsButton
+                display: block
+                margin: 30px 0
+
+    & > .heading
+        position: relative
+        margin: 18vh 0 20px
+        font-size: $fs-800
+        font-weight: 800
+        width: 40%
+        animation: headingShowUp 1.2s
+
+        @media screen and (max-width: $screen-small)
+            font-size: $fs-600
+            width: 80%
+            margin-bottom: 10px
+
+    .subheading
+        position: relative
+        font-size: $fs-500
+        font-weight: 400
+        color: $clr-gloomy
+        animation: subheadingShowUp 1.2s
+
+        @media screen and (max-width: $screen-small)
+            font-size: $fs-400
+
     .forumImage
+        position: relative
         margin-top: 80px
-        width: min(70%, 1000px)
+        width: min(80%, 1000px)
         border-radius: 16px
-        box-shadow: 0px 10px 55px -25px rgba(99,99,255,1)
+        box-shadow: 0px 10px 40px -10px #64646493
+        animation: screenshotShowUp 1.2s
 
-.features 
-    display: flex
-    margin: 5vh
-    gap: 20px
-    width: min(90%, 1000px)
+        @media screen and (max-width: $screen-small)
+            margin-top: 50px
+            
+    .sponsors
+        position: relative
 
-    @media screen and (max-width: $screen-small)
-        flex-direction: column
-        width: 60%
+        & > span
+            width: fit-content
+            color: blue
+            background-color: #eceeff
+            padding: 8px 10px
+            font-size: $fs-200
+            margin-bottom: 20px
+            border-radius: 20px
 
-    .featCard 
-        text-align: center
-        background-color: white
-        border-radius: 7px
-        margin: 0 10px
-        box-shadow: 0 2px 6px -3px #4e4e4e
-        padding: 20px
-        flex: 1
-       
-        *
-            margin: 10px 0
-            line-height: $lh-28
-
-        .heading 
-            font-size: x-large
+        & > h3
             font-weight: bold
+            font-size: $fs-600
 
-            @media screen and (max-width: $screen-small)
-                font-size: $fs-400
-        
-        img 
-            margin: 20px auto
-            height: 120px
-            display: block
+        img
+            filter: grayscale(1)
+            margin: 60px
+            width: 100px
 
-            @media screen and (max-width: $screen-small)
-                height: 100px
+            &:hover
+                filter: grayscale(0)
+
+    @keyframes headingShowUp
+        0%
+            top: 30px
+            color: transparent
+            
+        100%
+            top: 0
+
+    @keyframes subheadingShowUp
+        0%
+            top: 50px
+            color: transparent
+            
+        100%
+            top: 0
+
+    @keyframes screenshotShowUp
+        0%
+            top: 70px
+            
+        100%
+            top: 0

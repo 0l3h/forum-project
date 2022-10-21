@@ -2,47 +2,63 @@
 @import '../../sass/_colors'
 @import '../../sass/_font-sizes'
 @import '../../sass/_line-heights'
+@import '../../sass/mixins'
 
-.content
-    display: flex
-    justify-content: center
-    padding-top: 12vh
-    min-height: 80vh
-    gap: 20px
-    background: 
-        color: $clr-light
-        repeat: no-repeat
-        size: cover
+.container
+    @include container
 
-    .questionForm
-        order: -1
-        display: flex
-        flex-direction: column
-        height: fit-content
-        padding: 20px
-        width: min(80%, 500px)
-        gap: 20px
-        border-radius: 10px
-            
-        .heading
-            font-weight: bold
-            font-size: $fs-600
-        
-        .postButton
-            margin-top: 30px
-            background-color: $clr-blue
-            margin-left: auto
-            width: 20%
-            padding: 8px
-            border: none
-            border-radius: 5px
-            color: $clr-white
+    .content
+        @include content
 
-        .warning
+        @media screen and (width <= $screen-medium)
+            min-height: fit-content
+
+        .questionForm
+            box-sizing: border-box
+            background-color: $clr-white
             display: flex
-            align-items: center
-            font-size: $fs-200
+            flex-direction: column
+            height: fit-content
+            margin: 5vh
+            padding: 60px
+            width: min(80%, 600px)
+            gap: 20px
 
-            .warningIcon
-                margin-right: 14px
-                width: 28px
+            @media screen and (width <= $screen-medium)
+                width: 100%
+                margin: 0
+                padding: 40px
+
+            .heading
+                font-weight: bold
+                font-size: $fs-600
+
+                @media screen and (width <= $screen-medium)
+                    font-size: $fs-400
+
+            label
+                & > span
+                    font-weight: bold
+                
+                & > p
+                    margin-top: 10px
+                    color: $clr-gloomy
+
+            .postButton
+                margin-top: 30px
+                background-color: $clr-blue
+                margin-left: auto
+                width: 20%
+                padding: 8px
+                border: none
+                border-radius: 5px
+                color: $clr-white
+
+            .warning
+                display: flex
+                align-items: center
+                font-size: $fs-200
+
+                .warningIcon
+                    margin-right: 14px
+                    width: 28px

@@ -1,0 +1,44 @@
+@import '../../sass/_colors'
+@import '../../sass/_font-sizes'
+@import '../../sass/_breakpoints'
+@import '../../sass/_line-heights'
+    
+.subscribeSection
+    box-sizing: border-box
+    padding: 30px
+    color: white
+    width: 16vw
+    background: linear-gradient(125deg, #29ffff 0%, #433fff 100%)
+    font-size: large
+    line-height: 1.6rem
+    height: min-content
+
+    @media screen and (width <= $screen-medium)
+        border-radius: 0
+        margin: 0
+        width: 100vw
+    
+    .heading
+        font-size: $fs-500
+        margin: 14px 0
+        font-weight: bold
+
+    .text
+        font-size: $fs-200
+        line-height: $lh-28
+        font-weight: bold
+
+    .subscribeButton
+        display: block
+        margin: 14px 0
+        font-size: $fs-200
+        border-radius: 30px
+        width: max-content
+        text-align: center
+        background-color: $clr-white
+        text-decoration: none
+        color: $clr-blue
+        padding: 5px 10px
+        
+        @media screen and (width <= $screen-medium)
+            width: 20%
