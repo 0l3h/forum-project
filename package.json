@@ -8,7 +8,7 @@
   "main": "index.js",
   "devDependencies": {},
   "scripts": {
-    "start": "cd server && npm i && npx sequelize-cli db:migrate && node src/app.js",
+    "start": "cd server && npm i && node src/app.js",
     "heroku-postbuild": "cd client && npm i && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
