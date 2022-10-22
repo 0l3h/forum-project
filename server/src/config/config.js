@@ -9,5 +9,8 @@ module.exports = {
     dialect: "postgres",
     logging: false
   },
+  production: {
+    dialect: "postgres"
+  }
 }
 
