@@ -14,7 +14,7 @@ const port = process.env.PORT || 5000;
 
 app.disable('x-powered-by');
 
-app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
+app.use(cors({ credentials: true, origin: 'https://askme-forum-app.herokuapp.com/' }));
 app.use(express.json({limit: "10mb"}));
 app.use(express.static(path.join(__dirname, '../../client/build')));
 app.use(cookieParser());
