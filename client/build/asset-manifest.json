@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c21ab422.css",
+    "main.js": "/static/js/main.7c3a1682.js",
+    "static/media/forum-page.png": "/static/media/forum-page.a307b2932ed5fff21732.png",
+    "static/media/header-background.png": "/static/media/header-background.c3f5b3ebede29642f11b.png",
+    "static/media/questions-screenshot.png": "/static/media/questions-screenshot.25ab557ef00b7509c07e.png",
+    "static/media/omnisight.png": "/static/media/omnisight.2174f98d7d03839d1e4d.png",
+    "static/media/question-screenshot.png": "/static/media/question-screenshot.0061d84612b00e05d2d4.png",
+    "static/media/logo.png": "/static/media/logo.5ef8e3db38a54c51d9aa.png",
+    "static/media/page-not-found.svg": "/static/media/page-not-found.bdf1c60c297dc6528f56fe6a382dacdf.svg",
+    "static/media/goldandstone.png": "/static/media/goldandstone.f7e8c7c71acdcf505b26.png",
+    "static/media/sentinel.png": "/static/media/sentinel.7ae420e33556d73d4387.png",
+    "static/media/askmeLogo.png": "/static/media/askmeLogo.6d6741e59d80277952fe.png",
+    "static/media/illuma.png": "/static/media/illuma.dfd3d2e0d372ae3d713e.png",
+    "static/media/default-avatar.svg": "/static/media/default-avatar.4952e5a786f5098d7c43ab6343703257.svg",
+    "static/media/open-menu-icon.svg": "/static/media/open-menu-icon.713eda253e2dc3b23fad.svg",
+    "static/media/dropdown-open-icon.svg": "/static/media/dropdown-open-icon.9c2572999674b4e078936e4a6132df0b.svg",
+    "static/media/dropdown-close-icon.svg": "/static/media/dropdown-close-icon.d9fd95564f3907e04fce1f9d5dc30d9c.svg",
+    "static/media/close-menu-icon.svg": "/static/media/close-menu-icon.511a0a28aaabd1112b30.svg",
+    "index.html": "/index.html",
+    "main.c21ab422.css.map": "/static/css/main.c21ab422.css.map",
+    "main.7c3a1682.js.map": "/static/js/main.7c3a1682.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c21ab422.css",
+    "static/js/main.7c3a1682.js"
+  ]
+}
