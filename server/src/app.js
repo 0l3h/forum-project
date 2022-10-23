@@ -20,7 +20,7 @@ app.use(cors({
     origin: 'https://askme-forum-app.herokuapp.com/' 
 }));
 app.use(express.json({limit: "10mb"}));
-app.use(express.static(path.join(__dirname, 'client/build/index.html')));
+app.use(express.static(path.join(__dirname, 'client/build/static/index.html')));
 app.use(cookieParser());
 
 app.get('/browse-questions', getQuestions);
