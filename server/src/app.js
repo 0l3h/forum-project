@@ -14,7 +14,7 @@ const port = process.env.PORT || 5000;
 
 app.disable('x-powered-by');
 
-app.use(express.static(path.join(__dirname, '../client/build/index.html')));
+app.use(express.static(path.join(__dirname, '../../client/build')));
 app.use(cors({ 
     credentials: true, 
     // origin: 'http://localhost:3000' 
@@ -23,6 +23,7 @@ app.use(cors({
 app.use(express.json({limit: "10mb"}));
 app.use(cookieParser());
 
+app.get('/*', (req, res) => { res.sendFile(path.join(__dirname, '../../client/build/index.html')) });
 app.get('/browse-questions', getQuestions);
 app.get('/browse-questions/:id', getQuestionById);
 app.get('/view-profile', auth, getMyProfile);
