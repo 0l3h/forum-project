@@ -1,11 +1,12 @@
 import axios from 'axios';
 
 const host = 'localhost';
-const port = 7391;
+const port = process.env.PORT;
 
 const config = {
     withCredentials: true,
-    baseURL: `http://${host}:${port}`,
+    baseURL: "https://askme-forum-app.herokuapp.com",
+    // baseURL: `http://${host}:${port}`,
 };
 
 const instance = axios.create(config);
