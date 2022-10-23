@@ -8,8 +8,7 @@
   "main": "index.js",
   "devDependencies": {},
   "scripts": {
-    "start": "cd server && npm i --production && node src/app.js",
-    "heroku-postbuild": "cd client && npm i && npm run build",
+    "start": "cd server && npm i --production && node src/app.js && cd ../client && npm i && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
