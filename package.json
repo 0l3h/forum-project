@@ -8,7 +8,7 @@
   "main": "index.js",
   "devDependencies": {},
   "scripts": {
-    "start": "cd server && npm i && node src/app.js",
+    "start": "npmi && npm i --prefix server && node server/src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
