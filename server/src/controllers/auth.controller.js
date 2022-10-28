@@ -79,7 +79,7 @@ module.exports.login = async (req, res) => {
             secure: true,
         };
 
-        console.log('\nUser signed up\n');
+        console.log('\nUser logged in\n');
 
         res.cookie('access-token', token, cookieOptions);
         res.json({ id: user.id });

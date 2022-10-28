@@ -17,6 +17,8 @@ const userSlice = createSlice({
         logInSuccess: (state, action) => {
             const { payload } = action;
 
+            console.log(payload);
+
             state.userData = payload;
             state.isFetching = false;
         },
