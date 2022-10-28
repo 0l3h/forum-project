@@ -15,14 +15,6 @@
         padding: 20px
         margin: 0
 
-    .votes
-        img
-            width: 26px
-            margin: 10px
-
-    .votes + div
-        display: flex
-
     .heading
         border-bottom: 1px solid #979797
         padding-bottom: 14px
@@ -50,13 +42,30 @@
             flex-direction: column
             line-height: $lh-28
             padding-bottom: 20px
-                    
-            .author
-                margin-left: auto
 
-                img
-                    margin-right: 5px
-                    width: 30px
+            .votes
+                & > button
+                    background: none
+                    border: none
+                    color: $clr-gloomy
+
+                    &:hover
+                        text-decoration: underline
+                    
+            .user
+                display: flex
+                align-items: center
+
+                .userAvatar
+                    margin-left: auto
+                    aspect-ratio: 1
+                    border-radius: 50%
+                    overflow: hidden
+                    width: 36px
+                    margin-right: 10px
+
+                    & > img
+                        width: 100%
 
             .questionBody
                 & > *
@@ -80,7 +89,6 @@
             font-weight: bold
 
         .answers
-
             .answer
                 line-height: $lh-28
                 border-bottom: 1px solid #ddd
@@ -136,7 +144,6 @@
                         align-items: center
 
                         .avatar
-                            margin-right: 10px
                             aspect-ratio: 1
                             border-radius: 50%
                             overflow: hidden

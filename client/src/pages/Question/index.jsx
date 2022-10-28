@@ -74,8 +74,10 @@ function Question() {
                         <button onClick={() => voteQuestion(-1)}>Downvote</button>
                     </div>
 
-                    <div className={styles.author}>
-                        <img src={userAvatar} alt="user avatar" />
+                    <div className={styles.user}>
+                        <div className={styles.userAvatar}>
+                            <img src={userAvatar} alt="user avatar" />
+                        </div>
                         <span>{question?.user?.username}</span>
                     </div>
                 </section>

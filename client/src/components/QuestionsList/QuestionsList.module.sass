@@ -8,6 +8,7 @@
     margin: 40px
     background-color: $clr-white
     padding: 50px
+    min-height: 70vh
 
     @media screen and (width <= $screen-medium)
         width: 100vw
@@ -25,40 +26,6 @@
     .resultsAmount
         margin: 16px 0
         display: block
-
-    .filter
-        display: flex
-        align-items: center
-        padding: 8px 0
-        background: linear-gradient(0deg, #dadada 0%, rgba(255,255,255,1) 100%)
-        box-shadow: 0 2px 10px -3px #434343b3
-        background-color: $clr-white
-        border-radius: 5px
-
-        span
-            padding: 10px 26px
-            height: 20px
-
-        div
-            margin-left: auto
-
-            label
-                display: inline-block
-                vertical-align: middle
-                padding: 10px 26px
-                height: 20px
-
-                &:hover
-                    cursor: pointer
-
-                &:not(:last-of-type)
-                    border-right: 1.2px solid gray
-
-        .applyButton
-            margin-right: 20px
-            margin-left: auto
-            border: none
-            background: none
         
     .page
         display: flex

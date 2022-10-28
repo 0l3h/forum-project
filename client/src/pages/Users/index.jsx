@@ -21,98 +21,30 @@ function Users() {
           <h1 className={styles.heading}>Users</h1>
 
           <ul>
-            <li className={styles.user}>
-                <img src={defaultAvatar} alt="user avatar"/>
-                <span>Caleb</span>
-            </li>
-            <li className={styles.user}>
-                <img src={defaultAvatar} alt="user avatar"/>
-                <span>Daniel</span>
-            </li>
-            <li className={styles.user}>
-                <img src={defaultAvatar} alt="user avatar"/>
-                <span>Matthew</span>
-            </li>
-            <li className={styles.user}>
-                <img src={defaultAvatar} alt="user avatar"/>
-                <span>Kevin</span>
-            </li>
-            <li className={styles.user}>
-                <img src={defaultAvatar} alt="user avatar"/>
-                <span>Benjamin</span>
-            </li>
-            <li className={styles.user}>
-                <img src={defaultAvatar} alt="user avatar"/>
-                <span>Ryan</span>
-            </li>
-            <li className={styles.user}>
-                <img src={defaultAvatar} alt="user avatar"/>
-                <span>John</span>
-            </li>
-            <li className={styles.user}>
-                <img src={defaultAvatar} alt="user avatar"/>
-                <span>Caleb</span>
-            </li>
-            <li className={styles.user}>
-                <img src={defaultAvatar} alt="user avatar"/>
-                <span>Tyler</span>
-            </li>
-            <li className={styles.user}>
-                <img src={defaultAvatar} alt="user avatar"/>
-                <span>Raymond</span>
-            </li>
-            <li className={styles.user}>
-                <img src={defaultAvatar} alt="user avatar"/>
-                <span>Dylan</span>
-            </li>
-            <li className={styles.user}>
-                <img src={defaultAvatar} alt="user avatar"/>
-                <span>Caleb</span>
-            </li>
-            <li className={styles.user}>
-                <img src={defaultAvatar} alt="user avatar"/>
-                <span>Caleb</span>
-            </li>
-            <li className={styles.user}>
-                <img src={defaultAvatar} alt="user avatar"/>
-                <span>Caleb</span>
-            </li>
-            <li className={styles.user}>
-                <img src={defaultAvatar} alt="user avatar"/>
-                <span>Caleb</span>
-            </li>
-            <li className={styles.user}>
-                <img src={defaultAvatar} alt="user avatar"/>
-                <span>Caleb</span>
-            </li>
-            <li className={styles.user}>
-                <img src={defaultAvatar} alt="user avatar"/>
-                <span>Gary</span>
-            </li>
-            <li className={styles.user}>
-                <img src={defaultAvatar} alt="user avatar"/>
-                <span>Caleb</span>
-            </li>
-            <li className={styles.user}>
-                <img src={defaultAvatar} alt="user avatar"/>
-                <span>Scott</span>
-            </li>
-            <li className={styles.user}>
-                <img src={defaultAvatar} alt="user avatar"/>
-                <span>Caleb</span>
-            </li>
-            <li className={styles.user}>
-                <img src={defaultAvatar} alt="user avatar"/>
-                <span>Caleb</span>
-            </li>
-            <li className={styles.user}>
-                <img src={defaultAvatar} alt="user avatar"/>
-                <span>Caleb</span>
-            </li>
-            <li className={styles.user}>
-                <img src={defaultAvatar} alt="user avatar"/>
-                <span>Jacob</span>
-            </li>
+            <NavLink to='/404' className={styles.user}>
+                <div className={styles.userAvatar}>
+                    <img src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="user avatar"/>
+                </div>
+                <span>Elizabeth</span>
+            </NavLink>
+            <NavLink to='/404' className={styles.user}>
+                <div className={styles.userAvatar}>
+                    <img src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="user avatar"/>
+                </div>
+                <span>Elizabeth</span>
+            </NavLink>
+            <NavLink to='/404' className={styles.user}>
+                <div className={styles.userAvatar}>
+                    <img src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="user avatar"/>
+                </div>
+                <span>Elizabeth</span>
+            </NavLink>
+            <NavLink to='/404' className={styles.user}>
+                <div className={styles.userAvatar}>
+                    <img src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="user avatar"/>
+                </div>
+                <span>Elizabeth</span>
+            </NavLink>
           </ul>
         </div>          
 
