@@ -21,11 +21,6 @@ app.use(cors({
 app.use(express.json({limit: "10mb"}));
 app.use(cookieParser());
 
-if(process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, '../../client/build')));
-    // app.get('/*', (req, res, next) => { res.sendFile(path.join(__dirname, '../../client/build/index.html')) });
-}
-
 app.get('/browse-questions', getQuestions);
 app.get('/browse-questions/:id', getQuestionById);
 app.get('/view-profile', auth, getMyProfile);
@@ -37,6 +32,11 @@ app.post('/ask-question', auth, createQuestion);
 app.patch('/edit-profile', auth, updateMyProfile);
 app.post('/sign-up', signup);
 app.post('/log-in', login);
+
+if(process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../../client/build')));
+    // app.get('/*', (req, res, next) => { res.sendFile(path.join(__dirname, '../../client/build/index.html')) });
+}
 
 app.listen(port, () => {
     console.log(`\nServer is listening on port: ${port}\n`);
