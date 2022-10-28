@@ -4,7 +4,10 @@ const { Storage } = require('@google-cloud/storage');
 const jwt = require('jsonwebtoken');
 const { User, Question } = require('../models');
 const { sign, refresh } = require('../auth/tokens');
-const storage = new Storage({ keyFilename: process.env.GOOGLE_APPLICATION_CREDENTIALS });
+const storage = new Storage({ 
+    projectId: process.env.GCP_PROJECT_ID,
+    credentials: JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS)
+});
 const myBucket = storage.bucket(process.env.GCS_BUCKETNAME);
 
 module.exports.auth = async (req, res, next) => {
@@ -55,6 +58,9 @@ module.exports.login = async (req, res) => {
     const { username, password } = req.body;
     const errorMessage = 'Username or password is incorrect';
 
+    console.log(req.body.username);
+    console.log(req.body.password);
+
     try {
         const user = await User.findOne({
             where: { username }
@@ -79,6 +85,7 @@ module.exports.login = async (req, res) => {
         res.cookie('access-token', token, cookieOptions);
         res.json({ id: user.id });
     } catch (error) {
+        console.log(error.message);
         res.json({ message: '500 - Internal server error. Can\'t log in' });
     }
 };
