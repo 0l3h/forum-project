@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const host = 'localhost';
-const port = process.env.PORT;
+const port = process.env.PORT || 7391;
 
 const config = {
     withCredentials: true,
