@@ -23,6 +23,7 @@ app.use(cookieParser());
 
 if(process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../../client/build')));
+    // app.get('/*', (req, res) => { res.sendFile(path.join(__dirname, '../../client/build/index.html')) });
 }
 
 app.get('/browse-questions', getQuestions);
@@ -36,10 +37,6 @@ app.post('/ask-question', auth, createQuestion);
 app.patch('/edit-profile', auth, updateMyProfile);
 app.post('/sign-up', signup);
 app.post('/log-in', login);
-
-if(process.env.NODE_ENV === 'production') {
-    app.get('/*', (req, res, next) => { res.sendFile(path.join(__dirname, '../../client/build/index.html')) });
-}
 
 app.listen(port, () => {
     console.log(`\nServer is listening on port: ${port}\n`);
