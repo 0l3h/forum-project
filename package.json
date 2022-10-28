@@ -8,7 +8,7 @@
   "main": "index.js",
   "devDependencies": {},
   "scripts": {
-    "start": "npm i && npm i --prefix server && node server/src/app.js",
+    "start": "export NODE_ENV=production; npm i; cd server; npm i; npm exec -y sequelize-cli db:migrate; node src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
