@@ -58,9 +58,6 @@ module.exports.login = async (req, res) => {
     const { username, password } = req.body;
     const errorMessage = 'Username or password is incorrect';
 
-    console.log(req.body.username);
-    console.log(req.body.password);
-
     try {
         const user = await User.findOne({
             where: { username }
@@ -82,6 +79,8 @@ module.exports.login = async (req, res) => {
             secure: true,
         };
 
+        console.log('\nUser signed up\n');
+
         res.cookie('access-token', token, cookieOptions);
         res.json({ id: user.id });
     } catch (error) {
@@ -99,6 +98,7 @@ module.exports.signup = async (req, res) => {
 
         const createdUser = await User.create(userData);
 
+        console.log('\nUser signed up\n');
         res.json(createdUser);
     } catch (error) {
         res.json({ message: '500 - Internal server error. Can\'t sign up' });
