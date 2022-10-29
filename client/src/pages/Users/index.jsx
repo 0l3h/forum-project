@@ -5,6 +5,7 @@ import Navbar from '../../components/Navbar';
 import SideMenu from '../../components/SideMenu';
 import defaultAvatar from '../../images/default-avatar.svg';
 import styles from './Users.module.sass';
+import TopUsers from '../../components/TopUsers';
 import PopularQuestions from '../../components/PopularQuestions';
 import SubscribeSection from '../../components/SubscribeSection';
 
@@ -49,7 +50,13 @@ function Users() {
         </div>          
 
         <div>
+          <NavLink className={styles.askButton} to='/ask-question'>
+            Ask question
+          </NavLink>
+
           <PopularQuestions/>
+
+          <TopUsers/>
 
           <SubscribeSection/>
         </div>

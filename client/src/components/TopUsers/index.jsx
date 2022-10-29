@@ -1,11 +1,12 @@
 import React from 'react';
 import styles from './TopUsers.module.sass';
+import topUsersIcon from '../../images/popularity.png';
 
 function TopUsers() {
   return (
     <div className={styles.topUsers}>
         <div>
-            <img src="" alt="" />
+            <img src={topUsersIcon} alt="top users icon" />
             <span className={styles.heading}>Top Users</span>
         </div>
         

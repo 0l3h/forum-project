@@ -58,7 +58,7 @@ function Question() {
 
                 <span>asked {question.createdAt && formatDistance(new Date(question.createdAt), new Date(), { addSuffix: true })}</span>
                 <span>viewed {question.views_amount} times</span>
-                <span>{question.votesValue} upvotes</span>
+                <span>{question.votesValue || 0} upvotes</span>
             </div>
 
             <div>

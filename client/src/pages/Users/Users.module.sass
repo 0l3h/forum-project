@@ -11,7 +11,7 @@
     .content
         box-sizing: border-box
         display: flex
-        max-width: 1200px
+        max-width: 1000px
 
         .userlist
             margin: 40px
@@ -45,3 +45,16 @@
                     background-color: $clr-white
                     border-radius: 5px
                     padding: 10px
+    
+    .askButton
+        display: block
+        margin-top: 4vh
+        color: white
+        text-align: center
+        border-radius: 5px
+        text-decoration: none
+        padding: 14px
+        background-color: $clr-blue
+
+        @media screen and (width <= $screen-medium)
+            display: none

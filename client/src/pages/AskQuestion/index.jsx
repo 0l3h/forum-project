@@ -1,6 +1,7 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { createQuestionRequest } from '../../slices/questions.slice.js';
 import Input from '../../components/Input';
 import Navbar from '../../components/Navbar/index.jsx';
@@ -13,6 +14,7 @@ import Footer from '../../components/Footer/index.jsx';
 
 function AskQuestion() {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const initialValues = {
         title: '',
@@ -21,6 +23,7 @@ function AskQuestion() {
 
     const submit = values => {
         dispatch(createQuestionRequest(values));
+        navigate('/browse-questions');
     };
 
     return <>
@@ -49,6 +52,7 @@ function AskQuestion() {
                             <span>Description</span>
                             <p>Explain what went wrong</p>
                         </label>
+
                         <TextInput name="questionBody"/>
 
                         <button type="submit" className={styles.postButton}>

@@ -14,19 +14,17 @@ function Footer() {
             <p>Askme is a forum created by one developer as a personal project</p>
         
             <section>
-                <NavLink to="/credits">
+                <NavLink to="/twitter">
                     <img className={styles.mediaLogo} src={twitterLogo} alt="Twitter"/>
                     {/* Twitter */}
                 </NavLink>
 
-                <NavLink to="/credits">
+                <NavLink to="/linked-in">
                     <img className={styles.mediaLogo} src={linkedinLogo} alt="LinkedIn"/>
-                    {/* LinkedIn */}
                 </NavLink>
                 
-                <NavLink to="/credits">
+                <NavLink to="/instagram">
                     <img className={styles.mediaLogo} src={instagramLogo} alt="Instagram"/>
-                    {/* Instagram */}
                 </NavLink>
             </section>
         </div>
@@ -38,6 +36,14 @@ function Footer() {
 
                 <li>
                     <NavLink to="/credits">Credits</NavLink>
+                </li>
+
+                <li>
+                    <NavLink to="/404-page">FAQ</NavLink>
+                </li>
+                
+                <li>
+                    <NavLink to="/404-page">Community Rules</NavLink>
                 </li>
             </ul>
 
@@ -61,14 +67,6 @@ function Footer() {
                 <h1>Product</h1>
                 <li>
                     <NavLink to="/404-page">Askme Plus+</NavLink>
-                </li>
-                
-                <li>
-                    <NavLink to="/404-page">Privacy Policy</NavLink>
-                </li>
-                
-                <li>
-                    <NavLink to="/404-page">Career</NavLink>
                 </li>
             </ul>
         </div>
