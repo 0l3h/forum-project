@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { getMyProfileRequest } from './slices/user.slice';
 import Home from './pages/Home';
 import BrowseQuestions from './pages/BrowseQuestions';
@@ -26,7 +26,7 @@ function App() {
 
   return (
     <div>
-      <Router>
+      <HashRouter>
         <Routes>
           <Route index element={<Home/>}/>
 
@@ -70,7 +70,7 @@ function App() {
 
           <Route path='*' element={<NotFound/>}/>
         </Routes>
-      </Router>
+      </HashRouter>
     </div>
   );
 }
