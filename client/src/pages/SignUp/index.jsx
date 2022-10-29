@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { signUpRequest } from '../../slices/user.slice';
 import { Form, Formik} from 'formik';
@@ -13,6 +13,8 @@ import schema from '../../validation/validationSchema';
 
 function SignUp() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const initialValues = {
     username: '',
@@ -20,6 +22,12 @@ function SignUp() {
     password: '',
     confirmPassword: '',
   }
+
+  const from = location.state?.from?.pathname || "/";
+
+  useEffect(() => {
+    navigate(from, { replace: true });
+  });
 
   const submit = values => {
     dispatch(signUpRequest(values));

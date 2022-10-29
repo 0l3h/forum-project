@@ -108,7 +108,7 @@ function Question() {
                                             
                                             <section className={styles.author}>
                                                 <div className={styles.avatar}>
-                                                    <img src={answer.user.profilePictureUrl} alt="user avatar"/>
+                                                    <img src={answer.user.profilePictureUrl || defaultAvatar} alt="user avatar"/>
                                                 </div>
                                                 
                                                 <span>{answer.user.username}</span>

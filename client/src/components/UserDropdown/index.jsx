@@ -46,7 +46,7 @@ function UserDropdown() {
                         </button>
 
                         <div className={styles.avatar}>
-                            <img src={`${userData.profilePictureUrl}?uuid=${uuidv4()}` || defaultAvatar} alt="user avatar"/>
+                            <img src={userData.profilePictureUrl || defaultAvatar} alt="user avatar"/>
                         </div>
 
                         <span className={styles.username}>{userData.username}</span>
