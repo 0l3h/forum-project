@@ -34,7 +34,7 @@ export const voteQuestion = (id, vote) => instance.patch(`/browse-questions/${id
 
 export const voteAnswer = (id, vote) => instance.patch(`/browse-questions/${id}/vote-answer`, JSON.stringify({vote}), postConfig);
 
-export const getPopularQuestions = () => instance.get('/', getConfig);
+export const getPopularQuestions = () => instance.get('/popular-questions', getConfig);
 
 export const createAnswer = data => instance.post(`/browse-questions/${data.questionId}`, JSON.stringify(data), postConfig);
 

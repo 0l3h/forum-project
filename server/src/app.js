@@ -29,7 +29,7 @@ if(process.env.NODE_ENV === 'production') {
 app.get('/browse-questions', getQuestions);
 app.get('/browse-questions/:id', getQuestionById);
 app.get('/view-profile', auth, getMyProfile);
-app.get('*', getPopularQuestions);
+app.get('/popular-questions', getPopularQuestions);
 app.post('/browse-questions/:id', auth, createAnswer);
 app.patch('/browse-questions/:id/vote-question', auth, voteQuestion);
 app.patch('/browse-questions/:id/vote-answer', auth, voteAnswer);
