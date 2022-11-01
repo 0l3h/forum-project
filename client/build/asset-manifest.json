@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.01333621.css",
-    "main.js": "./static/js/main.270166eb.js",
+    "main.css": "./static/css/main.2e54157d.css",
+    "main.js": "./static/js/main.403dbd5c.js",
     "static/media/forum-page.png": "./static/media/forum-page.a307b2932ed5fff21732.png",
     "static/media/header-background.png": "./static/media/header-background.c3f5b3ebede29642f11b.png",
     "static/media/questions-screenshot.png": "./static/media/questions-screenshot.25ab557ef00b7509c07e.png",
@@ -19,11 +19,11 @@
     "static/media/dropdown-close-icon.svg": "./static/media/dropdown-close-icon.d9fd95564f3907e04fce1f9d5dc30d9c.svg",
     "static/media/close-menu-icon.svg": "./static/media/close-menu-icon.511a0a28aaabd1112b30.svg",
     "index.html": "./index.html",
-    "main.01333621.css.map": "./static/css/main.01333621.css.map",
-    "main.270166eb.js.map": "./static/js/main.270166eb.js.map"
+    "main.2e54157d.css.map": "./static/css/main.2e54157d.css.map",
+    "main.403dbd5c.js.map": "./static/js/main.403dbd5c.js.map"
   },
   "entrypoints": [
-    "static/css/main.01333621.css",
-    "static/js/main.270166eb.js"
+    "static/css/main.2e54157d.css",
+    "static/js/main.403dbd5c.js"
   ]
 }
