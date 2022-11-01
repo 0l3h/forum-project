@@ -44,7 +44,7 @@ function Question(props) {
 
                             <div>
                                 <img src={likeIcon} alt="clock" />
-                                <span>{votesValue} upvotes</span>
+                                <span>{votesValue || 0} upvotes</span>
                             </div>
 
                             <div>

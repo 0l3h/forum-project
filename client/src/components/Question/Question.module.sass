@@ -9,7 +9,7 @@
 
     .questionBox
         margin-top: 18px
-        padding: 20px 0
+        padding: 10px 0
         gap: 20px
         display: flex
         border-bottom: 1px solid $clr-light-gray
@@ -28,25 +28,13 @@
 
             .question                            
 
-                .title
-                    font-size: $fs-400
-                    
-                    @media screen and (width <= $screen-medium)
-                        font-size: $fs-300
-                    
-                    &:hover
-                        color: $clr-blue
+                .title:hover
+                    color: $clr-blue
 
-                p
-                    margin: 20px 0
-
-                    @media screen and (width <= $screen-medium)
-                        font-size: $fs-200
-        
         .info
             display: flex
             flex-direction: column
-            margin-top: 20px
+            margin-top: 10px
 
             & > div:first-child
                 display: inline
@@ -57,7 +45,7 @@
 
                     img
                         margin-right: 5px
-                        width: 18px
+                        width: 15px
                     
                     span
                         color: $clr-gloomy
