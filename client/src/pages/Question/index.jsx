@@ -31,6 +31,7 @@ function Question() {
 
     const postAnswer = values => {
         dispatch(createAnswerRequest({ ...values, questionId }));
+        dispatch(getQuestionByIdRequest(questionId));
     };
 
     const voteQuestion = (vote) => {
@@ -47,6 +48,10 @@ function Question() {
     useEffect(() => {
         dispatch(getQuestionByIdRequest(questionId));
     }, [questionId]);
+
+    // useEffect(() => {
+    //     navigate(`/browse-questions/${questionId}`, { replace: true });
+    // }, [question?.answers?.length]);
 
     if(isFetching) {
         return <LoadingSpinner/>
