@@ -8,7 +8,8 @@ import {
     getMyProfileSuccess,
     getMyProfileError,
     updateMyProfileError,
-    updateMyProfileSuccess
+    updateMyProfileSuccess,
+    logOutSuccess
 } from '../slices/user.slice.js';
 
 function* logInUser(action) {
@@ -22,6 +23,15 @@ function* logInUser(action) {
         yield put(logInError("Can't log in"));
     }
 };
+
+function* logOutUser() {
+    try {
+        yield call(api.logOutUser);
+        yield put(logOutSuccess());
+    } catch (error) {
+        yield put(logOutError("Can't log out"));
+    }
+}
 
 function* signUpUser(action) {
     const { payload } = action;
@@ -57,4 +67,4 @@ function* updateUserProfile(action) {
     }
 }
 
-export { logInUser, signUpUser, getUserProfile, updateUserProfile };
+export { logInUser, signUpUser, logOutUser, getUserProfile, updateUserProfile };

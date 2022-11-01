@@ -54,6 +54,12 @@ module.exports.getMyProfile = async (req, res) => {
     }
 }
 
+module.exports.logout = async (req, res) => {
+    res.clearCookie('access-token');
+    console.log('log out');
+    res.end();
+};
+
 module.exports.login = async (req, res) => {
     const { username, password } = req.body;
     const errorMessage = 'Username or password is incorrect';
@@ -96,10 +102,19 @@ module.exports.signup = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
         const userData = { username, email, password: hashedPassword };
 
-        const createdUser = await User.create(userData);
+        const user = await User.create(userData);
 
-        console.log('\nUser signed up\n');
-        res.json(createdUser);
+        const cookieOptions = {
+            httpOnly: true,
+            sameSite: 'Strict',
+            secure: true,
+        };
+
+        console.log('\nUser signed up\n', user);
+
+        res.cookie('access-token', token, cookieOptions);
+        res.json({ id: user.id });
+
     } catch (error) {
         res.json({ message: '500 - Internal server error. Can\'t sign up' });
     }

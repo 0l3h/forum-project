@@ -7,6 +7,7 @@ import dropdownOpenIcon from '../../images/dropdown-open-icon.svg'
 import dropdownCloseIcon from '../../images/dropdown-close-icon.svg'
 import styles from './UserDropdown.module.sass'
 import LoadingSpinner from '../LoadingSpinner';
+import { logOutRequest } from '../../slices/user.slice';
 
 function UserDropdown() {
     const userData = useSelector(({ user: { userData } }) => userData);
@@ -17,7 +18,7 @@ function UserDropdown() {
 
     const toggleMenu = () => setIsOpen(isOpen => !isOpen);
     const dispatch = useDispatch();
-    const logOut = () => dispatch();
+    const logOut = () => dispatch(logOutRequest());
 
     useEffect(() => setIsOpen(false), [location.pathname]);
     useEffect(() => {

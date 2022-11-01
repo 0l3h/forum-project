@@ -2,11 +2,11 @@ import axios from 'axios';
 
 const host = 'localhost';
 const port = process.env.PORT || 7391;
+const url = process.env.NODE_ENV === 'development'? `http://${host}:${port}` : "https://askme-forum-app.herokuapp.com";
 
 const config = {
     withCredentials: true,
-    baseURL: "https://askme-forum-app.herokuapp.com",
-    // baseURL: `http://${host}:${port}`,
+    baseURL: url,
 };
 
 const instance = axios.create(config);
@@ -41,6 +41,8 @@ export const createAnswer = data => instance.post(`/browse-questions/${data.ques
 export const signUpUser = data => instance.post('/sign-up', JSON.stringify(data), postConfig);
 
 export const logInUser = data => instance.post('/log-in', JSON.stringify(data), postConfig);
+
+export const logOutUser = data => instance.post('/log-out');
 
 export const getUserProfile = () => instance.get('/view-profile', getConfig);
 

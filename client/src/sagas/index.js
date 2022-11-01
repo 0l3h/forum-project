@@ -6,11 +6,11 @@ import { createQuestionRequest, getQuestionsRequest, deleteQuestionByIdRequest }
 import { getQuestionByIdRequest, voteQuestionRequest } from '../slices/question.slice.js';
 import { createAnswerRequest } from '../slices/answers.slice.js';
 import { getPopularQuestionsRequest } from '../slices/popularQuestions.slice.js';
-import { signUpRequest, logInRequest, getMyProfileRequest, updateMyProfileRequest } from '../slices/user.slice.js';
+import { signUpRequest, logInRequest, getMyProfileRequest, updateMyProfileRequest, logOutRequest } from '../slices/user.slice.js';
 
 // Redux Saga methods
 
-import { signUpUser, logInUser, getUserProfile, updateUserProfile } from './user.sagas.js';
+import { signUpUser, logInUser, logOutUser, getUserProfile, updateUserProfile } from './user.sagas.js';
 import { createQuestion, deleteQuestionById, getQuestionById, getQuestions, voteQuestion } from './questions.sagas.js';
 import { createAnswer } from './answers.sagas.js'
 import { getPopularQuestions } from './popularQuestions.sagas.js';
@@ -25,6 +25,7 @@ function* rootSaga() {
     yield takeLatest(createAnswerRequest.type, createAnswer);
     yield takeLatest(signUpRequest.type, signUpUser);
     yield takeLatest(logInRequest.type, logInUser);
+    yield takeLatest(logOutRequest.type, logOutUser);
     yield takeLatest(getMyProfileRequest.type, getUserProfile);
     yield takeLatest(updateMyProfileRequest.type, updateUserProfile);
 }

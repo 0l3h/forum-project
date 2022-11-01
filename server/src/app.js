@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser');
 
 const { getQuestions, createQuestion, getQuestionById, getPopularQuestions, voteQuestion } = require('./controllers/questions.controller');
 const { createAnswer, voteAnswer } = require('./controllers/answers.controller'); 
-const { signup, login, auth, getMyProfile, updateMyProfile } = require('./controllers/auth.controller');
+const { signup, login, auth, getMyProfile, updateMyProfile, logout } = require('./controllers/auth.controller');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -21,10 +21,8 @@ app.use(cors({
 app.use(express.json({limit: "10mb"}));
 app.use(cookieParser());
 
-if(process.env.NODE_ENV === 'production') {
+if(process.env.NODE_ENV === 'production')
     app.use(express.static(path.join(__dirname, '../../client/build')));
-    // app.get('/*', (req, res) => { res.sendFile(path.join(__dirname, '../../client/build/index.html')) });
-}
 
 app.get('/browse-questions', getQuestions);
 app.get('/browse-questions/:id', getQuestionById);
@@ -37,6 +35,7 @@ app.post('/ask-question', auth, createQuestion);
 app.patch('/edit-profile', auth, updateMyProfile);
 app.post('/sign-up', signup);
 app.post('/log-in', login);
+app.post('/log-out', logout);
 
 app.listen(port, () => {
     console.log(`\nServer is listening on port: ${port}\n`);
