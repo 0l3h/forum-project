@@ -18,7 +18,7 @@ function MenuLink(props) {
     return (
         <NavLink 
             className={styles.menuOption}
-            style={isActive? {backgroundColor: '#cfe6ff', borderLeft: '4px solid blue'} : null} 
+            style={isActive? {backgroundColor: '#e3e3e3', borderLeft: '4px solid blue'} : null} 
             to={route}>
             <span>{title}</span>
         </NavLink>
