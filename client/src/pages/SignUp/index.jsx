@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { NavLink, useNavigate, useLocation } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { signUpRequest } from '../../slices/user.slice';
 import { Form, Formik} from 'formik';
 import instagramLogo from '../../images/instagram-logo.png';
@@ -15,6 +15,7 @@ function SignUp() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
+  const userId = useSelector(state => state.user.userData.id);
 
   const initialValues = {
     username: '',
@@ -26,7 +27,7 @@ function SignUp() {
   const from = location.state?.from?.pathname || "/";
 
   useEffect(() => {
-    navigate(from, { replace: true });
+    userId && navigate(from, { replace: true });
   });
 
   const submit = values => {
