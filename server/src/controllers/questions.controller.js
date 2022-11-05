@@ -129,8 +129,6 @@ module.exports.getQuestions = async (req, res) => {
             order: [[sequelize.literal('"createdAt"'), 'DESC']],
         });
 
-        console.log(questions);
-
         res.json(JSON.stringify(questions));
     } catch (error) {
         console.log(error.message);

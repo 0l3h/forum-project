@@ -26,15 +26,11 @@ export const questionsSlice = createSlice({
         },
 
         voteQuestionRequest: (state) => {
-            console.log(typeof (state.questionPost.votesValue), state.questionPost.votesValue);
-          
             state.isFetching = true;
             state.error = null;
         },
         voteQuestionSuccess: (state, action) => {
             const { payload: vote } = action;
-
-            console.log(typeof (state.questionPost.votesValue));
 
             state.questionPost.votesValue += vote;
             state.isFetching = false;

@@ -56,7 +56,6 @@ module.exports.getMyProfile = async (req, res) => {
 
 module.exports.logout = async (req, res) => {
     res.clearCookie('access-token');
-    console.log('log out');
     res.end();
 };
 
@@ -85,8 +84,6 @@ module.exports.login = async (req, res) => {
             secure: true,
         };
 
-        console.log('\nUser logged in\n');
-
         res.cookie('access-token', token, cookieOptions);
         res.json({ id: user.id });
     } catch (error) {
@@ -109,8 +106,6 @@ module.exports.signup = async (req, res) => {
             sameSite: 'Strict',
             secure: true,
         };
-
-        console.log('\nUser signed up\n', user);
 
         res.cookie('access-token', token, cookieOptions);
         res.json({ id: user.id });

@@ -62,7 +62,6 @@ function* getQuestionById(action) {
 function* voteQuestion(action) {
     const { payload: {questionId, vote} } = action;
 
-    console.log(questionId);
     try {
         yield call(api.voteQuestion, questionId, vote);
         yield put(voteQuestionSuccess(vote));

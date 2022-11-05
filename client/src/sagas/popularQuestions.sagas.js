@@ -8,7 +8,6 @@ function* getPopularQuestions() {
 
         yield put(getPopularQuestionsSuccess(popularQuestions));
     } catch (error) {
-        console.log(error.message);
         yield put(getPopularQuestionsError(error.message));
     }
 }

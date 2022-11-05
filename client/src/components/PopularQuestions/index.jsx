@@ -10,8 +10,6 @@ import styles from './PopularQuestions.module.sass';
 function PopularQuestions() {
   const popularQuestions = useSelector(state => state.popularQuestions.data);
 
-  console.log(popularQuestions);
-
   const dispatch = useDispatch();
   
   useEffect(() => {
