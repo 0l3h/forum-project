@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from './Home.module.sass';
 import Header from '../../components/Header';
-import questionScreenshot from './../../images/question-screenshot.png';
-import postsScreenshot from './../../images/questions-screenshot.png'
+import questionAnswerScreenshot from './../../images/question-answer.png';
+import postsScreenshot from './../../images/question-screenshot.png';
+import askQuestionScreenshot from './../../images/ask-question.png';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 
@@ -51,7 +52,6 @@ function index() {
                 </div>
                 
                 <div className={styles.description}>
-                    
                     <div>
                         <h3 className={styles.heading}>
                             Ask questions
@@ -63,7 +63,7 @@ function index() {
                     </div>
 
                     <div className={styles.screenshot}>
-                        <img src={questionScreenshot} alt="" />
+                        <img src={askQuestionScreenshot} alt="" />
                     </div>
                 </div>
                 
@@ -79,7 +79,7 @@ function index() {
                     </div>
 
                     <div className={styles.screenshot}>
-                        <img src={postsScreenshot} alt="" />
+                        <img src={questionAnswerScreenshot} alt="" />
                     </div>
                 </div>
             </section>
