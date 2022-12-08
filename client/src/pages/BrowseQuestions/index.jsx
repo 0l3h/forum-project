@@ -19,10 +19,6 @@ function BrowseQuestions() {
         <Outlet/>
 
         <div>
-          <NavLink className={styles.askButton} to='/ask-question'>
-            Ask question
-          </NavLink>
-
           <PopularQuestions/>
 
           <TopUsers/>
