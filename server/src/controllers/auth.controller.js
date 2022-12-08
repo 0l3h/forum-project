@@ -126,7 +126,13 @@ module.exports.updateMyProfile = async (req, res) => {
 
         // Upload profile picture to Google Cloud Storage
 
-        if(profilePicture) {
+        const file = myBucket.file(`${id}.png`);
+        const isFileExist = (await file.exists())[0];
+
+        if (profilePicture === 'default' && isFileExist) {
+            file.delete();
+            user.update({ profilePictureUrl: null });
+        } else if(profilePicture !== 'default') {
             const file = myBucket.file(`${id}.png`);
             const base64String = profilePicture.split(',').pop();
             const buffer = Buffer.from(base64String, 'base64');
