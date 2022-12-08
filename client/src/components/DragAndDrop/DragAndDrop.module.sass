@@ -1,15 +1,27 @@
 @import '../../sass/_colors'
 
 .avatarContainer
-    width: 20%
-    margin-top: 10px
-    aspect-ratio: 1
-    overflow: hidden
-    border-radius: 10px
-    margin-bottom: 20px
+    position: relative
 
-    img
-        width: 100%
+    & > div
+        width: 20%
+        margin-top: 10px
+        aspect-ratio: 1
+        overflow: hidden
+        border-radius: 50%
+        margin-bottom: 20px
+
+        & > img
+            width: 100%
+
+    & > button
+        position: absolute
+        bottom: 5px
+        left: 15% 
+        background-color: $clr-blue
+        border: none
+        border-radius: 50%
+        color: $clr-white
 
 .dndArea
     text-align: center
