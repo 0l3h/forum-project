@@ -16,7 +16,7 @@ app.disable('x-powered-by');
 
 app.use(cors({ 
     credentials: true, 
-    origin: process.env.NODE_ENV === 'production'? 'https://askme-forum-app.herokuapp.com/' : 'http://localhost:3000'
+    origin: process.env.NODE_ENV === 'production'? 'https://askme-forum-app.com/' : 'http://localhost:3000'
 }));
 app.use(express.json({limit: "10mb"}));
 app.use(cookieParser());
