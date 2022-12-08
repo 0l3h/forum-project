@@ -50,8 +50,6 @@ function UserDropdown() {
                             <img src={userData.profilePictureUrl || defaultAvatar} alt="user avatar"/>
                         </div>
 
-                        <span className={styles.username}>{userData.username}</span>
-                    
                         <section className={styles.menu} data-is-open={isOpen.toString()}>
                             <NavLink to='/view-profile' className={styles.pageLink}>
                                 <span>View profile</span>
