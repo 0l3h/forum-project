@@ -18,8 +18,10 @@ function PopularQuestions() {
 
   return (
     <section className={styles.popular}>
-        <img src={flameIcon} alt="" />
-        <h2 className={styles.heading}>Most discussed</h2>
+        <div>
+          <img src={flameIcon} alt="popular questions icon" />
+          <h2 className={styles.heading}>Most discussed</h2>
+        </div>
         
         <ul className={styles.questionsList}>
           {
