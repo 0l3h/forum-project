@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const host = 'localhost';
 const port = process.env.PORT || 7391;
-const url = process.env.NODE_ENV === 'development'? `http://${host}:${port}` : "https://askme-forum-app.com";
+const url = process.env.NODE_ENV === 'development'? `http://${host}:${port}` : "https://forum-project-production-bca8.up.railway.app/";
 
 const config = {
     withCredentials: true,

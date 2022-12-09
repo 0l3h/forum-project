@@ -16,7 +16,7 @@ app.disable('x-powered-by');
 
 app.use(cors({ 
     credentials: true, 
-    origin: process.env.NODE_ENV === 'production'? 'https://askme-forum-app.com/' : 'http://localhost:3000'
+    origin: process.env.NODE_ENV === 'production'? 'https://forum-project-production-bca8.up.railway.app/' : 'http://localhost:3000'
 }));
 app.use(express.json({limit: "10mb"}));
 app.use(cookieParser());
