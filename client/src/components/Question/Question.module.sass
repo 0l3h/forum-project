@@ -4,7 +4,6 @@
 @import '../../sass/_breakpoints'
 
 .questionLink
-    text-decoration: none
     color: $clr-dark
 
     .questionBox
@@ -13,23 +12,21 @@
         gap: 20px
         display: flex
         border-bottom: 1px solid $clr-light-gray
-
-        .votes
-            display: flex
-            flex-direction: column
-            gap: 10px
-
-            & > span
-                display: block
-                font-size: $fs-200 
         
         .questionContainer
             flex: 1
 
-            .question                            
+            .question                    
+                a
+                    text-decoration: none
 
                 .title:hover
                     color: $clr-blue
+
+                .questionBody
+                    margin: 10px 0
+                    color: $clr-gloomy
+                    font-size: $fs-200
 
         .info
             display: flex
@@ -49,7 +46,8 @@
                     
                     span
                         color: $clr-gloomy
-                        font-size: $fs-200
+                        line-height: $lh-30
+                        font-size: 10px
 
                     @media screen and (width <= $screen-medium)
                         display: none
@@ -81,9 +79,12 @@
                 margin: 0
                 margin-left: auto
                 display: inline
+                border: 1px solid #accfff
+                border-radius: 5px
+                padding: 6px 10px
 
                 .avatar
-                    width: 26px
+                    width: 24px
                     margin-right: 10px
                     aspect-ratio: 1
                     border-radius: 50%
@@ -95,7 +96,7 @@
                         object-fit: cover
 
                 .name
-                    font-size: $fs-200
+                    font-size: 10px
 
                 @media screen and (width <= $screen-medium)
                     margin-right: auto

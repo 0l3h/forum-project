@@ -1,6 +1,7 @@
 import React from 'react';
 import { formatDistance } from 'date-fns'
 import { NavLink } from 'react-router-dom';
+import removeMarkdown from 'remove-markdown';
 import defaultAvatar from '../../images/default-avatar.svg';
 import likeIcon from '../../images/like.png';
 import commentIcon from '../../images/comment.png';
@@ -13,6 +14,7 @@ function Question(props) {
         id, 
         question: { 
             title, 
+            questionBody,
             createdAt, 
             views_amount,
             votesValue,
@@ -23,11 +25,14 @@ function Question(props) {
     }} = props;
     
     return (
-        <NavLink className={styles.questionLink} to={id}>
+        <div className={styles.questionLink}>
             <section className={styles.questionBox}>
                 <div className={styles.questionContainer}>
                     <div className={styles.question}>
-                        <h1 className={styles.title}>{title}</h1>
+                        <NavLink  to={id}>
+                            <h1 className={styles.title}>{title}</h1>
+                        </NavLink>
+                        <p className={styles.questionBody}>{removeMarkdown(questionBody)}</p>
                     </div>
 
                     <div className={styles.info}>
@@ -60,7 +65,7 @@ function Question(props) {
                     </div>
                 </div>
             </section>
-        </NavLink>
+        </div>
     )
 }
 
