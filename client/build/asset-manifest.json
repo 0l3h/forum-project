@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.b97ed9a3.css",
-    "main.js": "./static/js/main.190e24e2.js",
+    "main.js": "./static/js/main.968d770b.js",
     "static/media/header-background.png": "./static/media/header-background.c3f5b3ebede29642f11b.png",
     "static/media/forum-page.png": "./static/media/forum-page.84498914800bde5d1472.png",
     "static/media/omnisight.png": "./static/media/omnisight.2174f98d7d03839d1e4d.png",
@@ -21,10 +21,10 @@
     "static/media/close-menu-icon.svg": "./static/media/close-menu-icon.511a0a28aaabd1112b30.svg",
     "index.html": "./index.html",
     "main.b97ed9a3.css.map": "./static/css/main.b97ed9a3.css.map",
-    "main.190e24e2.js.map": "./static/js/main.190e24e2.js.map"
+    "main.968d770b.js.map": "./static/js/main.968d770b.js.map"
   },
   "entrypoints": [
     "static/css/main.b97ed9a3.css",
-    "static/js/main.190e24e2.js"
+    "static/js/main.968d770b.js"
   ]
 }
