@@ -1,96 +1,70 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import defaultAvatar from './../../images/default-avatar.svg';
 import Footer from '../../components/Footer';
 import Navbar from '../../components/Navbar';
 import SideMenu from '../../components/SideMenu';
-import defaultAvatar from '../../images/default-avatar.svg';
 import styles from './Users.module.sass';
 import TopUsers from '../../components/TopUsers';
 import PopularQuestions from '../../components/PopularQuestions';
 import SubscribeSection from '../../components/SubscribeSection';
+import { getUsersRequest } from '../../slices/users.slice';
 
 function Users() {
-  return <>
-    <Navbar/>
+  const users = useSelector(state => state.users);
+  const dispatch = useDispatch()
 
-    <main className={styles.container}>
-      <SideMenu/>
-      
-      <section className={styles.content}>
+  useEffect(() => {
+    dispatch(getUsersRequest());
+  }, [])
 
-        <div className={styles.userlist}>
-          <h1 className={styles.heading}>Users</h1>
+  if(users?.usersData?.isFetching) {
+    return <LoadingSpinner/>
+  } 
+  else {
+    return <>
+      <Navbar/>
 
-          <ul>
-            <div className={styles.user}>
-              <div className={styles.userAvatar}>
-                <img src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="user avatar"/>
-              </div>
-              
-              <NavLink to='/404'>
-                <span>Elizabeth</span>                
-              </NavLink>
-            </div>
-            <div className={styles.user}>
-              <div className={styles.userAvatar}>
-                <img src="https://images.pexels.com/photos/1587009/pexels-photo-1587009.jpeg?cs=srgb&dl=pexels-moose-photos-1587009.jpg&fm=jpg&_gl=1*1m0yxti*_ga*MTMzNTE4NzUzLjE2NjE0MjMwNDg.*_ga_8JE65Q40S6*MTY2Njk2NzExMC45LjEuMTY2Njk2NzU1MS4wLjAuMA.." alt="user avatar"/>
-              </div>
-              
-              <NavLink to='/404'>
-                <span>Jane</span>                
-              </NavLink>
-            </div>
-            <div className={styles.user}>
-              <div className={styles.userAvatar}>
-                <img src="https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?cs=srgb&dl=pexels-nitin-khajotia-1516680.jpg&fm=jpg&_gl=1*17byi4k*_ga*MTMzNTE4NzUzLjE2NjE0MjMwNDg.*_ga_8JE65Q40S6*MTY2Njk2NzExMC45LjEuMTY2Njk2NzE0NS4wLjAuMA.." alt="user avatar"/>
-              </div>
-              
-              <NavLink to='/404'>
-                <span>John</span>                
-              </NavLink>
-            </div>
-            <div className={styles.user}>
-              <div className={styles.userAvatar}>
-                <img src="https://images.pexels.com/photos/3214777/pexels-photo-3214777.jpeg?cs=srgb&dl=pexels-ralph-rabago-3214777.jpg&fm=jpg&_gl=1*1xpvi3n*_ga*MTMzNTE4NzUzLjE2NjE0MjMwNDg.*_ga_8JE65Q40S6*MTY2Njk2NzExMC45LjEuMTY2Njk2NzM3OC4wLjAuMA.." alt="user avatar"/>
-              </div>
-              
-              <NavLink to='/404'>
-                <span>Caleb</span>                
-              </NavLink>
-            </div>
-            {/* <NavLink to='/404' className={styles.user}>
-                <div className={styles.userAvatar}>
-                    <img src="https://images.pexels.com/photos/1587009/pexels-photo-1587009.jpeg?cs=srgb&dl=pexels-moose-photos-1587009.jpg&fm=jpg&_gl=1*1m0yxti*_ga*MTMzNTE4NzUzLjE2NjE0MjMwNDg.*_ga_8JE65Q40S6*MTY2Njk2NzExMC45LjEuMTY2Njk2NzU1MS4wLjAuMA.." alt="user avatar"/>
-                </div>
-                <span>Jane</span>
-            </NavLink>
-            <NavLink to='/404' className={styles.user}>
-                <div className={styles.userAvatar}>
-                    <img src="https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?cs=srgb&dl=pexels-nitin-khajotia-1516680.jpg&fm=jpg&_gl=1*17byi4k*_ga*MTMzNTE4NzUzLjE2NjE0MjMwNDg.*_ga_8JE65Q40S6*MTY2Njk2NzExMC45LjEuMTY2Njk2NzE0NS4wLjAuMA.." alt="user avatar"/>
-                </div>
-                <span>John</span>
-            </NavLink>
-            <NavLink to='/404' className={styles.user}>
-                <div className={styles.userAvatar}>
-                    <img src="https://images.pexels.com/photos/3214777/pexels-photo-3214777.jpeg?cs=srgb&dl=pexels-ralph-rabago-3214777.jpg&fm=jpg&_gl=1*1xpvi3n*_ga*MTMzNTE4NzUzLjE2NjE0MjMwNDg.*_ga_8JE65Q40S6*MTY2Njk2NzExMC45LjEuMTY2Njk2NzM3OC4wLjAuMA.." alt="user avatar"/>
-                </div>
-                <span>Caleb</span>
-            </NavLink> */}
-          </ul>
-        </div>          
+      <main className={styles.container}>
+        <SideMenu/>
+        
+        <section className={styles.content}>
 
-        <div>
-          <PopularQuestions/>
+          <div className={styles.userlist}>
+            <h1 className={styles.heading}>Users</h1>
 
-          <TopUsers/>
+            <ul>
+              {
+                users?.usersData?.length?
+                users.usersData.map(user => (
+                  <li className={styles.user} key={user.id}>
+                    <div className={styles.userAvatar}>
+                      <img src={user.profilePictureUrl || defaultAvatar} alt="user avatar"/>
+                    </div>
+                    
+                    <NavLink to='/404'>
+                      <span>{user.username}</span>
+                    </NavLink>
+                  </li>
+                ))
+                :
+                <p>No users are present</p>
+              }
+            </ul>
+          </div>          
 
-          <SubscribeSection/>
-        </div>
-      </section>
-    </main>
+          <div>
+            <PopularQuestions/>
+            <TopUsers/>
+            <SubscribeSection/>
+          </div>
+        </section>
+      </main>
 
-    <Footer/>
-  </>
+      <Footer/>
+    </>
+  }
 }
 
 export default Users;

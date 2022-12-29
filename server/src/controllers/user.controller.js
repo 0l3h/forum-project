@@ -1,15 +1,12 @@
-module.exports.getProfile = async (req, res) => {
-    const { params: { id } } = req;
+const { User } = require('../models');
 
+module.exports.getUsers = async (req, res) => {
     try {
-        const user = await User.findOne({
-            where: { id },
-            include: 'Questions'
+        const users = await User.findAll({ 
+            attributes: ["id", "username", "profilePictureUrl"]
         });
 
-        const questions = await user.getQuestions();
-
-        res.json({...user, questions});
+        res.json(users);
     } catch (error) {
         res.json(error);
     }

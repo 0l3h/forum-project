@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 
 const { getQuestions, createQuestion, getQuestionById, getPopularQuestions, voteQuestion } = require('./controllers/questions.controller');
 const { createAnswer, voteAnswer } = require('./controllers/answers.controller'); 
+const { getUsers } = require('./controllers/user.controller');
 const { signup, login, auth, getMyProfile, updateMyProfile, logout } = require('./controllers/auth.controller');
 
 const app = express();
@@ -27,6 +28,7 @@ if(process.env.NODE_ENV === 'production')
 app.get('/browse-questions', getQuestions);
 app.get('/browse-questions/:id', getQuestionById);
 app.get('/view-profile', auth, getMyProfile);
+app.get('/users', getUsers);
 app.get('/popular-questions', getPopularQuestions);
 app.post('/browse-questions/:id', auth, createAnswer);
 app.patch('/browse-questions/:id/vote-question', auth, voteQuestion);

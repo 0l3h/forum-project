@@ -45,15 +45,15 @@ function App() {
           }/>
 
           <Route path='/log-in' element={
-            <NotAuthorized>
+            // <NotAuthorized>
               <LogIn/>
-            </NotAuthorized>
+            // </NotAuthorized>
           }/>
 
           <Route path='/sign-up' element={
-            <NotAuthorized>
+            // <NotAuthorized>
               <SignUp/>
-            </NotAuthorized>
+            // </NotAuthorized>
           }/>
 
           <Route path='/ask-question' element={

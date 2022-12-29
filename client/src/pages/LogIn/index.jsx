@@ -22,13 +22,15 @@ function LogIn() {
 
     const from = location.state?.from?.pathname || "/";
 
+    console.log(location);
+
     const initialValues = {
         username: '',
         password: '',
     }
 
     useEffect(() => {
-        userId && navigate(from, { replace: true });
+        userId && navigate(from);
     });
 
     const submit = values => {
@@ -42,8 +44,6 @@ function LogIn() {
                 <h1>Welcome!</h1>
     
                 <p>Enter the system to use Askme fully</p>
-
-                {/* <img src={loginImage} alt="" /> */}
 
                 <div className={styles.decor}></div>
 

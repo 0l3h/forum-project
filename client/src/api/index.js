@@ -46,4 +46,6 @@ export const logOutUser = data => instance.post('/log-out');
 
 export const getUserProfile = () => instance.get('/view-profile', getConfig);
 
+export const getUsers = () => instance.get('/users', getConfig);
+
 export const updateUserProfile = data => instance.patch('/edit-profile', JSON.stringify(data), postConfig);

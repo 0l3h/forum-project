@@ -49,10 +49,6 @@ function Question() {
         dispatch(getQuestionByIdRequest(questionId));
     }, [questionId]);
 
-    // useEffect(() => {
-    //     navigate(`/browse-questions/${questionId}`, { replace: true });
-    // }, [question?.answers?.length]);
-
     if(isFetching) {
         return <LoadingSpinner/>
     }
