@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.b97ed9a3.css",
-    "main.js": "./static/js/main.968d770b.js",
+    "main.css": "./static/css/main.fcbd43e6.css",
+    "main.js": "./static/js/main.cd5d106a.js",
     "static/media/header-background.png": "./static/media/header-background.c3f5b3ebede29642f11b.png",
     "static/media/forum-page.png": "./static/media/forum-page.84498914800bde5d1472.png",
     "static/media/omnisight.png": "./static/media/omnisight.2174f98d7d03839d1e4d.png",
@@ -12,6 +12,7 @@
     "static/media/goldandstone.png": "./static/media/goldandstone.f7e8c7c71acdcf505b26.png",
     "static/media/sentinel.png": "./static/media/sentinel.7ae420e33556d73d4387.png",
     "static/media/question-answer.png": "./static/media/question-answer.b1d8eadd793b19a7b33f.png",
+    "static/media/people.svg": "./static/media/people.e9ce0a81cef56b8b002ad889eeb44bef.svg",
     "static/media/askmeLogo.png": "./static/media/askmeLogo.6d6741e59d80277952fe.png",
     "static/media/illuma.png": "./static/media/illuma.dfd3d2e0d372ae3d713e.png",
     "static/media/default-avatar.svg": "./static/media/default-avatar.4952e5a786f5098d7c43ab6343703257.svg",
@@ -20,11 +21,11 @@
     "static/media/dropdown-close-icon.svg": "./static/media/dropdown-close-icon.d9fd95564f3907e04fce1f9d5dc30d9c.svg",
     "static/media/close-menu-icon.svg": "./static/media/close-menu-icon.511a0a28aaabd1112b30.svg",
     "index.html": "./index.html",
-    "main.b97ed9a3.css.map": "./static/css/main.b97ed9a3.css.map",
-    "main.968d770b.js.map": "./static/js/main.968d770b.js.map"
+    "main.fcbd43e6.css.map": "./static/css/main.fcbd43e6.css.map",
+    "main.cd5d106a.js.map": "./static/js/main.cd5d106a.js.map"
   },
   "entrypoints": [
-    "static/css/main.b97ed9a3.css",
-    "static/js/main.968d770b.js"
+    "static/css/main.fcbd43e6.css",
+    "static/js/main.cd5d106a.js"
   ]
 }
