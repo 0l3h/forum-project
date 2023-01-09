@@ -11,6 +11,7 @@ import askQuestionScreenshot from './../../images/ask-question.png';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import { NavLink } from 'react-router-dom';
+import SubscribeSection from '../../components/SubscribeSection';
 
 function index() {
     return <>
@@ -20,9 +21,7 @@ function index() {
             <Header/>
             
             <ul className={styles.features}>
-
                 <div>
-                    {/* <img src={peopleImage} alt="" /> */}
                     <h2>First among the best</h2>
                     <p>One of the most popular forums out there.</p>
                 </div>
