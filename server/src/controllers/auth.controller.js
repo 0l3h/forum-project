@@ -107,10 +107,12 @@ module.exports.signup = async (req, res) => {
             secure: true,
         };
 
+        const token = sign({ id: user.id });
+
         res.cookie('access-token', token, cookieOptions);
         res.json({ id: user.id });
-
     } catch (error) {
+        console.log(error.message);
         res.json({ message: '500 - Internal server error. Can\'t sign up' });
     }
 };
