@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './Home.module.sass';
 import Header from '../../components/Header';
 import questionAnswerScreenshot from './../../images/question-answer.png';
-import peopleImage from './../../images/people.svg';
 import questionImage from './../../images/question-illustration.png';
 import findImage from './../../images/searching-illustration.png';
 import helpImage from './../../images/help-illustration.png';
@@ -11,9 +10,18 @@ import askQuestionScreenshot from './../../images/ask-question.png';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import { NavLink } from 'react-router-dom';
-import SubscribeSection from '../../components/SubscribeSection';
 
 function index() {
+    useEffect(() => {
+        window.gtag('config', 'G-WJZPSFS6SG', {
+            send_page_view: false,
+        });
+
+        window.gtag('event', 'page_view', {
+            page_title: 'Homepage',
+        })
+    }, [])
+    
     return <>
         <Navbar/>
         

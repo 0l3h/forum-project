@@ -30,8 +30,18 @@ function LogIn() {
     }
 
     useEffect(() => {
-        userId && navigate(from);
+        userId && window.gtag('event', 'login') && navigate(from);
     });
+
+    useEffect(() => {
+        window.gtag('config', 'G-WJZPSFS6SG', {
+            send_page_view: false,
+        });
+
+        window.gtag('event', 'page_view', {
+            page_title: 'Login page',
+        })
+    }, [])
 
     const submit = values => {
         dispatch(logInRequest(values));

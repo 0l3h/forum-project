@@ -30,6 +30,16 @@ function SignUp() {
     userId && navigate(from, { replace: true });
   });
 
+  useEffect(() => {
+    window.gtag('config', 'G-WJZPSFS6SG', {
+        send_page_view: false,
+    });
+
+    window.gtag('event', 'page_view', {
+        page_title: 'Sign up page',
+    })
+  }, [])
+
   const submit = values => {
     dispatch(signUpRequest(values));
   }
