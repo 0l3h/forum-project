@@ -27,18 +27,22 @@ function SignUp() {
   const from = location.state?.from?.pathname || "/";
 
   useEffect(() => {
-    userId && navigate(from, { replace: true });
-  });
-
-  useEffect(() => {
     window.gtag('config', 'G-WJZPSFS6SG', {
-        send_page_view: false,
+      send_page_view: false,
     });
 
     window.gtag('event', 'page_view', {
-        page_title: 'Sign up page',
+      page_title: 'Sign up page',
     })
-  }, [])
+  }, []);
+
+  useEffect(() => {
+    if (userId) {
+      window.gtag('event', 'signup'); 
+      
+      navigate(from);
+    }
+  });
 
   const submit = values => {
     dispatch(signUpRequest(values));

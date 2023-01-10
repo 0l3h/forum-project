@@ -30,7 +30,11 @@ function LogIn() {
     }
 
     useEffect(() => {
-        userId && window.gtag('event', 'login') && navigate(from);
+        if (userId) {
+            window.gtag('event', 'login');
+        
+            navigate(from);
+        }
     });
 
     useEffect(() => {
