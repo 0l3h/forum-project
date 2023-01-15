@@ -15,7 +15,7 @@ function Header() {
             </h1>
             
             <span className={styles.subheading}>
-                Tech forum made for developers.
+                A place to share knowledge related to software development.
             </span>
 
             <div className={styles.links}>
