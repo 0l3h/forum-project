@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
+import SubscribeSection from '../../components/SubscribeSection';
 import styles from './Home.module.sass';
 import Header from '../../components/Header';
 import questionAnswerScreenshot from './../../images/question-answer.png';
@@ -9,7 +11,6 @@ import postsScreenshot from './../../images/question-screenshot.png';
 import askQuestionScreenshot from './../../images/ask-question.png';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import { NavLink } from 'react-router-dom';
 
 function index() {
     useEffect(() => {
@@ -27,33 +28,6 @@ function index() {
         
         <main>
             <Header/>
-            
-            <ul className={styles.features}>
-                <div>
-                    <h2>First among the best</h2>
-                    <p>One of the most popular forums out there.</p>
-                </div>
-                
-                <div>
-                    <li className={styles.featCard}>
-                        <span className={styles.heading}>+25000</span>
-                        
-                        <p>Questions already asked</p>
-                    </li>
-                    
-                    <li className={styles.featCard}>
-                        <span className={styles.heading}>+120000</span>
-                        
-                        <p>Visitors every month</p>
-                    </li>
-                    
-                    <li className={styles.featCard}>
-                        <span className={styles.heading}>10 posts</span>
-                        
-                        <p>Every new second</p>
-                    </li>
-                </div>
-            </ul>
 
             <section className={styles.details}>
                 <h2>See what you can do</h2>
