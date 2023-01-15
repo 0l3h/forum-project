@@ -57,7 +57,6 @@ function Users() {
           <div>
             <PopularQuestions/>
             <TopUsers/>
-            <SubscribeSection/>
           </div>
         </section>
       </main>
