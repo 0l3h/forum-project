@@ -73,11 +73,22 @@ module.exports.getQuestionById = async (req, res) => {
                 { 
                     model: Answer, 
                     as: 'answers',
-                    include: {
-                        model: User,
-                        as: 'user',
-                        attributes: ['username', 'profilePictureUrl']
-                    }
+                    include: [
+                        {
+                            model: User,
+                            as: 'user',
+                            attributes: ['username', 'profilePictureUrl']
+                        },
+                        {
+                            model: Vote,
+                            as: 'votes',
+                        }
+                    ],
+                    attributes: {
+                        include: [
+                            [ sequelize.fn('SUM', sequelize.cast(sequelize.col('"answers"->"votes"."vote"'), 'integer')), 'votesValue' ] 
+                        ]
+                    },
                 },
                 {
                     model: Vote,
@@ -86,18 +97,22 @@ module.exports.getQuestionById = async (req, res) => {
                 },
             ],
             attributes: {
-                include: [[sequelize.fn('SUM', sequelize.cast(sequelize.col('"votes"."vote"'), 'integer')), 'votesValue']]
+                include: [
+                    [ sequelize.fn('SUM', sequelize.cast(sequelize.col('"votes"."vote"'), 'integer')), 'votesValue'],
+                ]
             },
-            group: ['user.id', 'Question.id', 'user.username', 'answers.id', 'answers->user.id', 'user.profilePictureUrl'],
+            group: ['user.id', 'Question.id', 'user.username', 'answers.id', 'answers->user.id', 'user.profilePictureUrl', 'answers->votes.id'],
             exclude: ['updatedAt'],
             nest: true
         })).increment('views_amount');
 
         const questionObject = question.get({ plain: true });
 
+        console.dir(questionObject);
+
         res.json(JSON.stringify(questionObject));
     } catch (error) {
-        console.log(error.message);
+        console.log(error);
         res.status(500).send();
     }
 };
@@ -137,18 +152,45 @@ module.exports.getQuestions = async (req, res) => {
 };
 
 module.exports.voteQuestion = async (req, res) => {
-    const { id: postId } = req.params;
+    const { id: votableId } = req.params;
     const { vote } = req.body;
     const { id: userId } = req.decoded;
+    const votableType = 'question';
 
     try {
-        await Vote.create({
-            postId,
+        await Vote.upsert({
+            votableId,
             userId,
+            votableType,
             vote
+        }, { 
+            conflictFields: ['votableId', 'userId'] 
         });
     } catch (error) {
         console.log(error.message);
+        res.status(500).send();
+    }
+
+    res.end();
+};
+
+module.exports.deleteQuestionVote = async (req, res) => {
+    const { id: votableId } = req.params;
+    const { vote } = req.body;
+    const { id: userId } = req.decoded;
+    const votableType = 'question';
+
+    try {
+        await Vote.destroy({
+            where: {
+                votableId,
+                userId,
+                votableType,
+                vote
+            }
+        });
+    } catch (error) {
+        console.log(err.message);
         res.status(500).send();
     }
 
