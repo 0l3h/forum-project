@@ -7,8 +7,10 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       models.Answer.belongsTo(models.Question, { foreignKey: 'questionId', as: 'question' });
       models.Answer.belongsTo(models.User, { foreignKey: 'authorId', as: 'user' });
+      models.Answer.hasMany(models.Vote, { foreignKey: 'votableId', as: 'votes', constraints: false, scope: { votableType: 'answer' } });
     }
   }
+
   Answer.init({
     id: {
       type: DataTypes.UUID,
@@ -17,11 +19,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     answerBody: {
       type: DataTypes.TEXT,
-      allowNull: false
-    },
-    votesAmount: {
-      type: DataTypes.INTEGER,
-      defaultValue: 0,
       allowNull: false
     },
     questionId: {

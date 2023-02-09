@@ -11,11 +11,6 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: false
       },
-      votesAmount: {
-        type: Sequelize.INTEGER,
-        defaultValue: 0,
-        allowNull: false
-      },
       questionId: {
         type: Sequelize.UUID,
         allowNull: false

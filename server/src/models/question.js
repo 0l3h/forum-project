@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       models.Question.belongsTo(models.User, { foreignKey: 'authorId', as: 'user' });
       models.Question.hasMany(models.Answer, { foreignKey: 'questionId', as: 'answers' });
-      models.Question.hasMany(models.Vote, { foreignKey: 'postId', as: 'votes' });
+      models.Question.hasMany(models.Vote, { foreignKey: 'votableId', as: 'votes', constraints: false, scope: { votableType: 'question' }});
     }
   }
 

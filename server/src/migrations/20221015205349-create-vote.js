@@ -9,12 +9,16 @@ module.exports = {
         defaultValue: Sequelize.UUIDV4,
         allowNull: false
       },
-      postId: {
+      votableType: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      votableId: {
         type: Sequelize.UUID,
         allowNull: false
       },
       userId: {
-        type: Sequelize.UUID,
+        type: Sequelize.STRING,
         allowNull: false
       },
       vote: {
@@ -22,8 +26,16 @@ module.exports = {
         allowNull: false
       }
     });
+
+    await queryInterface.addConstraint('Votes', {
+      fields: ['votableId', 'userId'],
+      type: 'unique',
+      name: 'vote_unique_constraint'
+    });
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Votes');
+
+    await queryInterface.removeConstraint('Votes', 'vote_unique_constraint');
   }
 };
