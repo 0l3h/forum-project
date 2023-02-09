@@ -11,8 +11,15 @@ import {
 import {
     getQuestionByIdSuccess,
     getQuestionByIdError,
+    
     voteQuestionError,
     voteQuestionSuccess,
+
+    createAnswerSuccess, 
+    createAnswerError,
+
+    voteAnswerSuccess,
+    voteAnswerError
 } from "../slices/question.slice";
 
 // CREATE A QUESTION 
@@ -82,7 +89,30 @@ function* deleteQuestionById(action) {
     } catch (error) {
         yield put(createQuestionError(error.message));
     }
-}
+};
+
+function* createAnswer(action) {
+    const { payload } = action;
+
+    try {
+        yield call(api.createAnswer, payload);
+        yield put(createAnswerSuccess(payload));
+    } catch (error) {
+        yield put(createAnswerError(error.message));
+    }
+};
+
+function* voteAnswer(action) {
+    const { payload: { answerId, vote } } = action;
+
+    try {
+        yield call(api.voteAnswer, answerId, vote);
+        yield put(voteAnswerSuccess({ answerId, vote }));
+    } catch (error) {
+        console.log(error);
+        yield put(voteAnswerError(error.message));
+    }
+};
 
 export {
     createQuestion, 
@@ -90,4 +120,6 @@ export {
     getQuestionById, 
     deleteQuestionById,
     voteQuestion,
+    createAnswer,
+    voteAnswer
 };
