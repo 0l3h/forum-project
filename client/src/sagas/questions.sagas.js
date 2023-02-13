@@ -106,8 +106,12 @@ function* voteAnswer(action) {
     const { payload: { answerId, vote } } = action;
 
     try {
-        yield call(api.voteAnswer, answerId, vote);
-        yield put(voteAnswerSuccess({ answerId, vote }));
+        const { data: { votesValue } } = yield call(api.voteAnswer, answerId, vote);
+        // const parsedVotesValue = JSON.parse(votesValue);
+
+        console.log(votesValue);
+
+        yield put(voteAnswerSuccess({ answerId, votesValue }));
     } catch (error) {
         console.log(error);
         yield put(voteAnswerError(error.message));

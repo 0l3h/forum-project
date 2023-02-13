@@ -64,13 +64,15 @@ export const questionsSlice = createSlice({
             state.error = null;
         },
         voteAnswerSuccess: (state, action) => {
-            const { payload: { answerId, vote } } = action;
+            const { payload: { answerId, votesValue } } = action;
 
             const [answer] = state.questionPost.answers.filter(answer => {
                 return answer.id === answerId;
             });
 
-            answer.votesValue += vote;
+            console.log(votesValue);
+
+            answer.votesValue = votesValue;
             state.isFetching = false;
         },
         voteAnswerError: (state, action) => {
