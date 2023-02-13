@@ -34,8 +34,8 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Votes');
-
     await queryInterface.removeConstraint('Votes', 'vote_unique_constraint');
+
+    await queryInterface.dropTable('Votes');
   }
 };
