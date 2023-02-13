@@ -48,6 +48,7 @@
                     background: none
                     border: none
                     color: $clr-gloomy
+                    font-size: $fs-200
 
                     &:hover
                         text-decoration: underline
@@ -90,82 +91,7 @@
             margin: 20px 0
             font-size: $fs-400
             font-weight: bold
-
-        .answers
-            .answer
-                line-height: $lh-28
-                border-bottom: 1px solid #ddd
-                padding: 20px 0
-                display: flex
-                flex-direction: column
-                margin: 10px 0
-                align-items: flex-start
-                    
-                .answerContent
-                    & > *
-                        margin-bottom: 20px 0
-
-                    p
-                        box-sizing: border-box
-                        width: 100%
-                        overflow-wrap: break-all
-                        word-break: break-all
-                        white-space: pre-wrap
-                        height: fit-content
-                        
-                    strong
-                        font-weight: bold
-
-                    pre
-                        padding: 20px
-                        background-color: $clr-light
-
-                    blockquote
-                        padding: 14px
-                        background-color: $clr-light-blue
-                        border-left: 3px solid $clr-blue
-                
-                .answerContent, .answerContent + div
-                    width: 100% 
-
-                .answerContent + div
-                    margin-top: 30px
-
-                    & > span, button
-                        color: $clr-gloomy
-                    
-                    button
-                        background: none
-                        border: none
-
-                    button:hover
-                        text-decoration: underline
-
-                .votes + div
-                    display: flex
-                    align-items: center
-
-                    & > span
-                        margin-right: auto
-                        color: $clr-gloomy
-                        font-size: $fs-200
-                
-                    .author
-                        display: flex
-                        align-items: center
-
-                        .avatar
-                            aspect-ratio: 1
-                            border-radius: 50%
-                            overflow: hidden
-                            width: 28px
-                            margin-right: 10px
-
-                            & > img
-                                height: 100%
-                                width: 100%
-                                object-fit: cover
-
+            
     .form
         & > h2
             margin: 20px 0

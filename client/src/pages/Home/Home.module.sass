@@ -4,46 +4,34 @@
 @import '../../sass/_line-heights'
             
 .details
-    max-width: 80%
-    background-color: $clr-white
-    margin-inline: auto
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-evenly
+    background-color: $clr-light
+    padding: 60px
+    gap: 20px
 
-    @media screen and (width <= $screen-small)
-        padding: 20px 0 0
-
-        & > p
-            margin-bottom: 20px
-
-    h2
-        font-weight: bold
-        font-size: $fs-600
-
-    & > h2, & > p
-        text-align: center
-
-    // @media screen and (width >= $screen-medium)
-    //     .description:nth-child(2n + 2)
-    //         & > div:first-child
-    //             order: 1
-        
     .description
-        display: flex
-        justify-content: space-around
-        height: fit-content
+        background-color: $clr-white
+        padding: 20px
+        border-radius: 10px
+        box-shadow: 0px 10px 10px 10px #a0a0a013
         line-height: $lh-28
-        margin: 60px auto 20vh
-        max-width: 60vw
 
-        // @media screen and (width <= $screen-small)
-        //     justify-content: center
-        //     flex-wrap: wrap
-        //     padding: 20px
-        //     margin: 0 auto
+        @media screen and (width <= $screen-small)
+            justify-content: center
+            padding: 20px
+            margin: 0 auto
+            max-width: 60vw
 
-        //     div:first-child
-        //         text-align: center                
-                
-        div > span
+            div:first-child
+                text-align: center
+
+            .text
+                margin-inline: auto
+                max-width: none
+
+        span
             display: inline-block
             padding: 10px
             border-radius: 10px
@@ -52,34 +40,29 @@
 
             img
                 width: 30px
+        
+        a
+            display: inline-block
+            text-decoration: none
+            background: linear-gradient(0deg, rgba(0,56,255,1) 0%, rgba(0,198,255,1) 100%)
+            padding: 10px
+            color: white
+            margin-top: 30px
+            font-size: $fs-200
+            border-radius: 5px
+
+            &:hover
+                text-decoration: underline
 
         & > *
-            flex: 1
+            margin: 10px auto
 
         .heading
             font-size: $fs-500
             font-weight: bold
             margin-bottom: 20px
 
-            // @media screen and (width <= $screen-medium)
-            //     font-size: $fs-500
-                
-            // @media screen and (width <= $screen-small)
-            //     text-align: center
-
         .text
             line-height: $lh-30
-            margin: 20px 0
             max-width: 30ch
-    
-            // @media screen and (width <= $screen-small)
-            //     width: 100%
-            //     text-align: center
-        
-        .screenshot
-
-            & > img
-                box-shadow: 0px 8px 10px #88888860
-                width: 100%
-                min-width: 160px
-                border-radius: 10px
+            min-width: 20ch

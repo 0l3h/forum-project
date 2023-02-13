@@ -1,19 +1,25 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 import { Formik, Form } from 'formik';
 import { useParams } from 'react-router';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { formatDistance } from 'date-fns';
-import { v4 as uuidv4 } from 'uuid';
 import ReactMarkdown from 'react-markdown';
 import schemas from '../../validation/validationSchema';
 import TextInput from '../../components/TextInput';
-import { getQuestionByIdRequest, voteQuestionRequest } from '../../slices/question.slice';
-import { createAnswerRequest } from '../../slices/answers.slice';
+
+import { 
+    getQuestionByIdRequest, 
+    voteQuestionRequest, 
+    createAnswerRequest, 
+} from '../../slices/question.slice';
+
 import defaultAvatar from '../../images/default-avatar.svg';
 import lockImage from '../../images/padlock.png';
 import styles from './Question.module.sass';
 import LoadingSpinner from '../../components/LoadingSpinner';
+import Answer from '../../components/Answer';
 
 function Question() {
     const { questionId } = useParams();
@@ -21,6 +27,7 @@ function Question() {
     const isFetching = useSelector(state => state.question.isFetching);
     const userData = useSelector(state => state.user.userData);
     const userAvatar = question?.user?.profilePictureUrl || defaultAvatar;
+    const [isUpvoteQuestionDisabled, setUpvoteQuestionDisabled] = useState();    
     const navigate = useNavigate();
 
     const initialValues = {
@@ -35,14 +42,13 @@ function Question() {
     };
 
     const voteQuestion = (vote) => {
+        setUpvoteQuestionDisabled(true);
+
         if(!userData.id) {
             return navigate('/log-in');
         }
+        
         dispatch(voteQuestionRequest({ questionId, vote }));
-    };
-
-    const voteAnswer = (vote) => {
-        dispatch(voteAnswerRequest({ questionId, vote }));
     };
     
     useEffect(() => {
@@ -71,8 +77,8 @@ function Question() {
                     </div>
 
                     <div className={styles.votes}>
-                        <button onClick={() => voteQuestion(1)}>Upvote</button>
-                        <button onClick={() => voteQuestion(-1)}>Downvote</button>
+                        <button disabled={isUpvoteQuestionDisabled} onClick={(e) => voteQuestion(1)}>Upvote</button>
+                        <button disabled={isUpvoteQuestionDisabled} onClick={(e) => voteQuestion(-1)}>Downvote</button>
                     </div>
 
                     <div className={styles.user}>
@@ -90,33 +96,7 @@ function Question() {
                         {
                             question?.answers?.length?
                             question.answers.map((answer) => (
-                                <li className={styles.answer} key={uuidv4()}>
-                                    <div className={styles.answerContent}>
-                                        <ReactMarkdown>
-                                            {answer.answerBody}
-                                        </ReactMarkdown>
-                                    </div>
-        
-                                    <div>
-                                        <div className={styles.votes}>
-                                            <span>{answer.votesAmount} votes</span>
-                                            <button onClick={() => voteQuestion(1)}>Upvote</button>
-                                            <button onClick={() => voteQuestion(-1)}>Downvote</button>
-                                        </div>
-
-                                        <div>
-                                            <span>answered {answer.createdAt && formatDistance(new Date(answer.createdAt), new Date(), { addSuffix: true })}</span>
-                                            
-                                            <section className={styles.author}>
-                                                <div className={styles.avatar}>
-                                                    <img src={answer.user.profilePictureUrl || defaultAvatar} alt="user avatar"/>
-                                                </div>
-                                                
-                                                <span>{answer.user.username}</span>
-                                            </section>
-                                        </div>
-                                    </div>
-                                </li>
+                                <Answer answer={answer} key={uuidv4()}/>
                             ))
                             :
                             <p>No one has answered this question yet.</p>

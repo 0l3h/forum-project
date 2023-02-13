@@ -6,7 +6,7 @@ import Footer from '../../components/Footer';
 import Navbar from '../../components/Navbar';
 import SideMenu from '../../components/SideMenu';
 import styles from './Users.module.sass';
-import TopUsers from '../../components/TopUsers';
+// import TopUsers from '../../components/TopUsers';
 import PopularQuestions from '../../components/PopularQuestions';
 import SubscribeSection from '../../components/SubscribeSection';
 import { getUsersRequest } from '../../slices/users.slice';
@@ -56,7 +56,7 @@ function Users() {
 
           <div>
             <PopularQuestions/>
-            <TopUsers/>
+            {/* <TopUsers/> */}
           </div>
         </section>
       </main>

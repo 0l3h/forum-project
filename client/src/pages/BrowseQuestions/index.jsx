@@ -5,7 +5,7 @@ import Navbar from '../../components/Navbar';
 import SubscribeSection from '../../components/SubscribeSection';
 import PopularQuestions from '../../components/PopularQuestions';
 import SideMenu from '../../components/SideMenu';
-import TopUsers from '../../components/TopUsers';
+// import TopUsers from '../../components/TopUsers';
 import styles from './BrowseQuestions.module.sass';
 
 function BrowseQuestions() {
@@ -31,7 +31,7 @@ function BrowseQuestions() {
         <div>
           <PopularQuestions/>
 
-          <TopUsers/>
+          {/* <TopUsers/> */}
         </div>
       </div>
     </main>

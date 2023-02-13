@@ -22,8 +22,6 @@ function LogIn() {
 
     const from = location.state?.from?.pathname || "/";
 
-    console.log(location);
-
     const initialValues = {
         username: '',
         password: '',
