@@ -33,12 +33,18 @@ module.exports.voteAnswer = async (req, res) => {
         }, { 
             conflictFields: ['votableId', 'userId'] 
         });
+
+        const votesValue = await Vote.sum('vote', { 
+            where: {
+                votableId
+            }
+        });
+
+        res.json({ votesValue });
     } catch (error) {
         console.log(error);
         res.status(500).send();
     }
-
-    res.end();
 };
 
 module.exports.deleteAnswer = async (req, res) => {

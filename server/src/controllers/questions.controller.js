@@ -77,11 +77,11 @@ module.exports.getQuestionById = async (req, res) => {
                         {
                             model: User,
                             as: 'user',
-                            attributes: ['username', 'profilePictureUrl']
                         },
                         {
                             model: Vote,
                             as: 'votes',
+                            attributes: [],
                         }
                     ],
                     attributes: {
@@ -101,14 +101,22 @@ module.exports.getQuestionById = async (req, res) => {
                     [ sequelize.fn('SUM', sequelize.cast(sequelize.col('"votes"."vote"'), 'integer')), 'votesValue'],
                 ]
             },
-            group: ['user.id', 'Question.id', 'user.username', 'answers.id', 'answers->user.id', 'user.profilePictureUrl', 'answers->votes.id'],
+            group: [
+                'user.id', 
+                'Question.id', 
+                'user.username', 
+                'answers.id', 
+                'answers->user.id', 
+                'user.profilePictureUrl', 
+                'answers->votes.votableId', 
+            ],
             exclude: ['updatedAt'],
             nest: true
         })).increment('views_amount');
 
         const questionObject = question.get({ plain: true });
 
-        console.dir(questionObject);
+        // console.dir(questionObject.answers[0].votesValue);
 
         res.json(JSON.stringify(questionObject));
     } catch (error) {

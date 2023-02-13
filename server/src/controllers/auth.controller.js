@@ -134,7 +134,7 @@ module.exports.updateMyProfile = async (req, res) => {
         if (profilePicture === 'default' && isFileExist) {
             file.delete();
             user.update({ profilePictureUrl: null });
-        } else if(profilePicture !== 'default') {
+        } else if(profilePicture !== 'default' && profilePicture !== null) {
             const file = myBucket.file(`${id}.png`);
             const base64String = profilePicture.split(',').pop();
             const buffer = Buffer.from(base64String, 'base64');
