@@ -14,6 +14,7 @@ import QuestionsList from "./components/QuestionsList";
 import LogIn from './pages/LogIn';
 import SignUp from './pages/SignUp';
 import AuthRequired from "./components/AuthRequired";
+import Credits from './pages/Credits';
 import NotAuthorized from "./components/NotAuthorized";
 
 function App() {
@@ -43,6 +44,8 @@ function App() {
               <ViewProfile/>
             </AuthRequired>
           }/>
+
+          <Route path='/credits' element={<Credits/>}/>
 
           <Route path='/log-in' element={
             // <NotAuthorized>
