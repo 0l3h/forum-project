@@ -4,76 +4,34 @@
 @import '../../sass/_breakpoints'
     
 .content
+    display: flex
     min-height: 100vh
     background-color: $clr-light
-    display: flex
-
-    .sideSection
-        display: flex
-        flex-direction: column
-        box-sizing: border-box
-        padding: 100px 
-        width: 40%
-        background-size: 320px
-        background-color: $clr-blue
-
-        @media screen and (width <= $screen-medium)
-            display: none
-
-        .decor
-            position: absolute
-            top: 20px
-            left: 500px
-            width: 260px
-            height: 320px
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
-
-        .decor2
-            position: absolute
-            bottom: 0
-            left: 0
-            width: 400px
-            height: 180px
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
-
-        & > h1
-            color: $clr-white
-            font-size: $fs-700
-            font-weight: bold
-            margin: 16px 0
-
-        & > img
-            margin-top: auto
-
-        & > p
-            color: $clr-white
-            font-weight: lighter
-            line-height: $lh-30
-
-        .socials
-            margin-top: auto
-            
-            & > img
-                margin-right: 20px 
-                width: 20px
 
     .loginForm
-        padding-top: 26vh
         display: flex
         flex-direction: column
-        padding: 20px
-        width: min(80%, 500px)
+        background-color: white
+        border-radius: 5px
+        padding: 30px
+        width: min(80%, 460px)
         margin: auto
         gap: 10px
         border-radius: 10px
 
         & > img
-            width: 80px
-            margin-bottom: 60px
+            background-color: #a6e0ff62
+            border-radius: 5px
+            padding: 10px
+            margin-inline: auto
+            width: 20px
+            margin-bottom: 30px
 
         .heading
+            text-align: center
             font-weight: bold
             font-size: $fs-600
+            margin-bottom: 30px
 
         .signupLink
             text-decoration: none
