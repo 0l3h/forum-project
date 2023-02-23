@@ -60,12 +60,12 @@ module.exports.logout = async (req, res) => {
 };
 
 module.exports.login = async (req, res) => {
-    const { username, password } = req.body;
-    const errorMessage = 'Username or password is incorrect';
+    const { email, password } = req.body;
+    const errorMessage = 'Email or password is incorrect';
 
     try {
         const user = await User.findOne({
-            where: { username }
+            where: { email }
         });
 
         if (!user) 
