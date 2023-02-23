@@ -30,9 +30,9 @@ export const questionsSlice = createSlice({
             state.error = null;
         },
         voteQuestionSuccess: (state, action) => {
-            const { payload: vote } = action;
+            const { payload } = action;
 
-            state.questionPost.votesValue += vote;
+            state.data.push(payload);
             state.isFetching = false;
         },
         voteQuestionError: (state, action) => {
