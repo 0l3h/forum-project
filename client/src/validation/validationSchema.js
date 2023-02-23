@@ -10,12 +10,12 @@ const testOptions = {
 
 const schemas = {
     loginSchema: yup.object({
-        username: yup
+        email: yup
             .string()
-            .required('Specify your username'),
+            .email('Incorrect email format')
+            .required('Enter your email'),
         password: yup
             .string()
-            .matches(passwordRegEx, 'Password must contain at least 6 characters, including at least one number, one uppercase and one lowercase letter')
             .required('Type in your password'),
     }),
     signupSchema: yup.object({
