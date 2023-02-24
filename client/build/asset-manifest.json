@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "./static/css/main.5f65cd41.css",
-    "main.js": "./static/js/main.7b954b8a.js",
+    "main.css": "./static/css/main.185b0f32.css",
+    "main.js": "./static/js/main.5e8903aa.js",
     "static/media/technologies.svg": "./static/media/technologies.843f52ebeaafc87360ff50b2634749d9.svg",
-    "static/media/logo.png": "./static/media/logo.5ef8e3db38a54c51d9aa.png",
     "static/media/page-not-found.svg": "./static/media/page-not-found.bdf1c60c297dc6528f56fe6a382dacdf.svg",
+    "static/media/askmeLogo.png": "./static/media/askmeLogo.6d6741e59d80277952fe.png",
     "static/media/default-avatar.svg": "./static/media/default-avatar.4952e5a786f5098d7c43ab6343703257.svg",
     "static/media/open-menu-icon.svg": "./static/media/open-menu-icon.713eda253e2dc3b23fad.svg",
     "index.html": "./index.html",
     "static/media/dropdown-open-icon.svg": "./static/media/dropdown-open-icon.9c2572999674b4e078936e4a6132df0b.svg",
     "static/media/dropdown-close-icon.svg": "./static/media/dropdown-close-icon.d9fd95564f3907e04fce1f9d5dc30d9c.svg",
     "static/media/close-menu-icon.svg": "./static/media/close-menu-icon.511a0a28aaabd1112b30.svg",
-    "main.5f65cd41.css.map": "./static/css/main.5f65cd41.css.map",
-    "main.7b954b8a.js.map": "./static/js/main.7b954b8a.js.map"
+    "main.185b0f32.css.map": "./static/css/main.185b0f32.css.map",
+    "main.5e8903aa.js.map": "./static/js/main.5e8903aa.js.map"
   },
   "entrypoints": [
-    "static/css/main.5f65cd41.css",
-    "static/js/main.7b954b8a.js"
+    "static/css/main.185b0f32.css",
+    "static/js/main.5e8903aa.js"
   ]
 }

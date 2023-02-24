@@ -59,16 +59,16 @@ function SignUp() {
             <h1 className={styles.heading}>Sign up</h1>
             
             <label htmlFor="username">Username</label>
-            <Input type="text" name="username" errorMessage={errorMessage} placeholder="Username"/>
+            <Input type="text" name="username" placeholder="Username"/>
             
             <label htmlFor="email">Email</label>
-            <Input type="email" name="email" errorMessage={errorMessage} placeholder="Email"/>
+            <Input type="email" name="email" placeholder="Email"/>
             
             <label htmlFor="password">Password</label>
-            <Input type="password" name="password" errorMessage={errorMessage} placeholder="Password"/>
+            <Input type="password" name="password" placeholder="Password"/>
             
             <label htmlFor="confirmPassword">Confirm your password</label>
-            <Input type="password" name="confirmPassword" errorMessage={errorMessage} placeholder="Repeat your password"/>
+            <Input type="password" name="confirmPassword" placeholder="Repeat your password"/>
 
             <div>
               <span>Already have an account?</span>
