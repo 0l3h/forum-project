@@ -21,8 +21,8 @@ const userSlice = createSlice({
             state.isFetching = false;
         },
         logInError: (state, action) => {
-            const { payload: { error } } = action;
-            
+            const { payload: error } = action;
+
             state.isFetching = false;
             state.error = error;
         },
@@ -57,7 +57,7 @@ const userSlice = createSlice({
             state.isFetching = false;
         },
         signUpError: (state, action) => {
-            const { payload: { error } } = action;
+            const { payload: error } = action;
             
             state.isFetching = false;
             state.error = error;
