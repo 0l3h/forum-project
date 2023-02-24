@@ -16,9 +16,13 @@ function* logInUser(action) {
     const { payload } = action;
 
     try {
-        const userData = yield call(api.logInUser, payload);
-        
-        yield put(logInSuccess(userData.data));
+        const response = yield call(api.logInUser, payload);
+
+        if (response.data.errorMessage) 
+            yield put(logInError(response.data.errorMessage));
+        else 
+            yield put(logInSuccess(response.data));
+    
     } catch (error) {
         yield put(logInError("Can't log in"));
     }
@@ -37,9 +41,13 @@ function* signUpUser(action) {
     const { payload } = action;
 
     try {
-        const userData = yield call(api.signUpUser, payload);
+        const response = yield call(api.signUpUser, payload);
 
-        yield put(signUpSuccess(userData.data));
+        if (response.data.errorMessage) 
+            yield put(signUpError(response.data.errorMessage));
+        else 
+            yield put(signUpSuccess(response.data));
+
     } catch (error) {
         yield put(signUpError("Can't sign up"));
     }
