@@ -12,8 +12,8 @@ function LogIn() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const location = useLocation();
-    const selector = state => state.user.userData.id; 
-    const userId = useSelector(selector);
+    const userId = useSelector(state => state.user.userData.id);
+    const errorMessage = useSelector(state => state.user.error);
     const from = location.state?.from?.pathname || "/";
     const initialValues = {
         email: '',
@@ -63,6 +63,14 @@ function LogIn() {
                         <span>Have no account yet?</span>
                         <NavLink to="/sign-up" className={styles.signupLink}> Sign up</NavLink>
                     </div>
+
+                    {
+                        errorMessage && (
+                            <div className={styles.errorMessage}>
+                                {errorMessage}
+                            </div>
+                        )
+                    }
                     
                     <button type="submit" className={styles.submitButton}>Submit</button>
                 </Form>

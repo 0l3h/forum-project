@@ -13,6 +13,7 @@ function SignUp() {
   const navigate = useNavigate();
   const location = useLocation();
   const userId = useSelector(state => state.user.userData.id);
+  const errorMessage = useSelector(state => state.user.error);
 
   const initialValues = {
     username: '',
@@ -58,21 +59,29 @@ function SignUp() {
             <h1 className={styles.heading}>Sign up</h1>
             
             <label htmlFor="username">Username</label>
-            <Input type="text" name="username" label="Username (max 20 characters)" placeholder="Username"/>
+            <Input type="text" name="username" errorMessage={errorMessage} placeholder="Username"/>
             
             <label htmlFor="email">Email</label>
-            <Input type="email" name="email"  placeholder="Email"/>
+            <Input type="email" name="email" errorMessage={errorMessage} placeholder="Email"/>
             
             <label htmlFor="password">Password</label>
-            <Input type="password" name="password"  placeholder="Password"/>
+            <Input type="password" name="password" errorMessage={errorMessage} placeholder="Password"/>
             
             <label htmlFor="confirmPassword">Confirm your password</label>
-            <Input type="password" name="confirmPassword" placeholder="Repeat your password"/>
+            <Input type="password" name="confirmPassword" errorMessage={errorMessage} placeholder="Repeat your password"/>
 
             <div>
               <span>Already have an account?</span>
               <NavLink to="/log-in" className={styles.loginLink}> Log in</NavLink>
             </div>
+
+            {
+              errorMessage && (
+                <div className={styles.errorMessage}>
+                  {errorMessage}
+                </div>
+              )
+            }
 
             <button type="submit" className={styles.submitButton}>Submit</button>
         </Form>
