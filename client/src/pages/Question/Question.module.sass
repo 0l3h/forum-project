@@ -42,12 +42,31 @@
             flex-direction: column
             line-height: $lh-28
             padding-bottom: 20px
+            gap: 20px
 
-            .votes
-                & > button
-                    background: none
+            .buttons
+                display: flex
+
+                .votes
+                    display: inline-block
+
+                    & > button
+                        background: none
+                        border: none
+                        color: $clr-gloomy
+                        font-size: $fs-200
+
+                        &:hover
+                            text-decoration: underline
+
+                .deleteButton
+                    display: inline-block
+                    margin-left: auto
+                    background-color: #ff5858
+                    color: $clr-white
                     border: none
-                    color: $clr-gloomy
+                    border-radius: 5px
+                    padding: 8px
                     font-size: $fs-200
 
                     &:hover
@@ -85,7 +104,6 @@
                 blockquote
                     padding: 14px
                     background-color: $clr-light-blue
-                    border-left: 3px solid $clr-blue
 
         .answersAmount
             margin: 20px 0

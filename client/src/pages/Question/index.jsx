@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { Formik, Form } from 'formik';
@@ -27,7 +27,6 @@ function Question() {
     const isFetching = useSelector(state => state.question.isFetching);
     const userData = useSelector(state => state.user.userData);
     const userAvatar = question?.user?.profilePictureUrl || defaultAvatar;
-    const [isUpvoteQuestionDisabled, setUpvoteQuestionDisabled] = useState();    
     const navigate = useNavigate();
 
     const initialValues = {
@@ -42,9 +41,8 @@ function Question() {
     };
 
     const voteQuestion = (vote) => {
-        setUpvoteQuestionDisabled(true);
-
         if(!userData.id) {
+            console.log(navigate);
             return navigate('/log-in');
         }
         
@@ -76,9 +74,17 @@ function Question() {
                         </ReactMarkdown>
                     </div>
 
-                    <div className={styles.votes}>
-                        <button disabled={isUpvoteQuestionDisabled} onClick={(e) => voteQuestion(1)}>Upvote</button>
-                        <button disabled={isUpvoteQuestionDisabled} onClick={(e) => voteQuestion(-1)}>Downvote</button>
+                    <div className={styles.buttons}>
+                        <div className={styles.votes}>
+                            <button onClick={(e) => voteQuestion(1)}>Upvote</button>
+                            <button onClick={(e) => voteQuestion(-1)}>Downvote</button>
+                        </div>
+
+                        {
+                            userData.id === question.authorId &&
+                            
+                            <button className={styles.deleteButton}>Delete</button>
+                        }    
                     </div>
 
                     <div className={styles.user}>
