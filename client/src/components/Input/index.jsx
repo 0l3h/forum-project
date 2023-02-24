@@ -2,7 +2,7 @@ import React from 'react';
 import { useField } from 'formik';
 import styles from './Input.module.sass';
 
-function Input({label, ...props}) {
+function Input(props) {
   const [field, meta] = useField(props);
   
   return <>
