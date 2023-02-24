@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import ReactMarkdown from 'react-markdown';
 import { formatDistance } from 'date-fns';
@@ -13,6 +14,7 @@ function Answer({ answer }) {
     const userData = useSelector(state => state.user.userData);
     const dispatch = useDispatch();
     const { questionId } = useParams();
+    const navigate = useNavigate();
 
     const clickedStyle = {
         color: '#0d92ff',
