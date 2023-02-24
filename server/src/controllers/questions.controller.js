@@ -116,8 +116,6 @@ module.exports.getQuestionById = async (req, res) => {
 
         const questionObject = question.get({ plain: true });
 
-        // console.dir(questionObject.answers[0].votesValue);
-
         res.json(JSON.stringify(questionObject));
     } catch (error) {
         console.log(error);
@@ -174,6 +172,14 @@ module.exports.voteQuestion = async (req, res) => {
         }, { 
             conflictFields: ['votableId', 'userId'] 
         });
+
+        const votesValue = await Vote.sum('vote', { 
+            where: {
+                votableId
+            }
+        });
+
+        res.json({ votesValue });
     } catch (error) {
         console.log(error.message);
         res.status(500).send();

@@ -68,13 +68,17 @@ module.exports.login = async (req, res) => {
             where: { email }
         });
 
-        if (!user) 
-            throw new Error(errorMessage);
-
+        if (!user) {
+            res.json(({ errorMessage }));
+            return;
+        }
+        
         const isPasswordMatches = await bcrypt.compare(password, user.password);
 
-        if (!isPasswordMatches) 
-            throw new Error(errorMessage);
+        if (!isPasswordMatches) {
+            res.json(({ errorMessage }));
+            return;
+        }
 
         const token = sign({ id: user.id });
 
@@ -96,6 +100,28 @@ module.exports.signup = async (req, res) => {
     const { username, email, password } = req.body;
 
     try {
+        const isUsernameExists = await User.findOne({
+            where: {
+                username
+            }
+        });
+
+        const isEmailExists = await User.findOne({
+            where: {
+                email
+            }
+        });
+
+        if(isUsernameExists) {
+            res.json({ errorMessage: `Username ${username} is already taken`});
+            return;
+        }
+
+        if(isEmailExists) {
+            res.json({ errorMessage: `${email} address is already used` });
+            return;
+        }
+
         const hashedPassword = await bcrypt.hash(password, 10);
         const userData = { username, email, password: hashedPassword };
 
