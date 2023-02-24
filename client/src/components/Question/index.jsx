@@ -25,47 +25,45 @@ function Question(props) {
     }} = props;
     
     return (
-        <div className={styles.questionLink}>
-            <section className={styles.questionBox}>
-                <div className={styles.questionContainer}>
-                    <div className={styles.question}>
-                        <NavLink  to={id}>
-                            <h1 className={styles.title}>{title}</h1>
-                        </NavLink>
-                        <p className={styles.questionBody}>{removeMarkdown(questionBody)}</p>
+        <section className={styles.questionBox}>
+            <div className={styles.questionContainer}>
+                <div className={styles.question}>
+                    <NavLink  to={id}>
+                        <h1 className={styles.title}>{title}</h1>
+                    </NavLink>
+                    <p className={styles.questionBody}>{removeMarkdown(questionBody)}</p>
+                </div>
+
+                <div className={styles.info}>
+                    <div>
+                        <div>
+                            <img src={clockIcon} alt="clock" />
+                            <span>Asked {formatDistance(new Date(createdAt), new Date(), { addSuffix: true })}</span>
+                        </div>
+
+                        <div>
+                            <img src={viewsIcon} alt="clock" />
+                            <span>{views_amount} views</span>
+                        </div>
+
+                        <div>
+                            <img src={likeIcon} alt="clock" />
+                            <span>{votesValue || 0} upvotes</span>
+                        </div>
+
+                        <div>
+                            <img src={commentIcon} alt="clock" />
+                            <span>0 answers</span> 
+                        </div>
                     </div>
 
-                    <div className={styles.info}>
-                        <div>
-                            <div>
-                                <img src={clockIcon} alt="clock" />
-                                <span>Asked {formatDistance(new Date(createdAt), new Date(), { addSuffix: true })}</span>
-                            </div>
-
-                            <div>
-                                <img src={viewsIcon} alt="clock" />
-                                <span>{views_amount} views</span>
-                            </div>
-
-                            <div>
-                                <img src={likeIcon} alt="clock" />
-                                <span>{votesValue || 0} upvotes</span>
-                            </div>
-
-                            <div>
-                                <img src={commentIcon} alt="clock" />
-                                <span>0 answers</span> 
-                            </div>
-                        </div>
-
-                        <div className={styles.author}>
-                            <img className={styles.avatar} src={profilePictureUrl || defaultAvatar} alt="author's avatar" />
-                            <span className={styles.name}>{username}</span>
-                        </div>
+                    <div className={styles.author}>
+                        <img className={styles.avatar} src={profilePictureUrl || defaultAvatar} alt="author's avatar" />
+                        <span className={styles.name}>{username}</span>
                     </div>
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
     )
 }
 
