@@ -16,7 +16,7 @@
     "url": "git+https://github.com/0l3h/forum-project.git"
   },
   "engines": {
-    "node": "16.x"
+    "node": "20.x"
   },
   "author": "",
   "license": "ISC",

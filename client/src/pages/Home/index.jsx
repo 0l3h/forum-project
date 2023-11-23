@@ -1,29 +1,29 @@
-import React, { useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+// import React, { useEffect } from 'react';
+// import { NavLink } from 'react-router-dom';
 import styles from './Home.module.sass';
-import Header from '../../components/Header';
+// import Header from '../../components/Header';
 import questionImage from './../../images/question-illustration.png';
 import findImage from './../../images/searching-illustration.png';
 import helpImage from './../../images/help-illustration.png';
-import Navbar from '../../components/Navbar';
+// import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 
 function index() {
-    useEffect(() => {
-        window.gtag('config', 'G-WJZPSFS6SG', {
-            send_page_view: false,
-        });
+    // useEffect(() => {
+    //     window.gtag('config', 'G-WJZPSFS6SG', {
+    //         send_page_view: false,
+    //     });
 
-        window.gtag('event', 'page_view', {
-            page_title: 'Homepage',
-        })
-    }, [])
+    //     window.gtag('event', 'page_view', {
+    //         page_title: 'Homepage',
+    //     })
+    // }, [])
     
     return <>
-        <Navbar/>
+        {/* <Navbar/> */}
         
         <main>
-            <Header/>
+            {/* <Header/> */}
 
             <section className={styles.details}>
                 <div className={styles.description}>
@@ -39,7 +39,7 @@ function index() {
                         Stuck with the problem? Chances are someone already asked for help
                     </p>
 
-                    <NavLink to='/browse-questions'>Browse Questions</NavLink>
+                    {/* <NavLink to='/browse-questions'>Browse Questions</NavLink> */}
                 </div>
                 
                 <div className={styles.description}>
@@ -55,7 +55,7 @@ function index() {
                         If you can't find solution, you may ask other devs about your specific problem
                     </p>
 
-                    <NavLink to='/ask-question'>Ask community</NavLink>
+                    {/* <NavLink to='/ask-question'>Ask community</NavLink> */}
                 </div>
                 
                 <div className={styles.description}>                    

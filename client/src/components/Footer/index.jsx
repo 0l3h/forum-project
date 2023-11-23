@@ -1,5 +1,6 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
+import Link from 'next/link';
 import styles from './Footer.module.sass';
 
 function Footer() {
@@ -19,7 +20,7 @@ function Footer() {
                 <h1>Resoures</h1>
 
                 <li>
-                    <NavLink to="/credits">Credits</NavLink>
+                    <Link href="/credits">Credits</Link>
                 </li>
             </ul>
         </div>
