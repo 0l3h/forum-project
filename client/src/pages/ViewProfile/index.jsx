@@ -7,7 +7,7 @@ import locationLogo from '../../images/location-logo.png';
 import cakeLogo from '../../images/cake-logo.png';
 import SideMenu from '../../components/SideMenu';
 import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer/index.jsx';
+import Footer from '../../components/Footer';
 import LoadingSpinner from '../../components/LoadingSpinner/index.jsx';
 
 function ViewProfile() {

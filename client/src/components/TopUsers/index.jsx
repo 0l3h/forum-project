@@ -1,31 +1,55 @@
 import React from 'react';
-import styles from './TopUsers.module.sass';
-import topUsersIcon from '../../images/popularity.png';
+import { MdLeaderboard } from "react-icons/md";
+import Image from 'next/image';
+import personPhoto from '../../images/portrait-1.jpg'
 
 function TopUsers() {
   return (
-    <div className={styles.topUsers}>
-        <div>
-            <img src={topUsersIcon} alt="top users icon" />
-            <span className={styles.heading}>Top Users</span>
+    <div className='bg-white p-5'>
+        <div className='flex items-center gap-3 mb-3'>
+            <MdLeaderboard color='blue' size={24}/>
+            <span className='font-bold'>Top Users</span>
         </div>
         
-        <ul className={styles.userList}>
-            <li>
-                <span>n1cknam3_1</span>
-                <span>31 likes</span>
+        <ul className='flex flex-col gap-5'>
+            <li className='flex gap-3'>
+                <div className='overflow-hidden max-h-10 aspect-square rounded-full'>
+                    <Image src={personPhoto} alt='person photo'/>
+                </div>
+                <div>
+                    <p>n1cknam3_1</p>
+                    <p className='text-xs'>Rating 50</p>
+                </div>
             </li>
-            <li>
-                <span>_some_other_name</span>
-                <span>20 likes</span>
+
+            <li className='flex gap-3'>
+                <div className='overflow-hidden max-h-10 aspect-square rounded-full'>
+                    <Image src={personPhoto} alt='person photo'/>
+                </div>
+                <div>
+                    <p>n1cknam3_1</p>
+                    <p className='text-xs'>Rating 50</p>
+                </div>
             </li>
-            <li>
-                <span>juliakp</span>
-                <span>14 likes</span>
+
+            <li className='flex gap-3'>
+                <div className='overflow-hidden max-h-10 aspect-square rounded-full'>
+                    <Image src={personPhoto} alt='person photo'/>
+                </div>
+                <div>
+                    <p>n1cknam3_1</p>
+                    <p className='text-xs'>Rating 50</p>
+                </div>    
             </li>
-            <li>
-                <span>h3llo</span>
-                <span>9 likes</span>
+
+            <li className='flex gap-3'>
+                <div className='overflow-hidden max-h-10 aspect-square rounded-full'>
+                    <Image src={personPhoto} alt='person photo'/>
+                </div>
+                <div>
+                    <p>n1cknam3_1</p>
+                    <p className='text-xs'>Rating 50</p>
+                </div>
             </li>
         </ul>
     </div>

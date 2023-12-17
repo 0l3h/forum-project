@@ -1,11 +1,10 @@
 // import React, { useEffect } from 'react';
 // import { NavLink } from 'react-router-dom';
-import styles from './Home.module.sass';
-// import Header from '../../components/Header';
-import questionImage from './../../images/question-illustration.png';
-import findImage from './../../images/searching-illustration.png';
-import helpImage from './../../images/help-illustration.png';
-// import Navbar from '../../components/Navbar';
+import { FaSearch } from "react-icons/fa";
+import { TbMessage2Question } from "react-icons/tb";
+import { LiaHandsHelpingSolid } from "react-icons/lia";
+import Header from '../../components/Header';
+import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 
 function index() {
@@ -20,58 +19,47 @@ function index() {
     // }, [])
     
     return <>
-        {/* <Navbar/> */}
+        <Navbar/>
         
-        <main>
-            {/* <Header/> */}
+        <main className="min-h-screen">
+            <Header/>
+            <div className='flex gap-8'>
+                <div className='p-10 shadow-md rounded max-w-sm'>
+                    <FaSearch size={26} color='blue'/>
 
-            <section className={styles.details}>
-                <div className={styles.description}>
-                    <span>
-                        <img src={findImage} alt="" />
-                    </span>
-
-                    <h3 className={styles.heading}>
+                    <h3 className='font-bold'>
                         Find answers
                     </h3>
                     
-                    <p className={styles.text}>
+                    <p>
                         Stuck with the problem? Chances are someone already asked for help
                     </p>
 
                     {/* <NavLink to='/browse-questions'>Browse Questions</NavLink> */}
                 </div>
                 
-                <div className={styles.description}>
-                    <span>
-                        <img src={questionImage} alt="" />
-                    </span>
+                <div className='p-10 shadow-md max-w-sm'>
+                    <TbMessage2Question size={26} color='blue'/>
 
-                    <h3 className={styles.heading}>
+                    <h3 className='font-bold'>
                         Ask questions
                     </h3>
                     
-                    <p className={styles.text}>
-                        If you can't find solution, you may ask other devs about your specific problem
+                    <p>
+                        If you can't find solution, you may ask other developers about your specific problem
                     </p>
-
-                    {/* <NavLink to='/ask-question'>Ask community</NavLink> */}
                 </div>
                 
-                <div className={styles.description}>                    
-                    <span>
-                        <img src={helpImage} alt="" />
-                    </span>
+                <div className='p-10 shadow-md max-w-sm'>
+                    <LiaHandsHelpingSolid size={26} color='blue'/>
 
-                    <h3 className={styles.heading}>
-                        Help others
-                    </h3>
+                    <h3 className='font-bold'>Help others</h3>
                     
-                    <p className={styles.text}>
+                    <p>
                         Know solution to the problem? Help by providing the answer
                     </p>
                 </div>
-            </section>
+            </div>
         </main>
 
         <Footer/>

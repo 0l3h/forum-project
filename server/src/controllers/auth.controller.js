@@ -5,10 +5,12 @@ const jwt = require('jsonwebtoken');
 const { User, Question } = require('../models');
 const { sign, refresh } = require('../auth/tokens');
 const storage = new Storage({ 
-    projectId: process.env.GCP_PROJECT_ID,
-    credentials: JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS)
+    // projectId: process.env.GCP_PROJECT_ID,
+    // credentials: JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS)
 });
-const myBucket = storage.bucket(process.env.GCS_BUCKETNAME);
+// const myBucket = storage.bucket(process.env.GCS_BUCKETNAME);
+
+const myBucket = {};
 
 module.exports.auth = async (req, res, next) => {
     const token = req.cookies['access-token'];
@@ -37,17 +39,17 @@ module.exports.getMyProfile = async (req, res) => {
             attributes: { exclude: ['password', 'email'] }
         })).get({ plain: true });
 
-        const file = myBucket.file(`${id}.png`);
+        // const file = myBucket.file(`${id}.png`);
         
-        const isFileExist = (await file.exists())[0];
+        // const isFileExist = (await file.exists())[0];
         
-        if(isFileExist) {
-            const profilePictureUrl = (await file.publicUrl());
+        // if(isFileExist) {
+        //     const profilePictureUrl = (await file.publicUrl());
 
-            res.json({ ...user, profilePictureUrl });
-        } else {
-            res.json(user);
-        }
+        //     res.json({ ...user, profilePictureUrl });
+        // } else {
+        //     res.json(user);
+        // }
     } catch (error) {
         console.log('error', error)
         res.json({ message: '500 - Internal server error. Can\'t obtain user data' });

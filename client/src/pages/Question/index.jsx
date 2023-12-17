@@ -17,7 +17,6 @@ import {
 
 import defaultAvatar from '../../images/default-avatar.svg';
 import lockImage from '../../images/padlock.png';
-import styles from './Question.module.sass';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import Answer from '../../components/Answer';
 

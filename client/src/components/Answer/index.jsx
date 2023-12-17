@@ -1,10 +1,11 @@
+'use client'
 import React, { useState } from 'react';
 import { useParams } from 'react-router';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import ReactMarkdown from 'react-markdown';
 import { formatDistance } from 'date-fns';
-import styles from './Answer.module.sass';
+// import styles from './Answer.module.sass';
 import { voteAnswerRequest } from '../../slices/question.slice';
 import defaultAvatar from '../../images/default-avatar.svg';
 
@@ -41,15 +42,15 @@ function Answer({ answer }) {
     };
 
     return (
-        <li className={styles.answer}>
-            <div className={styles.answerContent}>
+        <li>
+            <div>
                 <ReactMarkdown>
                     {answer.answerBody}
                 </ReactMarkdown>
             </div>
 
             <div>
-                <div className={styles.votes}>
+                <div>
                     <span>{answer.votesValue || 0} votes</span>
                     
                     <button style={clickedStyle} onClick={ isUpvoted? deleteAnswerVote('upvote') : () => voteAnswer(1, answer.id) }>
@@ -64,8 +65,8 @@ function Answer({ answer }) {
                 <div>
                     <span>answered {answer.createdAt && formatDistance(new Date(answer.createdAt), new Date(), { addSuffix: true })}</span>
                     
-                    <section className={styles.author}>
-                        <div className={styles.avatar}>
+                    <section>
+                        <div>
                             <img src={answer.user.profilePictureUrl || defaultAvatar} alt="user avatar"/>
                         </div>
                         

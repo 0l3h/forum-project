@@ -30,6 +30,20 @@ const {
     logout 
 } = require('./controllers/auth.controller');
 
+const { Client } = require('pg');
+const client = new Client()
+
+async function initializeDb() {
+    try {
+        client.connect()        
+        await client.query('CREATE DATABASE IF NOTE EXISTS $1::text;', [process.env.POSTGRES_DB_NAME || "askme_db"])
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+initializeDb();
+
 const app = express();
 const port = process.env.PORT || 5000;
 

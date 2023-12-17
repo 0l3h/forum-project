@@ -1,32 +1,39 @@
+'use client'
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import styles from './Header.module.sass';
-import forumPageImage from '../../images/technologies.svg';
+import Link from 'next/link';
+import Typewriter from "typewriter-effect/dist/react";
 
 function Header() {
     return (
-        <header className={styles.header}>
-           <div>
-                <h1 className={styles.heading}>
-                    Helping you to write better software.
-                </h1>
+        <header className='bg-header-lines bg-cover flex flex-col p-20 gap-5'>
+            {/* <div className='flex flex-col items-center gap-5'> */}
+                <h1 className='text-4xl font-bold'>Askme</h1>
                 
-                <span className={styles.subheading}>
-                    A place to share knowledge related to software development.
-                </span>
-
-                <div className={styles.links}>
-                    <NavLink className={styles.browseQuestionsButton} to='/browse-questions'>
-                        Browse Questions
-                    </NavLink>
-
-                    <NavLink className={styles.joinButton} to='/sign-up'>
-                        Join The Community
-                    </NavLink>
+                <div>
+                    <span>Discussion forum for </span>
+                    <span style={{ display: 'inline-block' }}> 
+                        <Typewriter  options={{
+                            strings: ['developers', 'artists', 'engineers'], 
+                            autoStart: true,
+                            skipAddStyles: true,
+                            wrapperClassName: 'inline',
+                            loop: true
+                        }}/>
+                    </span>
                 </div>
-           </div>
+
+                <div>
+                    <Link href='/questions' className='bg-blue-700 inline-block p-4 rounded mr-4 text-white max-w-fit'>
+                        Browse Questions
+                    </Link>
+
+                    <Link href='/sign-up' className='text-blue-700 inline-block font-bold max-w-fit'>
+                        Join The Community
+                    </Link>
+                </div>
+            {/* </div> */}
             
-            <img src={forumPageImage} alt="Forum page" className={styles.forumImage}/>
+           
         </header>
     )
 }

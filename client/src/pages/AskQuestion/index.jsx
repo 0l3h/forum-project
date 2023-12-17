@@ -4,13 +4,13 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { createQuestionRequest } from '../../slices/questions.slice.js';
 import Input from '../../components/Input';
-import Navbar from '../../components/Navbar/index.jsx';
-import SideMenu from '../../components/SideMenu/index.jsx';
+import Navbar from '../../components/Navbar';
+import SideMenu from '../../components/SideMenu';
 import warningIcon from '../../images/warning-icon.png';
 import TextInput from '../../components/TextInput';
 import styles from './AskQuestion.module.sass';
 import schemas from '../../validation/validationSchema';
-import Footer from '../../components/Footer/index.jsx';
+import Footer from '../../components/Footer';
 
 function AskQuestion() {
     const dispatch = useDispatch();

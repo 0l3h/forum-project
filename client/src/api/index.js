@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const host = 'localhost';
-const port = process.env.PORT || 7391;
+const port = process.env.PORT || 5000;
 const url = process.env.NODE_ENV === 'development'? `http://${host}:${port}` : "https://forum-project-production-bca8.up.railway.app/";
 
 const config = {
@@ -26,7 +26,11 @@ const getConfig = {
 
 export const createQuestion = data => instance.post('ask-question', JSON.stringify(data), postConfig);
 
-export const getQuestions = () => instance.get('browse-questions', getConfig);
+export const getQuestions = () => {
+    const data = instance.get('browse-questions', getConfig);
+    console.log(data);
+    return data;
+}
 
 export const getQuestionById = id => instance.get(`/browse-questions/${id}`, getConfig);
 

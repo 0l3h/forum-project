@@ -1,9 +1,11 @@
 import React, { Suspense } from 'react';
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Provider } from 'react-redux';
+import QueryProvider from './providers';
+import './globals.css';
+// import { Provider } from 'react-redux';
 // import App from '../App';
-import store from '../store/store';
+// import store from '../store/store';
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(
@@ -18,20 +20,20 @@ import store from '../store/store';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Todo App",
+  title: "Askme | IT forum",
   description: "A simple todo list application",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={inter.className}>
         {/* <Provider store={store}> */}
-          <Suspense fallback={<p>Loading...</p>}>{children}</Suspense>
+        <QueryProvider>
+          <Suspense fallback={<p>Loading...</p>}>
+            {children} 
+          </Suspense>
+        </QueryProvider>
         {/* </Provider> */}
       </body>
     </html>
