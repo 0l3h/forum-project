@@ -13,10 +13,13 @@ const storage = new Storage({
 const myBucket = {};
 
 module.exports.auth = async (req, res, next) => {
-    const token = req.cookies['access-token'];
+    const token = req.cookies['next-auth.session-token'];
+
+    console.log(req.cookies['next-auth.session-token']);
 
     jwt.verify(token, process.env.TOKEN_SECRET, (error, decoded) => {
         if (error) {
+            console.error(error.message);
             res.end();
         }
         else {
@@ -38,18 +41,6 @@ module.exports.getMyProfile = async (req, res) => {
             nest: true,
             attributes: { exclude: ['password', 'email'] }
         })).get({ plain: true });
-
-        // const file = myBucket.file(`${id}.png`);
-        
-        // const isFileExist = (await file.exists())[0];
-        
-        // if(isFileExist) {
-        //     const profilePictureUrl = (await file.publicUrl());
-
-        //     res.json({ ...user, profilePictureUrl });
-        // } else {
-        //     res.json(user);
-        // }
     } catch (error) {
         console.log('error', error)
         res.json({ message: '500 - Internal server error. Can\'t obtain user data' });
@@ -64,6 +55,8 @@ module.exports.logout = async (req, res) => {
 module.exports.login = async (req, res) => {
     const { email, password } = req.body;
     const errorMessage = 'Email or password is incorrect';
+
+    console.log("password", password);
 
     try {
         const user = await User.findOne({
@@ -87,11 +80,15 @@ module.exports.login = async (req, res) => {
         const cookieOptions = {
             httpOnly: true,
             sameSite: 'Strict',
-            secure: true,
+            secure: false,
         };
 
         res.cookie('access-token', token, cookieOptions);
-        res.json({ id: user.id });
+        res.json({ 
+            id: user.id,
+            username: user.username,
+            email: user.email
+        });
     } catch (error) {
         console.log(error.message);
         res.json({ message: '500 - Internal server error. Can\'t log in' });
@@ -103,15 +100,11 @@ module.exports.signup = async (req, res) => {
 
     try {
         const isUsernameExists = await User.findOne({
-            where: {
-                username
-            }
+            where: { username }
         });
 
         const isEmailExists = await User.findOne({
-            where: {
-                email
-            }
+            where: { email }
         });
 
         if(isUsernameExists) {
@@ -131,16 +124,21 @@ module.exports.signup = async (req, res) => {
 
         const cookieOptions = {
             httpOnly: true,
-            sameSite: 'Strict',
-            secure: true,
+            // sameSite: 'Strict',
+            // secure: true,
         };
 
-        const token = sign({ id: user.id });
+        console.log("User id: ", user.id);
 
-        res.cookie('access-token', token, cookieOptions);
+        const token = sign({ id: user.id }, process.env.TOKEN_SECRET);
+
+        console.log("Password: ", hashedPassword);
+
+        // res.cookie('access-token', token, cookieOptions);
+        res.cookie('access-token', 'some value');
         res.json({ id: user.id });
     } catch (error) {
-        console.log(error.message);
+        console.log(error);
         res.json({ message: '500 - Internal server error. Can\'t sign up' });
     }
 };

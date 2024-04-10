@@ -27,7 +27,7 @@ function App() {
 
   return (
     <div>
-      <HashRouter>
+      {/* <HashRouter>
         <Routes>
           <Route index element={<Home/>}/>
 
@@ -73,7 +73,7 @@ function App() {
 
           <Route path='*' element={<NotFound/>}/>
         </Routes>
-      </HashRouter>
+      </HashRouter> */}
     </div>
   );
 }

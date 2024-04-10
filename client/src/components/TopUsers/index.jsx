@@ -5,11 +5,8 @@ import personPhoto from '../../images/portrait-1.jpg'
 
 function TopUsers() {
   return (
-    <div className='bg-white p-5'>
-        <div className='flex items-center gap-3 mb-3'>
-            <MdLeaderboard color='blue' size={24}/>
-            <span className='font-bold'>Top Users</span>
-        </div>
+    <div className='bg-white p-5 hidden xl:block xl:mb-5'>
+        <span className='block font-bold mb-3'>Top Users</span>
         
         <ul className='flex flex-col gap-5'>
             <li className='flex gap-3'>
@@ -17,7 +14,7 @@ function TopUsers() {
                     <Image src={personPhoto} alt='person photo'/>
                 </div>
                 <div>
-                    <p>n1cknam3_1</p>
+                    <p>caleb.dev</p>
                     <p className='text-xs'>Rating 50</p>
                 </div>
             </li>
@@ -27,7 +24,7 @@ function TopUsers() {
                     <Image src={personPhoto} alt='person photo'/>
                 </div>
                 <div>
-                    <p>n1cknam3_1</p>
+                    <p>caleb.dev</p>
                     <p className='text-xs'>Rating 50</p>
                 </div>
             </li>
@@ -37,7 +34,7 @@ function TopUsers() {
                     <Image src={personPhoto} alt='person photo'/>
                 </div>
                 <div>
-                    <p>n1cknam3_1</p>
+                    <p>caleb.dev</p>
                     <p className='text-xs'>Rating 50</p>
                 </div>    
             </li>
@@ -47,7 +44,7 @@ function TopUsers() {
                     <Image src={personPhoto} alt='person photo'/>
                 </div>
                 <div>
-                    <p>n1cknam3_1</p>
+                    <p>caleb.dev</p>
                     <p className='text-xs'>Rating 50</p>
                 </div>
             </li>

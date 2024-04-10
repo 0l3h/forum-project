@@ -1,7 +1,5 @@
 require('dotenv').config({ path: __dirname + '/../../../.env' });
 
-console.log(process.env.POSTGRES_DB_USERNAME);
-
 module.exports = {
   development: {
     username:  process.env.POSTGRES_DB_USERNAME || 'postgres',

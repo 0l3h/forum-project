@@ -25,6 +25,20 @@ module.exports = {
         questionBody: "Can't get what's wrong with it?",
         createdAt: new Date(),
         updatedAt: new Date()
+      },
+      {
+        id: uuidv4(),
+        title: 'Help needed. I have a problem in generating a zip file', 
+        questionBody: 'I have some problems when trying to creat a zip file. Could you please help me',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: uuidv4(),
+        title: 'Erro: unknown location when writing python code', 
+        questionBody: 'There is a file which I am trying to read with python but get this error',
+        createdAt: new Date(),
+        updatedAt: new Date()
       }
    ])
   },

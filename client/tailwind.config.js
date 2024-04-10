@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'header-lines': "url('/cool-background.png')"
+        'header-bg': "url('/architectural-blueprints.jpg')"
       }     
     },
   },

@@ -1,4 +1,4 @@
-require('dotenv').config({ path: __dirname + '/../../.env' });
+require('dotenv').config({ path: __dirname + '/../.env' });
 
 const path = require('path');
 const express = require('express');
@@ -30,20 +30,6 @@ const {
     logout 
 } = require('./controllers/auth.controller');
 
-const { Client } = require('pg');
-const client = new Client()
-
-async function initializeDb() {
-    try {
-        client.connect()        
-        await client.query('CREATE DATABASE IF NOTE EXISTS $1::text;', [process.env.POSTGRES_DB_NAME || "askme_db"])
-    } catch (err) {
-        console.error(err);
-    }
-};
-
-initializeDb();
-
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -71,8 +57,8 @@ app.patch('/browse-questions/:id/vote-question', auth, voteQuestion);
 app.patch('/browse-questions/*/vote-answer', auth, voteAnswer);
 app.patch('/edit-profile', auth, updateMyProfile);
 
-app.post('/ask-question', auth, createQuestion);
-app.post('/browse-questions/:id', auth, createAnswer);
+app.post('/ask-question', createQuestion);
+app.post('/browse-questions/:id', createAnswer);
 app.post('/sign-up', signup);
 app.post('/log-in', login);
 app.post('/log-out', logout);

@@ -2,7 +2,8 @@ const { Answer, Vote } = require('../models');
 
 module.exports.createAnswer = async (req, res) => {
     const { id: questionId } = req.params;
-    const { decoded: { id: authorId }, body: { answer: answerBody } } = req;
+    // const { decoded: { id: authorId }, body: { answer: answerBody } } = req;
+    console.log(req.body);
 
     try {
         await Answer.create({

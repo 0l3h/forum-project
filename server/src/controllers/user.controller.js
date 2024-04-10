@@ -6,8 +6,11 @@ module.exports.getUsers = async (req, res) => {
             attributes: ["id", "username", "profilePictureUrl"]
         });
 
+        console.log(users);
+
         res.json(users);
     } catch (error) {
+        console.error(error.message);
         res.json(error);
     }
 };

@@ -2,7 +2,9 @@ const Sequelize = require("sequelize");
 const { Question, Answer, User, Vote, sequelize } = require('../models');
 
 module.exports.createQuestion = async (req, res) => {
-    const { decoded: { id: authorId }, body: { title, questionBody } } = req;
+    const { body: { title, questionBody, authorId } } = req;
+
+    console.log("body: ", req.body);
 
     try {
         await Question.create({
@@ -147,7 +149,7 @@ module.exports.getQuestions = async (req, res) => {
                 include: [[sequelize.fn('SUM', sequelize.col('"votes"."vote"')), 'votesValue']]
             },
             group: ['Question.id', 'user.username', 'user.profilePictureUrl'],
-            order: [[sequelize.literal('"createdAt"'), 'DESC']],
+            order: [[sequelize.literal('"createdAt"'), 'DESC']]
         });
 
         res.json(JSON.stringify(questions));

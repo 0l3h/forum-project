@@ -13,13 +13,13 @@ function SideMenu() {
   const pathname = usePathname();
 
   return (
-    <div className="relative">
-      <section className='fixed flex flex-col gap-5'>
+    <div className="relative xl:w-1/4">
+      <section className='fixed xl:flex hidden xl:w-fit flex-col gap-5 bg-white py-5 px-8'>
         <span className='font-bold'>Menu</span>
 
         <div className={`${pathname === "/questions"? 'text-blue-700 font-bold' : ''}`}>
           <TbWorldQuestion className='text-gray-600 inline mr-4' size={24}/>
-          <Link href='/questions'>All questions</Link>
+          <Link href='/questions'>Questions</Link>
         </div>
         
         <div className={`${pathname === "/articles"? 'text-blue-700 font-bold' : ''}`}>

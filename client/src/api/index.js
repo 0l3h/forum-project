@@ -1,8 +1,10 @@
 import axios from 'axios';
 
 const host = 'localhost';
-const port = process.env.PORT || 5000;
-const url = process.env.NODE_ENV === 'development'? `http://${host}:${port}` : "https://forum-project-production-bca8.up.railway.app/";
+const port = 5000;
+const url = process.env.NODE_ENV === 'production'? "https://forum-project-production-bca8.up.railway.app/" : `http://${host}:${port}`;
+
+console.log(url);
 
 const config = {
     withCredentials: true,
@@ -28,7 +30,7 @@ export const createQuestion = data => instance.post('ask-question', JSON.stringi
 
 export const getQuestions = () => {
     const data = instance.get('browse-questions', getConfig);
-    console.log(data);
+    // console.log(data);
     return data;
 }
 
@@ -42,7 +44,16 @@ export const getPopularQuestions = () => instance.get('/popular-questions', getC
 
 export const createAnswer = data => instance.post(`/browse-questions/${data.questionId}`, JSON.stringify(data), postConfig);
 
-export const signUpUser = data => instance.post('/sign-up', JSON.stringify(data), postConfig);
+// export const signUpUser = data => instance.post('/sign-up', JSON.stringify(data), {...postConfig, withCredentials: true });
+export const signUpUser = data => fetch('/api/auth/signup', {
+    method: "POST",
+    credentials: "include",
+    headers: { 
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data)
+});
 
 export const logInUser = data => instance.post('/log-in', JSON.stringify(data), postConfig);
 

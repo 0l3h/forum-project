@@ -1,40 +1,33 @@
 import React, { Suspense } from 'react';
 import type { Metadata } from "next";
+// import { auth } from "auth";
 import { Inter } from "next/font/google";
-import QueryProvider from './providers';
 import './globals.css';
-// import { Provider } from 'react-redux';
-// import App from '../App';
-// import store from '../store/store';
-
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(
-//   <React.StrictMode>
-//     <Provider store={store}>
-//       {/* <App /> */}
-//       <h1>Hello World!</h1>
-//     </Provider>
-//   </React.StrictMode>
-// );
+import { AuthProvider } from './session.provider';
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Askme | IT forum",
-  description: "A simple todo list application",
+  title: "Askme | Discussion forum",
+  description: "Here you can find information about technology, science, design and art",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ 
+  auth, 
+  children 
+}: { 
+  auth: React.ReactNode, 
+  children: React.ReactNode 
+}) {  
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* <Provider store={store}> */}
-        <QueryProvider>
-          <Suspense fallback={<p>Loading...</p>}>
-            {children} 
+          <Suspense fallback={<p className='animate-spin'>Loading...</p>}>
+            <AuthProvider>
+              {auth}
+              {children}
+            </AuthProvider> 
           </Suspense>
-        </QueryProvider>
-        {/* </Provider> */}
       </body>
     </html>
   );

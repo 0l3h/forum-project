@@ -19,10 +19,13 @@ function Filter() {
         <details className="relative">
             <summary className="flex items-center gap-3 hover:cursor-pointer py-2 px-3 rounded bg-gray-200">
                 <FaFilter/>
-                <span>Filter by</span>
+                <span>Filter</span>
             </summary>
-            <section className="w-60 right-0 rounded absolute shadow-md bg-white">
-            sdfsdf
+            <section className="w-60 z-10 py-2 px-3 right-0 absolute shadow-xl bg-white">
+                <label>
+                    <input type="radio" name="date"/>
+                    <span className="ml-3">Newest</span>
+                </label>
             </section>
         </details>
 

@@ -5,7 +5,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon src/app.js"
+    "dev": "nodemon src/app.js",
+    "preparedb": "npx sequelize-cli db:create && npx sequelize-cli db:migrate"
   },
   "keywords": [],
   "author": "",
