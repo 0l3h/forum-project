@@ -44,7 +44,7 @@ function Navbar() {
       
       <section className='flex items-center'>
         <Link href='/' className='hover:text-blue-600 px-5'>Home</Link>
-        <Link href='/questions' className='hover:text-blue-600 border-l-[1px] border-gray-500 px-5'>Questions</Link>
+        <Link href='/questions?page=1&limit=7' className='hover:text-blue-600 border-l-[1px] border-gray-500 px-5'>Questions</Link>
         <Link href='/new-question' className='hover:text-blue-600 border-l-[1px] border-gray-500 px-5'>New question</Link>
 
         {

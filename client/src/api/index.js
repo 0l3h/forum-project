@@ -44,7 +44,8 @@ export const getPopularQuestions = () => instance.get('/popular-questions', getC
 
 export const createAnswer = data => instance.post(`/browse-questions/${data.questionId}`, JSON.stringify(data), postConfig);
 
-// export const signUpUser = data => instance.post('/sign-up', JSON.stringify(data), {...postConfig, withCredentials: true });
+export const signUp = data => instance.post('/sign-up', JSON.stringify(data), {...postConfig, withCredentials: true });
+
 export const signUpUser = data => fetch('/api/auth/signup', {
     method: "POST",
     credentials: "include",

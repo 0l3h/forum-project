@@ -126,6 +126,11 @@ module.exports.getQuestionById = async (req, res) => {
 };
 
 module.exports.getQuestions = async (req, res) => {
+    const page = Number(req.query.page) === 1? 0 : req.query.page * req.query.limit;
+    const limit = Number(req.query.limit);
+
+    console.log(page, limit);
+    
     try {
         const questions = await Question.findAll({
             attributes: {
@@ -149,10 +154,10 @@ module.exports.getQuestions = async (req, res) => {
                 include: [[sequelize.fn('SUM', sequelize.col('"votes"."vote"')), 'votesValue']]
             },
             group: ['Question.id', 'user.username', 'user.profilePictureUrl'],
-            order: [[sequelize.literal('"createdAt"'), 'DESC']]
+            order: [[sequelize.literal('"createdAt"'), 'DESC']],
         });
 
-        res.json(JSON.stringify(questions));
+        res.json(JSON.stringify(paginatedQuestions));
     } catch (error) {
         console.log(error.message);
         res.status(500).send();

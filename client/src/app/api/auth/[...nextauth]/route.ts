@@ -1,22 +1,22 @@
 import { AuthOptions } from "next-auth";
 import { v4 as uuidv4 } from 'uuid';
 import NextAuth from "next-auth/next";
-// import jwt from "jsonwebtoken";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
+import { signUp } from "../../../../api";
 
 export const authOptions: AuthOptions = {
     pages: { signIn: '/login' },
     callbacks: {
-        async jwt({ token, user, isNewUser }) {
-            console.log("is new user: ", isNewUser);
+        async jwt({ token, user }) {
             return { ...token, ...user };
         },
         async session({ session, token, user }) {
             session.id = uuidv4();
-            console.log("session: ", session);
-            console.log("jwt token: ", token);
+            console.log(user);
+            const res = await signUp(session);
+            console.log(res);
             return { ...session };
         }
     },
