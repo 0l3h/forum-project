@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useField } from 'formik';
 import defaultAvatar from './../../images/default-avatar.svg';
-import styles from './DragAndDrop.module.sass';
 
 function DragAndDrop(props) {
   // const  = useSelector();
@@ -71,7 +70,7 @@ function DragAndDrop(props) {
 
       {
         avatar? 
-        <section className={styles.avatarContainer}>
+        <section >
           <div>
             <img src={avatar} alt="user profile picture" />
           </div>
@@ -79,8 +78,8 @@ function DragAndDrop(props) {
         </section>
         :
         <>
-          <button className={styles.defaultAvatarButton} onClick={onDefaultAvatarUpload} type='button'>Use default avatar</button>
-          <div style={dragStyles} className={styles.dndArea} onDragOver={onDragOver} onDragLeave={onDragLeave} onDrop={onDrop}>
+          <button onClick={onDefaultAvatarUpload} type='button'>Use default avatar</button>
+          <div style={dragStyles} onDragOver={onDragOver} onDragLeave={onDragLeave} onDrop={onDrop}>
             Drag image in this area or choose file
 
             <label htmlFor="profilePicture">Choose image</label>

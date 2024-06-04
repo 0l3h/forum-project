@@ -5,6 +5,11 @@ import { FaFire } from "react-icons/fa6";
 import Link from 'next/link';
 import Image from 'next/image';
 
+type Question = {
+  id: string,
+  title: string
+}
+
 function PopularQuestions() {
   const popularQuestions = [
     {
@@ -26,7 +31,7 @@ function PopularQuestions() {
        
       <ul className='flex flex-col mt-3 gap-3'>
         {
-          popularQuestions.map(question => (
+          popularQuestions.map((question: Question) => (
             <Link key={uuidv4()} className=' truncate hover:text-blue-600' href={`/browse-questions/${question.id}`}>
               {question.title}
             </Link>

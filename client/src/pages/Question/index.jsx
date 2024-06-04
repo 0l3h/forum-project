@@ -9,14 +9,14 @@ import ReactMarkdown from 'react-markdown';
 import schemas from '../../validation/validationSchema';
 import TextInput from '../../components/TextInput';
 
-import { 
-    getQuestionByIdRequest, 
-    voteQuestionRequest, 
-    createAnswerRequest, 
-} from '../../slices/question.slice';
+// import { 
+//     getQuestionByIdRequest, 
+//     voteQuestionRequest, 
+//     createAnswerRequest, 
+// } from '../../slices/question.slice';
 
 import defaultAvatar from '../../images/default-avatar.svg';
-import lockImage from '../../images/padlock.png';
+// import lockImage from '../../images/padlock.png';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import Answer from '../../components/Answer';
 
@@ -35,8 +35,8 @@ function Question() {
     const dispatch = useDispatch();
 
     const postAnswer = values => {
-        dispatch(createAnswerRequest({ ...values, questionId }));
-        dispatch(getQuestionByIdRequest(questionId));
+        // dispatch(createAnswerRequest({ ...values, questionId }));
+        // dispatch(getQuestionByIdRequest(questionId));
     };
 
     const voteQuestion = (vote) => {
@@ -45,19 +45,19 @@ function Question() {
             return navigate('/log-in');
         }
         
-        dispatch(voteQuestionRequest({ questionId, vote }));
+        // dispatch(voteQuestionRequest({ questionId, vote }));
     };
     
     useEffect(() => {
-        dispatch(getQuestionByIdRequest(questionId));
+        // dispatch(getQuestionByIdRequest(questionId));
     }, [questionId]);
 
     if(isFetching) {
         return <LoadingSpinner/>
     }
     else {
-        return <main className={styles.content}>
-            <div className={styles.heading}>
+        return <main>
+            <div>
                 <h1>{question.title}</h1>
 
                 <span>asked {question.createdAt && formatDistance(new Date(question.createdAt), new Date(), { addSuffix: true })}</span>
@@ -66,15 +66,15 @@ function Question() {
             </div>
 
             <div>
-                <section className={styles.question}>
-                    <div className={styles.questionBody}>
+                <section>
+                    <div>
                         <ReactMarkdown>
                             {question.questionBody}
                         </ReactMarkdown>
                     </div>
 
-                    <div className={styles.buttons}>
-                        <div className={styles.votes}>
+                    <div>
+                        <div>
                             <button onClick={(e) => voteQuestion(1)}>Upvote</button>
                             <button onClick={(e) => voteQuestion(-1)}>Downvote</button>
                         </div>
@@ -82,21 +82,21 @@ function Question() {
                         {
                             userData.id === question.authorId &&
                             
-                            <button className={styles.deleteButton}>Delete</button>
+                            <button>Delete</button>
                         }    
                     </div>
 
-                    <div className={styles.user}>
-                        <div className={styles.userAvatar}>
+                    <div>
+                        <div>
                             <img src={userAvatar} alt="user avatar" />
                         </div>
                         <span>{question?.user?.username}</span>
                     </div>
                 </section>
 
-                <h2 className={styles.answersAmount}>{question?.answers?.length || 0} answer(s)</h2>
+                <h2>{question?.answers?.length || 0} answer(s)</h2>
 
-                <section className={styles.answers}>
+                <section>
                     <ul>
                         {
                             question?.answers?.length?
@@ -113,25 +113,25 @@ function Question() {
                     userData.id? 
                     <>
                         <Formik initialValues={initialValues} validationSchema={schemas.answerSchema} onSubmit={postAnswer}>
-                            <Form className={styles.form}>
+                            <Form>
                                 <h2>Your answer</h2>
                                 
                                 <TextInput name='answer'/>  
                             
-                                <button type="submit" className={styles.submitButton}>
+                                <button type="submit">
                                     Post
                                 </button>
                             </Form>
                         </Formik>
                     </>
                     :
-                    <section className={styles.writeAnswer}>
+                    <section>
                         <img src={lockImage} alt="lock"/>
                         
                         <div>                            
                             <span>You need to log in to answer this question. </span>
 
-                            <NavLink to='/log-in' className={styles.loginButton}>
+                            <NavLink to='/log-in'>
                                 Log In
                             </NavLink>
                         </div>

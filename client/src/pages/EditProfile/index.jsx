@@ -1,13 +1,12 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import { useDispatch } from 'react-redux';
-import styles from './EditProfile.module.sass';
 import SideMenu from '../../components/SideMenu';
-import warningIcon from '../../images/warning-icon.png'
+// import warningIcon from '../../images/warning-icon.png'
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import DragAndDrop from '../../components/DragAndDrop';
-import { updateMyProfileRequest } from '../../slices/user.slice';
+// import { updateMyProfileRequest } from '../../slices/user.slice';
 
 function EditProfile() {
     const dispatch = useDispatch();
@@ -21,30 +20,30 @@ function EditProfile() {
     };
 
     const submit = values => {
-        dispatch(updateMyProfileRequest(values));
+        // dispatch(updateMyProfileRequest(values));
     }
 
     return <>
         <Navbar/>
 
-        <main className={styles.content}>
+        <main>
             <SideMenu/>
 
-            <div className={styles.container}>
+            <div>
 
                 <Formik initialValues={initialValues} onSubmit={submit}>
-                    <Form className={styles.editProfileForm}>
-                        <h1 className={styles.heading}>Edit profile</h1>
+                    <Form>
+                        <h1>Edit profile</h1>
 
-                        <section className={styles.warning}>
-                            <img src={warningIcon} className={styles.warningIcon} alt="warning icon" />
+                        <section>
+                            {/* <img src={warningIcon} alt="warning icon" /> */}
                             <p>When editing your profile, remember to follow our community rules</p>
                         </section>
 
                         <label>
                             Username
 
-                            <Field type="text" name="username" placeholder="e.g. us3rname" className={styles.dataInput}/>
+                            <Field type="text" name="username" placeholder="e.g. us3rname"/>
                         </label>
                         
                         <DragAndDrop name="profilePicture"/>
@@ -52,22 +51,22 @@ function EditProfile() {
                         <label>
                             About
 
-                            <Field type="text" name="about" placeholder="e.g. I'm developer working with javascript" className={styles.dataInput}/>
+                            <Field type="text" name="about" placeholder="e.g. I'm developer working with javascript"/>
                         </label>
                         
                         <label>
                             Password
                         
-                            <Field type="password" name="password" placeholder="Password" autoComplete="new-password" className={styles.dataInput}/>
+                            <Field type="password" name="password" placeholder="Password" autoComplete="new-password"/>
                         </label>
                         
                         <label>
                             Email
 
-                            <Field type="email" name="email" placeholder="test@mail.com" className={styles.dataInput}/>
+                            <Field type="email" name="email" placeholder="test@mail.com"/>
                         </label>
                         
-                        <button type="submit" className={styles.submitButton}>Confirm</button>
+                        <button type="submit">Confirm</button>
                     </Form>
                 </Formik>
             </div>

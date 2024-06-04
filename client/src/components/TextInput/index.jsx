@@ -1,10 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useFormikContext, useField } from 'formik';
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
-import styles from './TextInput.module.sass';
-import codeLogo from '../../images/put-code-logo.png';
-import boldTextLogo from '../../images/bold-text-logo.png';
-import quoteLogo from '../../images/quote-logo.png';
 
 function TextInput(props) {
     const textareaRef = useRef();
@@ -49,30 +45,30 @@ function TextInput(props) {
 
     return <>
         <section>
-            <div className={styles.stylingContainer}>
+            <div>
                 <button type='button' title='Code' onClick={addCode}>
-                    <img src={codeLogo} className={styles.logo} alt="code logo" />
+                    <img alt="code logo" />
                 </button>
 
                 <button type='button' title='Quote'>
-                    <img src={quoteLogo} onClick={addQuote} className={styles.logo} alt="quote logo" />
+                    <img onClick={addQuote} alt="quote logo" />
                 </button>
 
                 <button type='button' title='Bold'>
-                    <img src={boldTextLogo} onClick={addBold} className={styles.logo} alt="bold text logo" />
+                    <img onClick={addBold} alt="bold text logo" />
                 </button>
             </div>
 
-            <textarea ref={textareaRef} {...props} {...field} className={styles.text}/>
+            <textarea ref={textareaRef} {...props} {...field}/>
 
             
         </section>
 
-        <div className={styles.errorBox}>
+        <div>
             {
                 meta.touched && 
                 meta.error && 
-                <span className={styles.errorMesage}>
+                <span>
                     {meta.error}
                 </span>
             }
@@ -81,9 +77,9 @@ function TextInput(props) {
         {   
             values[props.name] !== '' &&
             <section>
-                <h1 className={styles.previewHeading}>Preview</h1>
+                <h1>Preview</h1>
 
-                <pre className={styles.textPreview}>
+                <pre>
                     <ReactMarkdown>
                         {values[props.name]}
                     </ReactMarkdown>

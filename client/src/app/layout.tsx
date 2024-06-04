@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 // import { auth } from "auth";
 import { Inter } from "next/font/google";
 import './globals.css';
-import { AuthProvider } from './session.provider';
+// import { AuthProvider } from './session.provider';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,12 +22,10 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-          <Suspense fallback={<p className='animate-spin'>Loading...</p>}>
-            <AuthProvider>
-              {auth}
-              {children}
-            </AuthProvider> 
-          </Suspense>
+        <Suspense fallback={<p className='animate-spin'>Loading...</p>}>
+          {auth}
+          {children}
+        </Suspense>
       </body>
     </html>
   );

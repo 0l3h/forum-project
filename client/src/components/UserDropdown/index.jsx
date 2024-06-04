@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import defaultAvatar from '../../images/default-avatar.svg'
 import dropdownOpenIcon from '../../images/dropdown-open-icon.svg'
 import dropdownCloseIcon from '../../images/dropdown-close-icon.svg'
-import styles from './UserDropdown.module.sass'
 import LoadingSpinner from '../LoadingSpinner';
 import { logOutRequest } from '../../slices/user.slice';
 
@@ -36,30 +35,30 @@ function UserDropdown() {
     }, [menuRef]);
     
     return (
-        <section className={styles.dropdown} ref={menuRef}>
+        <section ref={menuRef}>
             {
                 isFetching?
                     <LoadingSpinner/>
                     :
                     <>
-                        <button className={styles.dropdownButton} onClick={toggleMenu}>
-                            <img src={isOpen? dropdownCloseIcon : dropdownOpenIcon} className={styles.dropdownIcon} alt="menu icon"/>
+                        <button onClick={toggleMenu}>
+                            <img src={isOpen? dropdownCloseIcon : dropdownOpenIcon} alt="menu icon"/>
                         </button>
 
-                        <div className={styles.avatar}>
+                        <div>
                             <img src={userData.profilePictureUrl || defaultAvatar} alt="user avatar"/>
                         </div>
 
-                        <section className={styles.menu} data-is-open={isOpen.toString()}>
-                            <NavLink to='/view-profile' className={styles.pageLink}>
+                        <section data-is-open={isOpen.toString()}>
+                            <NavLink to='/view-profile'>
                                 <span>View profile</span>
                             </NavLink>
                             
-                            <NavLink to='/edit-profile' className={styles.pageLink}>
+                            <NavLink to='/edit-profile'>
                                 <span>Edit profile</span>
                             </NavLink>
                             
-                            <button className={styles.logoutButton} onClick={logOut}>
+                            <button onClick={logOut}>
                                 Log out
                             </button>
                         </section>

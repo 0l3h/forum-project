@@ -5,8 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import ReactMarkdown from 'react-markdown';
 import { formatDistance } from 'date-fns';
-// import styles from './Answer.module.sass';
-import { voteAnswerRequest } from '../../slices/question.slice';
 import defaultAvatar from '../../images/default-avatar.svg';
 
 function Answer({ answer }) {
@@ -27,7 +25,7 @@ function Answer({ answer }) {
             return navigate('/log-in');
         }
 
-        dispatch(voteAnswerRequest({ questionId, answerId, vote }));
+        // dispatch(voteAnswerRequest({ questionId, answerId, vote }));
     };
 
     const deleteAnswerVote = (voteType) => {

@@ -14,15 +14,12 @@ async function NewQuestion() {
 
     async function submit (data: FormData) {
         const question = {...Object.fromEntries(data.entries())}
-        console.log("question object: ", question);
         try {
             createQuestion({ 
                 id: uuidv4(), 
-                authorId: session?.id,
+                authorId: session?.user.id,
                 ...question 
             });
-
-            // redirect("/questions");
         } catch (error) {
             console.error(error);
         }

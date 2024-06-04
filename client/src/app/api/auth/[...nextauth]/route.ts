@@ -6,18 +6,16 @@ import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import { signUp } from "../../../../api";
 
-export const authOptions: AuthOptions = {
+const authOptions: AuthOptions = {
     pages: { signIn: '/login' },
     callbacks: {
         async jwt({ token, user }) {
             return { ...token, ...user };
         },
         async session({ session, token, user }) {
-            session.id = uuidv4();
-            console.log(user);
-            const res = await signUp(session);
-            console.log(res);
-            return { ...session };
+            const userSession = {...session, id:  uuidv4()}
+            await signUp(userSession);
+            return { ...userSession};
         }
     },
     providers: [
@@ -37,7 +35,6 @@ export const authOptions: AuthOptions = {
             name: 'credentials',
             credentials: {},
             async authorize(credentials) {
-                console.log("credentials: ", credentials);
                 const user = await (await fetch("http://localhost:5000/log-in", {
                     method: "POST",
                     headers: {

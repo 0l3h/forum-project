@@ -4,6 +4,24 @@ import { v4 as uuidv4 } from 'uuid';
 import { signIn } from 'next-auth/react';
 
 export default function SignupForm() {
+    // useEffect(() => {
+    //     window.gtag('config', 'G-WJZPSFS6SG', {
+    //       send_page_view: false,
+    //     });
+    
+    //     window.gtag('event', 'page_view', {
+    //       page_title: 'Sign up page',
+    //     })
+    //   }, []);
+    
+    //   useEffect(() => {
+    //     if (userId) {
+    //       window.gtag('event', 'signup'); 
+          
+    //       navigate(from);
+    //     }
+    //   });
+
     async function submit (data: FormData) {
         const userObj = {...Object.fromEntries(data.entries()), id: uuidv4()}
         

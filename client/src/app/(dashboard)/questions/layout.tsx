@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import Loading from './loading';
-import QuestionsList from '../../../components/QuestionsList';
-import MainLayout from '../../../components/MainLayout';
 
 export const metadata: Metadata = {
   title: 'Askme | Questions',
